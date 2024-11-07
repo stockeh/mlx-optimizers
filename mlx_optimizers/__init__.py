@@ -5,4 +5,5 @@ __version__ = VERSION
 
 from .diffgrad import DiffGrad
 from .lion import Lion
+from .muon import Muon
 from .qhadam import QHAdam
