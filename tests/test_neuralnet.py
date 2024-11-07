@@ -1,4 +1,4 @@
-from functools import partial
+# from functools import partial
 
 import mlx.core as mx
 import mlx.nn as nn
