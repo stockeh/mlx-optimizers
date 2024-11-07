@@ -1,23 +1,23 @@
 Installation
 ============
 
-**my-package** supports Python >= 3.8.
+**mlx-optimizers** supports Python >= 3.8.
 
 ## Installing with `pip`
 
-**my-package** is available [on PyPI](https://pypi.org/project/my-package/). Just run
+**mlx-optimizers** is available [on PyPI](https://pypi.org/project/mlx-optimizers/). Just run
 
 ```bash
-pip install my-package
+pip install mlx-optimizers
 ```
 
 ## Installing from source
 
-To install **my-package** from source, first clone [the repository](https://github.com/allenai/python-package-template):
+To install **mlx-optimizers** from source, first clone [the repository](https://github.com/stockeh/mlx-optimizers):
 
 ```bash
-git clone https://github.com/allenai/python-package-template.git
-cd python-package-template
+git clone https://github.com/stockeh/mlx-optimizers.git
+cd mlx-optimizers
 ```
 
 Then run
