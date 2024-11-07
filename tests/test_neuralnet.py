@@ -27,7 +27,8 @@ def generate_moons(n_samples: int = 100, noise: float = 0.2):
     X[n_samples_out:, 1] = inner_circ_y
 
     T = mx.concatenate(
-        [mx.zeros(n_samples_out, dtype=mx.int16), mx.ones(n_samples_in, dtype=mx.int16)]
+        [mx.zeros(n_samples_out, dtype=mx.int16),
+         mx.ones(n_samples_in, dtype=mx.int16)]
     )
 
     if noise > 0:
@@ -77,9 +78,8 @@ def test_neuralnet(optimizer_config):
     def eval_fn(X, T):
         return nn.losses.cross_entropy(model(X), T, reduction="mean")
 
-    state = [model.state, optimizer.state]
-
-    @partial(mx.compile, inputs=state, outputs=state)
+    # state = [model.state, optimizer.state]
+    # @partial(mx.compile, inputs=state, outputs=state)
     def step(X, T):
         train_step_fn = nn.value_and_grad(model, eval_fn)
         loss, grads = train_step_fn(X, T)
