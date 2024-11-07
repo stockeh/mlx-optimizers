@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 # See https://setuptools.pypa.io/en/latest/userguide/quickstart.html for more project configuration options.
-name = "my-package"
+name = "mlx-optimizers"
 dynamic = ["version"]
 readme = "README.md"
 classifiers = [
@@ -24,10 +24,10 @@ dependencies = [
 license = {file = "LICENSE"}
 
 [project.urls]
-Homepage = "https://github.com/allenai/python-package-template"
-Repository = "https://github.com/allenai/python-package-template"
-Changelog = "https://github.com/allenai/python-package-template/blob/main/CHANGELOG.md"
-# Documentation = "https://my-package.readthedocs.io/"
+Homepage = "https://github.com/stockeh/mlx-optimizers"
+Repository = "https://github.com/stockeh/mlx-optimizers"
+Changelog = "https://github.com/stockeh/mlx-optimizers/blob/main/CHANGELOG.md"
+# Documentation = "https://mlx-optimizers.readthedocs.io/"
 
 [project.optional-dependencies]
 dev = [
@@ -65,10 +65,10 @@ exclude = [
 include-package-data = true
 
 [tool.setuptools.package-data]
-my_package = ["py.typed"]
+mlx_optimizers = ["py.typed"]
 
 [tool.setuptools.dynamic]
-version = {attr = "my_package.version.VERSION"}
+version = {attr = "mlx_optimizers.version.VERSION"}
 
 [tool.black]
 line-length = 100
