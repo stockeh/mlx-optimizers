@@ -1,7 +1,7 @@
 Installation
 ============
 
-**mlx-optimizers** supports Python >= 3.8.
+**mlx-optimizers** supports Python >= 3.12.
 
 ## Installing with `pip`
 
