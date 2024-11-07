@@ -1,5 +1,5 @@
-import pytest
 import mlx.core as mx
+import pytest
 
 import mlx_optimizers as optim
 
@@ -18,11 +18,7 @@ def quadratic(xy):
 
 def beale(xy):
     x, y = xy
-    f = (
-        (1.5 - x + x * y) ** 2
-        + (2.25 - x + x * y**2) ** 2
-        + (2.625 - x + x * y**3) ** 2
-    )
+    f = (1.5 - x + x * y) ** 2 + (2.25 - x + x * y**2) ** 2 + (2.625 - x + x * y**3) ** 2
     return f
 
 
@@ -34,7 +30,7 @@ cases = [
 
 
 def ids(v):
-    return f'{v[0].__name__, } {v[1:]}'
+    return f"{v[0].__name__, } {v[1:]}"
 
 
 optimizers = [
@@ -54,12 +50,11 @@ def test_benchmark_function(case, optimizer_config):
     x = mx.array(initial_state)
     for _ in range(iterations):
         grad = mx.grad(func)(x)
-        x = optimizer.apply_gradients({'o': grad}, {'o': x})['o']
+        x = optimizer.apply_gradients({"o": grad}, {"o": x})["o"]
 
     min_loc = mx.array(min_loc)
-    error = mx.sqrt(mx.sum((x - min_loc)**2)).item()
-    assert mx.allclose(x, min_loc, atol=0.001), \
-        f"x=({x[0]:.4f},{x[1]:.4f}), {error=:.4f}"
+    error = mx.sqrt(mx.sum((x - min_loc) ** 2)).item()
+    assert mx.allclose(x, min_loc, atol=0.001), f"x=({x[0]:.4f},{x[1]:.4f}), {error=:.4f}"
 
     name = optimizer.__class__.__name__
     assert name in optimizer.__repr__()
