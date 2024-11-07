@@ -33,7 +33,7 @@ Changelog = "https://github.com/stockeh/mlx-optimizers/blob/main/CHANGELOG.md"
 dev = [
     "ruff",
     "mypy>=1.0,<1.14",
-    "black>=23.0,<24.0",
+    "black>=23.0,<25.0",
     "isort>=5.12,<5.14",
     "pytest",
     "pytest-sphinx",
