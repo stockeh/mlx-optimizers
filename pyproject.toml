@@ -17,7 +17,7 @@ classifiers = [
 authors = [
     {name = "Jason Stock", email = "jason12stock@gmail.com"}
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
   "mlx>=0.18.0"
 ]
