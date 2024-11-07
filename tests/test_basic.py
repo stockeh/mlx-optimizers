@@ -48,6 +48,7 @@ def test_benchmark_function(case, optimizer_config):
     optimizer = optimizer_class(**config)
 
     x = mx.array(initial_state)
+
     for _ in range(iterations):
         grad = mx.grad(func)(x)
         x = optimizer.apply_gradients({"o": grad}, {"o": x})["o"]
