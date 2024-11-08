@@ -4,5 +4,4 @@ __version__ = VERSION
 
 
 from .diffgrad import DiffGrad
-from .lion import Lion
 from .qhadam import QHAdam
