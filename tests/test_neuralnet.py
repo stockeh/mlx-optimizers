@@ -3,7 +3,6 @@
 import mlx.core as mx
 import mlx.nn as nn
 import pytest
-from mlx.optimizers import Adam
 
 import mlx_optimizers as optim
 
@@ -59,10 +58,10 @@ def ids(v):
 
 
 optimizers = [
-    # (optim.QHAdam, {"learning_rate": 0.01}, 500),
-    # (optim.DiffGrad, {"learning_rate": 0.01}, 500),
-    # (optim.Lion, {"learning_rate": 0.01}, 500),
-    (optim.Muon, {"learning_rate": 0.01, "alternate_optimizer": Adam(1e-3)}, 500),
+    (optim.QHAdam, {"learning_rate": 0.01}, 500),
+    (optim.DiffGrad, {"learning_rate": 0.01}, 500),
+    (optim.Lion, {"learning_rate": 0.01}, 500),
+    (optim.Muon, {"learning_rate": 0.01, "alternate_optimizer": None}, 500),
 ]
 
 
@@ -98,7 +97,3 @@ def test_neuralnet(optimizer_config):
 
     acc = mx.sum(mx.argmax(model(X), axis=1) == T) / T.shape[0]  # type: ignore
     assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
-
-
-if __name__ == "__main__":
-    test_neuralnet(optimizers[0])

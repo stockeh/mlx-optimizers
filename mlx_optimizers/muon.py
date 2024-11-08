@@ -57,15 +57,16 @@ class Muon(Optimizer):
             raise ValueError(f"Unknown backend: {backend}")
 
     def init_single(self, parameter: mx.array, state: dict):
-        if parameter.ndim != 2:
-            return self.alternate_optimizer.init_single(parameter, state)
+        # if parameter.ndim != 2:
+        #     return self.alternate_optimizer.init_single(parameter, state)
         state["muon_v"] = mx.zeros_like(parameter)
 
     def apply_single(self, gradient: mx.array, parameter: mx.array, state: dict):
         """Apply Muon optimization update with Newton-Schulz orthogonalization."""
 
-        if gradient.ndim != 2:  # TODO: find a better solution to flat parameters
-            return self.alternate_optimizer.apply_single(gradient, parameter, state)
+        if parameter.ndim != 2:  # TODO: find a better solution to flat parameters
+            return parameter
+            # return self.alternate_optimizer.apply_single(gradient, parameter, state)
 
         if self.weight_decay != 0:
             gradient += self.weight_decay * parameter
