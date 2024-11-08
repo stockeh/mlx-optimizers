@@ -42,7 +42,6 @@ def objective_rosenbrock(params):
 
 
 def plot_rosenbrock(steps: List[mx.array], name: str, title: str = "", labels: List[str] = []):
-
     X, Y = mx.meshgrid(mx.linspace(-2.5, 2, 250), mx.linspace(-1, 3, 250))
     Z = rosenbrock([X, Y])
 
