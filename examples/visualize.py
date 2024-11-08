@@ -85,7 +85,6 @@ if __name__ == "__main__":
         (SGD, -1, 0.3, {"momentum": 0.9, "nesterov": True}),
         (AdamW, -1, 0.3, {}),
         # custom
-        (optim.Lion, -1, 0.5, {"weight_decay": 0.5}),
         (optim.QHAdam, 0.01, 0.5, {}),
         (optim.DiffGrad, 0.01, 0.5, {}),
     ]
