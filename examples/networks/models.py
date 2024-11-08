@@ -111,8 +111,8 @@ class MLP(Base):
 
     def __call__(self, x: mx.array) -> mx.array:
         x = x.reshape(x.shape[0], -1)
-        for l in self.layers:
-            x = l(x)
+        for layer in self.layers:
+            x = layer(x)
         return x
 
 
@@ -180,11 +180,11 @@ class Network(Base):
         self.output = nn.Linear(ni, n_outputs)
 
     def __call__(self, x: mx.array) -> mx.array:
-        for l in self.conv:
-            x = l(x)
+        for layer in self.conv:
+            x = layer(x)
         x = x.reshape(x.shape[0], -1)
-        for l in self.fcn:
-            x = l(x)
+        for layer in self.fcn:
+            x = layer(x)
         return self.output(x)
 
 

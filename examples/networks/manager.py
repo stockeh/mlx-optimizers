@@ -1,13 +1,12 @@
 import argparse
-import mlx.nn as nn
-import mlx.core as mx
-from mlx.optimizers import Optimizer
-
-from tqdm import tqdm
 from functools import partial
 
+import mlx.core as mx
+import mlx.nn as nn
+from datasets import cifar10, mnist
+from mlx.optimizers import Optimizer
 from models import Network
-from datasets import mnist, cifar10
+from tqdm import tqdm
 
 import mlx_optimizers as optim
 
@@ -27,10 +26,10 @@ class Manager:
         self.model = model
         self.optimizer = optimizer
 
-        self.train_error_trace = []
-        self.train_acc_trace = []
-        self.val_error_trace = []
-        self.val_acc_trace = []
+        self.train_error_trace: list[float] = []
+        self.train_acc_trace: list[float] = []
+        self.val_error_trace: list[float] = []
+        self.val_acc_trace: list[float] = []
 
     def eval_fn(self, X, T):
         Y = self.model(X)
