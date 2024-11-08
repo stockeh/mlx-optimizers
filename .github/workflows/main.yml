@@ -22,7 +22,7 @@ env:
 jobs:
   checks:
     name: Python ${{ matrix.python }} - ${{ matrix.task.name }}
-    runs-on: [ubuntu-latest]
+    runs-on: [macos-latest]
     timeout-minutes: 15
     strategy:
       fail-fast: false
@@ -101,7 +101,7 @@ jobs:
 
   release:
     name: Release
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: [checks]
     if: startsWith(github.ref, 'refs/tags/')
     steps:

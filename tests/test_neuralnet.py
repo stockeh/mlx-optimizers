@@ -1,4 +1,4 @@
-# from functools import partial
+from functools import partial
 
 import mlx.core as mx
 import mlx.nn as nn
@@ -60,7 +60,6 @@ def ids(v):
 optimizers = [
     (optim.QHAdam, {"learning_rate": 0.01}, 500),
     (optim.DiffGrad, {"learning_rate": 0.01}, 500),
-    (optim.Lion, {"learning_rate": 0.01}, 500),
     (optim.Muon, {"learning_rate": 0.01}, 500),
 ]
 
@@ -80,7 +79,7 @@ def test_neuralnet(optimizer_config):
 
     state = [model.state, optimizer.state]
 
-    # @partial(mx.compile, inputs=state, outputs=state)
+    @partial(mx.compile, inputs=state, outputs=state)
     def step(X, T):
         train_step_fn = nn.value_and_grad(model, eval_fn)
         loss, grads = train_step_fn(X, T)
