@@ -13,7 +13,7 @@ def zeropower_via_svd(G, steps=None):
 def zeropower_via_newtonschulz5(G, steps=10, eps=1e-7):
     assert len(G.shape) == 2
     a, b, c = (3.4445, -4.7750, 2.0315)
-    X = G  # .astype(mx.bfloat16)
+    X = G.astype(mx.bfloat16)
     X /= mx.linalg.norm(X) + eps  # ensure top singular value <= 1
     if G.shape[0] > G.shape[1]:
         X = X.T
