@@ -9,13 +9,12 @@ def zeropower_via_svd(G, steps=None) -> mx.array:
     return U @ V.T
 
 
-# @mx.compile
+@mx.compile
 def zeropower_via_newtonschulz5(G, steps=10, eps=1e-7) -> mx.array:
     assert len(G.shape) == 2
     a, b, c = (3.4445, -4.7750, 2.0315)
     X = G.astype(mx.bfloat16)
-    # ensure top singular value <= 1
-    X /= mx.linalg.norm(X, stream=mx.cpu) + eps  # type: ignore
+    X /= mx.linalg.norm(X) + eps  # ensure top singular value <= 1
     if G.shape[0] > G.shape[1]:
         X = X.T
     for _ in range(steps):
