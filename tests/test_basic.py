@@ -38,6 +38,7 @@ optimizers = [
     (optim.DiffGrad, {"learning_rate": 0.3}, 300),
     (optim.MADGRAD, {"learning_rate": 0.03}, 300),
     (optim.ADOPT, {"learning_rate": 0.8}, 1200),
+    # TODO: Muon & Lamb tests
 ]
 
 

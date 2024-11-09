@@ -117,6 +117,7 @@ if __name__ == "__main__":
         (optim.DiffGrad, 0, 0.5, {}),
         (optim.MADGRAD, 0, 0.5, {}),
         (optim.ADOPT, 0, 0.25, {}),
+        (optim.Lamb, 0, 0.25, {}),
     ]
     execute_experiments(
         optimizers, objective_rosenbrock, rosenbrock, plot_rosenbrock, ROSENBROCK_INITIAL

@@ -27,7 +27,10 @@ def zeropower_via_newtonschulz5(G, steps=10, eps=1e-7) -> mx.array:
 
 
 class Muon(Optimizer):
-    r"""Muon - MomentUm Orthogonalized by Newton-schulz"""
+    r"""Muon - MomentUm Orthogonalized by Newton-schulz
+
+    ..
+    """
 
     def __init__(
         self,
