@@ -108,15 +108,15 @@ def execute_experiments(optimizers, objective, func, plot_func, initial_state):
 
 if __name__ == "__main__":
     optimizers = [
-        # # default
-        # (Adam, 0, 0.2, {}),
-        # (SGD, 0, 0.2, {"momentum": 0.9, "nesterov": True}),
-        # (AdamW, 0, 0.2, {}),
-        # # custom
-        # (optim.QHAdam, 0, 0.5, {}),
-        # (optim.DiffGrad, 0, 0.5, {}),
-        # (optim.MADGRAD, 0, 0.5, {}),
-        # (optim.ADOPT, 0, 0.25, {}),
+        # default
+        (Adam, 0, 0.2, {}),
+        (SGD, 0, 0.2, {"momentum": 0.9, "nesterov": True}),
+        (AdamW, 0, 0.2, {}),
+        # custom
+        (optim.QHAdam, 0, 0.5, {}),
+        (optim.DiffGrad, 0, 0.5, {}),
+        (optim.MADGRAD, 0, 0.5, {}),
+        (optim.ADOPT, 0, 0.25, {}),
         (optim.Lamb, 0, 0.25, {}),
     ]
     execute_experiments(
