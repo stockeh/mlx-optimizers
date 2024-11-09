@@ -70,7 +70,7 @@ def plot_rosenbrock(steps: List[mx.array], name: str, title: str = "", labels: L
     ax.xaxis.set_major_locator(plt.MaxNLocator(5))
     ax.yaxis.set_major_locator(plt.MaxNLocator(4))
     fig.tight_layout()
-    fig.savefig(f"../docs/media/rosenbrock_{name}.png", dpi=300, bbox_inches="tight")
+    fig.savefig(f"../docs/src/_static/media/rosenbrock_{name}.png", dpi=300, bbox_inches="tight")
 
 
 def execute_experiments(optimizers, objective, func, plot_func, initial_state):
@@ -118,6 +118,7 @@ if __name__ == "__main__":
         (optim.MADGRAD, 0, 0.5, {}),
         (optim.ADOPT, 0, 0.25, {}),
         (optim.Lamb, 0, 0.25, {}),
+        (optim.Muon, 0, 0.5, {}),
     ]
     execute_experiments(
         optimizers, objective_rosenbrock, rosenbrock, plot_rosenbrock, ROSENBROCK_INITIAL

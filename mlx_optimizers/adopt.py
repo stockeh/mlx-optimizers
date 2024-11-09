@@ -7,24 +7,25 @@ from mlx.optimizers import Optimizer
 class ADOPT(Optimizer):
     r"""The ADOPT optimizer [1].
 
-    [1]: Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
-    Converge with Any :math:`\beta_2` with the Optimal Rate. NeurIPS 2024.
-
     .. math::
 
-        v_0 &= g_0^2,\quad m_1 = g_1 / \max{\sqrt{v_0}, \epsilon} \\
-        
-        \theta_{t} &= \theta_{t-1} - \alpha m_{t-1} \\
+        v_0 &= g_0^2, m_1 = g_1 / \max{\sqrt{v_0}, \epsilon} \\
+        \theta_{t} &= \theta_{t-1} - \eta m_{t-1} \\
         v_{t} &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
         m_{t+1} &= \beta_1 m_{t} + (1 - \beta_1) (g_{t+1} / \max{\sqrt{v_t}, \epsilon})
 
+    [1]: Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
+    Converge with Any :math:`\beta_2` with the Optimal Rate. NeurIPS 2024.
+
     Args:
-    learning_rate (float or callable): The learning rate :math:`\lambda`.
-    betas (Tuple[float, float], optional): The coefficients
-        :math:`(\beta_1, \beta_2)` used for computing running averages of the
-        gradient and its square. Default: ``(0.9, 0.9999)``
-    eps (float, optional): The term :math:`\epsilon` added to the
-        denominator to improve numerical stability. Default: ``1e-6`
+        learning_rate (float or callable): The learning rate :math:`\eta`.
+        betas (Tuple[float, float], optional): The coefficients
+            :math:`(\beta_1, \beta_2)` used for computing running averages of the
+            gradient and its square. Default: ``(0.9, 0.9999)``
+        eps (float, optional): The term :math:`\epsilon` added to the
+            denominator to improve numerical stability. Default: ``1e-6``
+
+    ..
     """
 
     def __init__(

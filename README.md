@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/57405cc1-36f9-4848-b507-e8c84c922d11#gh-dark-mode-only" alt="logo">
+  <img src="docs/src/_static/dark-mode-logo.svg#gh-dark-mode-only" alt="logo">
 </p>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/831cf205-0d56-49ac-8b8d-fc16be370cca#gh-light-mode-only" alt="logo">
+  <img src="docs/src/_static/light-mode-logo.svg#gh-light-mode-only" alt="logo">
 </p>
 
 # 
