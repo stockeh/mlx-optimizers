@@ -9,4 +9,4 @@ from .madgrad import MADGRAD
 from .muon import Muon
 from .qhadam import QHAdam
 
-__all__ = ["DiffGrad", "Muon", "QHAdam", "MADGRAD", "ADOPT", "__version__"]
+__all__ = ["DiffGrad", "Muon", "QHAdam", "MADGRAD", "ADOPT", "Lamb" "__version__"]
