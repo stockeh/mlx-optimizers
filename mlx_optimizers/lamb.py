@@ -11,6 +11,7 @@ class Lamb(Optimizer):
     Training bert in 76 minutes. https://arxiv.org/abs/1904.00962
 
     .. math::
+
         m_0 &= 0, v_0 = 0 \\
         m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
         v_t &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
@@ -25,7 +26,7 @@ class Lamb(Optimizer):
             :math:`(\beta_1, \beta_2)` used for computing running averages of the
             gradient and its square. Default: ``(0.9, 0.999)``
         eps (float, optional): The term :math:`\epsilon` added to the
-            denominator to improve numerical stability. Default: ``1e-6`
+            denominator to improve numerical stability. Default: ``1e-6``
         weight_decay: weight decay (L2 penalty). Default: ``0.9``
         clamp_value: clamp weight_norm in (0,clamp_value)
             set to a high value to avoid it (e.g :math:`10e3`). Default: ``10``
