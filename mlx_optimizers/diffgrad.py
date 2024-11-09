@@ -5,7 +5,10 @@ from mlx.optimizers import Optimizer
 
 
 class DiffGrad(Optimizer):
-    r"""The DiffGrad optimizer [1]."""
+    r"""The DiffGrad optimizer [1].
+
+    ..
+    """
 
     def __init__(
         self,

@@ -6,7 +6,10 @@ from mlx.optimizers import Optimizer
 
 class MADGRAD(Optimizer):
     r"""MADGRAD - A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic
-    Optimization."""
+    Optimization.
+
+    ..
+    """
 
     def __init__(
         self,

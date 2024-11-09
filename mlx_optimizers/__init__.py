@@ -4,6 +4,7 @@ __version__ = VERSION
 
 from .adopt import ADOPT
 from .diffgrad import DiffGrad
+from .lamb import Lamb
 from .madgrad import MADGRAD
 from .muon import Muon
 from .qhadam import QHAdam

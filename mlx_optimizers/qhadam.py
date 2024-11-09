@@ -5,7 +5,10 @@ from mlx.optimizers import Optimizer
 
 
 class QHAdam(Optimizer):
-    r"""Quasi-Hyperbolic Adam."""
+    r"""Quasi-Hyperbolic Adam.
+
+    ..
+    """
 
     def __init__(
         self,
