@@ -58,10 +58,11 @@ def ids(v):
 
 
 optimizers = [
-    (optim.QHAdam, {"learning_rate": 0.01}, 500),
-    (optim.DiffGrad, {"learning_rate": 0.01}, 500),
-    (optim.Muon, {"learning_rate": 0.01}, 500),
-    (optim.MADGRAD, {"learning_rate": 0.01}, 500),
+    (optim.QHAdam, {"learning_rate": 0.01}, 50),
+    (optim.DiffGrad, {"learning_rate": 0.01}, 100),
+    (optim.Muon, {"learning_rate": 0.01}, 100),
+    (optim.MADGRAD, {"learning_rate": 0.01}, 50),
+    (optim.ADOPT, {"learning_rate": 0.01}, 50),
 ]
 
 
