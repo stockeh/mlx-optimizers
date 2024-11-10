@@ -1,5 +1,6 @@
 import mlx.core as mx
 import pytest
+from mlx.optimizers import AdamW
 
 import mlx_optimizers as optim
 
@@ -38,7 +39,14 @@ optimizers = [
     (optim.DiffGrad, {"learning_rate": 0.3}, 300),
     (optim.MADGRAD, {"learning_rate": 0.03}, 300),
     (optim.ADOPT, {"learning_rate": 0.8}, 1200),
-    # TODO: Muon & Lamb tests
+    (
+        optim.Muon,  # using alternate for ndim < 2
+        {
+            "alternate_optimizer": AdamW(learning_rate=0.01, betas=[0.9, 0.95]),
+        },
+        800,
+    ),
+    # TODO: Lamb tests
 ]
 
 

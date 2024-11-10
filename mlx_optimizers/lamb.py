@@ -5,10 +5,7 @@ from mlx.optimizers import Optimizer
 
 
 class Lamb(Optimizer):
-    r"""The Lamb optimizer [1].
-
-    [1]: You, Yang, et al., 2019. Large batch optimization for deep learning:
-    Training bert in 76 minutes. https://arxiv.org/abs/1904.00962
+    r"""Layerwise Adaptive Large Batch Optimization [1].
 
     .. math::
 
@@ -20,16 +17,21 @@ class Lamb(Optimizer):
         r_t &= \frac{m_t}{\sqrt{v_t} + \epsilon} \\
         \theta_{t+1} &= \theta_t - \eta \frac{\phi(\|\theta_t\|)}{\|r_t + \lambda \theta_t\|} \left(r_t + \lambda \theta_t\right)
 
+    [1] You, Yang, et al., 2019. Large Batch Optimization for Deep Learning: 
+    Training BERT in 76 Minutes. 
+    https://arxiv.org/abs/1904.00962
+    https://github.com/tensorflow/addons/blob/master/tensorflow_addons/optimizers/lamb.py
+
     Args:
-        learning_rate (float or callable): The learning rate :math:`\eta`.
-        betas (Tuple[float, float], optional): The coefficients
+        learning_rate (float or callable): learning rate :math:`\eta`.
+        betas (Tuple[float, float], optional): coefficients
             :math:`(\beta_1, \beta_2)` used for computing running averages of the
             gradient and its square. Default: ``(0.9, 0.999)``
-        eps (float, optional): The term :math:`\epsilon` added to the
+        eps (float, optional): term :math:`\epsilon` added to the
             denominator to improve numerical stability. Default: ``1e-6``
-        weight_decay: weight decay (L2 penalty). Default: ``0.9``
-        clamp_value: clamp weight_norm in (0,clamp_value)
-            set to a high value to avoid it (e.g :math:`10e3`). Default: ``10``
+        weight_decay: weight decay. Default: ``0.9``
+        clamp_value: clamp weight_norm in (clamp_value, inf) to scale trust ratio.
+            Best to set to a high value (e.g :math:`10e3`). Default: ``10``
         adam: always use trust ratio = 1, which turns this
             into Adam. Useful for comparison purposes. Default: ``False``
         debias: debias adam by (1 - beta**step). Default: ``False``

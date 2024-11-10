@@ -5,8 +5,31 @@ from mlx.optimizers import Optimizer
 
 
 class DiffGrad(Optimizer):
-    r"""The DiffGrad optimizer [1].
+    r"""Difference of Gradients [1].
 
+    .. math::
+
+        m_0 &= 0, v_0 = 0, gp_0 = 0 \\
+        m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
+        v_t &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
+        c_t &= (1 + \exp({-|gp_{t-1} - g_t|}))^{-1} \\
+        \alpha_t &= \eta \frac{\sqrt{1 - \beta_1^t}}{1 - \beta_2^t} \\
+        \theta_{t} &= \theta_{t-1} - \alpha_t \frac{m_t c_t}{\sqrt{v_t} + \epsilon}
+
+    [1] Dubey, Shiv Ram, et al., 2019. DiffGrad: an optimization method for
+    convolutional neural networks. IEEE Transactions.
+    https://arxiv.org/abs/1909.11015
+    https://github.com/shivram1987/diffGrad
+
+    Args:
+        learning_rate (float or callable): learning rate :math:`\eta`.
+        betas (Tuple[float, float], optional): coefficients
+            :math:`(\beta_1, \beta_2)` used for computing running averages of the
+            gradient and its square. Default: ``(0.9, 0.999)``
+        weight_decay: weight decay . Default: ``0.0``
+        eps (float, optional): term :math:`\epsilon` added to the
+            denominator to improve numerical stability. Default: ``1e-8``
+    
     ..
     """
 

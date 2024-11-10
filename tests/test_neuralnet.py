@@ -3,6 +3,7 @@ from functools import partial
 import mlx.core as mx
 import mlx.nn as nn
 import pytest
+from mlx.optimizers import AdamW
 
 import mlx_optimizers as optim
 
@@ -60,7 +61,14 @@ def ids(v):
 optimizers = [
     (optim.QHAdam, {"learning_rate": 0.01}, 50),
     (optim.DiffGrad, {"learning_rate": 0.01}, 100),
-    (optim.Muon, {"learning_rate": 0.01}, 100),
+    (
+        optim.Muon,
+        {
+            "learning_rate": 0.01,
+            "alternate_optimizer": AdamW(learning_rate=0.001),
+        },
+        100,
+    ),
     (optim.MADGRAD, {"learning_rate": 0.01}, 50),
     (optim.ADOPT, {"learning_rate": 0.01}, 50),
     (optim.Lamb, {"learning_rate": 0.01}, 50),
