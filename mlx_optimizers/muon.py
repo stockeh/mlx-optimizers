@@ -1,7 +1,7 @@
-from typing import Callable, Union
+from typing import Callable, Type, Union
 
 import mlx.core as mx
-from mlx.optimizers import Adam, Optimizer
+from mlx.optimizers import AdamW, Optimizer
 
 
 def zeropower_via_svd(G, steps=None) -> mx.array:
@@ -40,7 +40,7 @@ class Muon(Optimizer):
         weight_decay: float = 0.0,
         backend: str = "newtonschulz5",
         backend_steps: int = 5,
-        alternate_optimizer: Optimizer = Adam(1e-3),
+        alternate_optimizer: Type[Optimizer] = AdamW,
     ):
         super().__init__()
         self._maybe_schedule("learning_rate", learning_rate)
@@ -49,7 +49,7 @@ class Muon(Optimizer):
         self.weight_decay = weight_decay
         self.backend = backend
         self.backend_steps = backend_steps
-        self.alternate_optimizer = alternate_optimizer
+        self.alternate_optimizer = alternate_optimizer(learning_rate)
 
         try:
             self.orthogonalize = {
@@ -60,22 +60,24 @@ class Muon(Optimizer):
             raise ValueError(f"Unknown backend: {backend}")
 
     def init_single(self, parameter: mx.array, state: dict):
-        if parameter.ndim != 2:
+        if parameter.ndim != 2 or sum(parameter.shape) > 9999:
+            state["use_muon"] = False
             return self.alternate_optimizer.init_single(parameter, state)
-        state["muon_v"] = mx.zeros_like(parameter)
+        state["use_muon"] = True
+        state["muon_m"] = mx.zeros_like(parameter)
 
     def apply_single(self, gradient: mx.array, parameter: mx.array, state: dict):
         """Apply Muon optimization update with Newton-Schulz orthogonalization."""
 
-        if parameter.ndim != 2:  # TODO: find a better solution to flat parameters
+        if not state["use_muon"]:
             return self.alternate_optimizer.apply_single(gradient, parameter, state)
 
         if self.weight_decay != 0:
             gradient += self.weight_decay * parameter
 
-        buf = state["muon_v"]
+        buf = state["muon_m"]
         buf = self.momentum * buf + gradient
-        state["muon_v"] = buf
+        state["muon_m"] = buf
 
         gradient = (gradient + self.momentum * buf) if self.nesterov else buf
         gradient = self.orthogonalize(gradient, steps=self.backend_steps)
