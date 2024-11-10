@@ -5,9 +5,30 @@ from mlx.optimizers import Optimizer
 
 
 class MADGRAD(Optimizer):
-    r"""MADGRAD - A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic
-    Optimization.
+    r"""Momentumized, Adaptive, Dual averaged GRADient [1].
 
+    .. math::
+
+        s_0 &= 0, v_0 = 0, x_0 = \theta \\
+        \lambda_t &= \eta \sqrt{t + 1} \\
+        s_{t+1} &= s_t + \lambda_t g_t \\
+        v_{t+1} &= v_t + \lambda_t g_t^2 \\
+        z_{t+1} &= x_0 - \frac{s_{t+1}}{\sqrt[3]{v_{t+1}} + \epsilon} \\
+        \theta_{t+1} &= (1 - \beta) \theta_t + \beta z_{t+1}
+
+    [1] Defazio, Aaron, and Samy Jelassi, 2022. A momentumized, adaptive, dual
+    averaged gradient method. JMLR 23.144 (2022): 1-34.
+    https://arxiv.org/abs/2101.11075
+    https://github.com/facebookresearch/madgrad
+
+    Args:
+        learning_rate (float or callable): The learning rate :math:`\eta`.
+        momentum (float, optional): The momentum coefficient :math:`\beta`. 
+            Default: ``0.9``
+        weight_decay (float, optional): The weight decay coefficient. 
+            Default: ``0.0``
+        eps (float, optional): The term :math:`\epsilon` added to the
+            denominator to improve numerical stability. Default: ``1e-6``
     ..
     """
 

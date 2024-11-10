@@ -5,7 +5,7 @@ from mlx.optimizers import Optimizer
 
 
 class ADOPT(Optimizer):
-    r"""The ADOPT optimizer [1].
+    r"""ADaptive gradient method with the OPTimal convergence rate [1].
 
     .. math::
 
@@ -14,8 +14,10 @@ class ADOPT(Optimizer):
         v_{t} &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
         m_{t+1} &= \beta_1 m_{t} + (1 - \beta_1) (g_{t+1} / \max{\sqrt{v_t}, \epsilon})
 
-    [1]: Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
+    [1] Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
     Converge with Any :math:`\beta_2` with the Optimal Rate. NeurIPS 2024.
+    https://arxiv.org/abs/2411.02853
+    https://github.com/iShohei220/adopt
 
     Args:
         learning_rate (float or callable): The learning rate :math:`\eta`.

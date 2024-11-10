@@ -5,7 +5,31 @@ from mlx.optimizers import Optimizer
 
 
 class QHAdam(Optimizer):
-    r"""Quasi-Hyperbolic Adam.
+    r"""Quasi-Hyperbolic Adaptive Moment Estimation [1].
+
+    .. math::
+
+        g_{t+1} &= \beta_1 g_t + (1 - \beta_1) g_t \\
+        \theta_{t+1} &= \theta_t - \eta \left[ (1 - \nu) g_t + \nu g_{t+1}\right]
+
+    [1] Ma, Jerry, and Denis Yarats, 2019. Quasi-hyperbolic momentum 
+    and Adam for deep learning. ICLR 2019.
+    https://arxiv.org/abs/1810.06801
+    https://github.com/facebookresearch/qhoptim/
+
+    Args:
+        learning_rate (float or callable): learning rate :math:`\eta`.
+        betas (Tuple[float, float], optional): coefficients
+          :math:`(\beta_1, \beta_2)` used for computing running averages of the
+          gradient and its square. Default: ``(0.9, 0.999)``
+        nus (Tuple[float, float], optional): immediate discount factors
+            used to estimate the gradient and its square :math:`(\nu_1, \nu_2)`. 
+            Default: ``(1.0, 1.0)``
+        weight_decay: weight decay. Default: ``0.0``
+        decouple_weight_decay: whether to decouple weight decay from the
+            optimization step. Default: ``False``
+        eps: term added to the denominator to improve numerical stability.
+            Default: ``1e-8``
 
     ..
     """
