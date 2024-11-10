@@ -8,5 +8,15 @@ from .lamb import Lamb
 from .madgrad import MADGRAD
 from .muon import Muon
 from .qhadam import QHAdam
+from .shampoo import Shampoo
 
-__all__ = ["DiffGrad", "Muon", "QHAdam", "MADGRAD", "ADOPT", "Lamb" "__version__"]
+__all__ = [
+    "ADOPT",
+    "DiffGrad",
+    "Lamb",
+    "MADGRAD",
+    "Muon",
+    "QHAdam",
+    "Shampoo",
+    "__version__",
+]
