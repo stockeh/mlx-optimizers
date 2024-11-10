@@ -11,9 +11,8 @@ def zeropower_via_svd(G, steps=None) -> mx.array:
 
 @mx.compile
 def zeropower_via_newtonschulz5(G, steps=10, eps=1e-7) -> mx.array:
-    """
-    Newton-Schulz iteration to compute the zeroth power / orthogonalization of G. We opt to use a
-    quintic iteration whose coefficients are selected to maximize the slope at zero. For the purpose
+    r"""Newton-Schulz iteration to compute the zeroth power / orthogonalization of :math:`G`. We opt to
+    use a quintic iteration whose coefficients are selected to maximize the slope at zero. For the purpose
     of minimizing steps, it turns out to be empirically effective to keep increasing the slope at
     zero even beyond the point where the iteration no longer converges all the way to one everywhere
     on the interval. This iteration therefore does not produce :math:`UV^T` but rather something like
