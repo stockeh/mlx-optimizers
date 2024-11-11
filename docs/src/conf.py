@@ -5,12 +5,14 @@ import sys
 
 sys.path.insert(0, os.path.abspath("../../mlx_optimizers"))
 
+from mlx_optimizers import VERSION
+
 # -- Project information -----------------------------------------------------
 
 project = "mlx-optimizers"
 copyright = "2024, Jason Stock"
 author = "Jason Stock"
-version = "0.1.0"
+version = VERSION
 release = version
 
 # -- General configuration ---------------------------------------------------
@@ -42,6 +44,10 @@ highlight_language = "python"
 pygments_style = "sphinx"
 add_module_names = False
 
+html_css_files = [
+    "css/custom.css",
+]
+
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "sphinx_book_theme"
@@ -57,7 +63,8 @@ html_theme_options = {
     },
 }
 
-html_favicon = html_theme_options["logo"]["image_light"]  # type: ignore
+# html_favicon = html_theme_options["logo"]["image_light"]  # type: ignore
+html_favicon = "_static/favicon.ico"
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -80,7 +87,7 @@ def setup(app):
 
 # -- Options for LaTeX output ------------------------------------------------
 
-latex_documents = [(main_doc, "MLX.tex", "MLX Optimization Documentation", author, "manual")]
+latex_documents = [(main_doc, "MLX.tex", "mlx-optimizers documentation", author, "manual")]
 latex_elements = {
     "preamble": r"""
     \usepackage{enumitem}

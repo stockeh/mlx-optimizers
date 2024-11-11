@@ -30,6 +30,18 @@ The reccomended way to install mlx-optimizers is to install the latest stable re
 pip install mlx-optimizers
 ```
 
+To install mlx-optimizers from source, first clone [the repository](https://github.com/stockeh/mlx-optimizers.git):
+
+```bash
+git clone https://github.com/stockeh/mlx-optimizers.git
+cd mlx-optimizers
+```
+Then run
+
+```bash
+pip install -e .
+```
+
 ## Usage
 
 There are a variety of optimizers to choose from (see [docs](https://stockeh.github.io/mlx-optimizers/build/html/optimizers.html)). Each of these inherit the [`mx.optimizers`](https://ml-explore.github.io/mlx/build/html/python/optimizers.html) class from MLX, so the core functionality remains the same. We can simply use the optimizer as follows:
