@@ -119,6 +119,7 @@ if __name__ == "__main__":
         (optim.ADOPT, 0, 0.25, {}),
         (optim.Lamb, 0, 0.25, {}),
         (optim.Muon, 0, 0.2, {"alternate_optimizer": AdamW(learning_rate=0.0842)}),  # fixed lr
+        (optim.Shampoo, 0, 2, {}),
     ]
     execute_experiments(
         optimizers, objective_rosenbrock, rosenbrock, plot_rosenbrock, ROSENBROCK_INITIAL

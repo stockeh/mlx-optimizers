@@ -46,7 +46,7 @@ optimizers = [
         },
         800,
     ),
-    # TODO: Lamb tests
+    # TODO: Lamb & Shampoo tests
 ]
 
 

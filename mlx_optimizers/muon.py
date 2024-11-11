@@ -5,8 +5,8 @@ from mlx.optimizers import AdamW, Optimizer
 
 
 def zeropower_via_svd(G, steps=None) -> mx.array:
-    U, S, V = mx.linalg.svd(G, stream=mx.cpu)  # type: ignore
-    return U @ V.T
+    U, S, Vt = mx.linalg.svd(G, stream=mx.cpu)  # type: ignore
+    return U @ Vt
 
 
 @mx.compile
