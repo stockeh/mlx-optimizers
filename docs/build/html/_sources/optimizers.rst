@@ -13,3 +13,4 @@ Optimizers
    QHAdam
    MADGRAD
    Lamb
+   Shampoo

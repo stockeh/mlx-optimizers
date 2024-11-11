@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MLX Optimizers &#8212; mlx-optimizers 0.1.0 documentation</title>
+    <title>mlx-optimizers - 0.2.0 documentation &#8212; mlx-optimizers 0.2.0 documentation</title>
   
   
   
@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0bf717e3" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,19 +40,19 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="_static/documentation_options.js?v=7f7c277e"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
-    <link rel="icon" href="_static/light-mode-logo.svg"/>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Build and Install" href="install.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.0" />
+  <meta name="docsearch:version" content="0.2.0" />
   </head>
   
   
@@ -132,8 +133,8 @@
       
     
     
-    <img src="_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.1.0 documentation - Home"/>
-    <img src="_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.1.0 documentation - Home"/>
+    <img src="_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.2.0 documentation - Home"/>
+    <img src="_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.2.0 documentation - Home"/>
   
   
 </a></div>
@@ -159,6 +160,7 @@
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.QHAdam.html">mlx_optimizers.QHAdam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.MADGRAD.html">mlx_optimizers.MADGRAD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.Lamb.html">mlx_optimizers.Lamb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.Shampoo.html">mlx_optimizers.Shampoo</a></li>
 </ul>
 </details></li>
 </ul>
@@ -309,7 +311,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MLX Optimizers</h1>
+    <h1>mlx-optimizers - 0.2.0 documentation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -323,9 +325,27 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="mlx-optimizers">
-<h1>MLX Optimizers<a class="headerlink" href="#mlx-optimizers" title="Link to this heading">#</a></h1>
-<p>Talk about MLX here</p>
+  <section id="mlx-optimizers-version-documentation">
+<h1>mlx-optimizers - 0.2.0 documentation<a class="headerlink" href="#mlx-optimizers-version-documentation" title="Link to this heading">#</a></h1>
+<p>A library to experiment with new optimization algorithms in <a class="reference external" href="https://github.com/ml-explore/mlx">MLX</a>.</p>
+<ul class="simple">
+<li><p><strong>Diverse Exploration</strong>: includes proven and experimental optimizers like DiffGrad, QHAdam, and others.</p></li>
+<li><p><strong>Easy Integration</strong>: compatible with MLX for straightforward experimentation and downstream adoption.</p></li>
+<li><p><strong>Benchmark Examples</strong>: enables quick testing on classic optimization and machine learning tasks.</p></li>
+</ul>
+<p>See a <strong>full list</strong> of optimizers in the <a class="reference internal" href="optimizers.html"><span class="doc">API Reference</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Example Usage</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="kn">import</span> <span class="nn">mlx_optimizers</span> <span class="k">as</span> <span class="nn">optim</span>
+
+   <span class="c1">#... model, grads, etc.</span>
+   <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">DiffGrad</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+   <span class="n">optimizer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">grads</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<img alt="graph" class="desktop-width only-dark align-center" src="https://github.com/user-attachments/assets/2ff6430a-dfad-4879-ae39-ec76e2645f21" />
+<img alt="graph" class="desktop-width only-light align-center" src="https://github.com/user-attachments/assets/111f79f2-257e-4a27-8667-3831d233c3b8" />
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Install</span></p>
 <ul>
