@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mlx_optimizers.Muon &#8212; mlx-optimizers 0.2.0 documentation</title>
+    <title>mlx_optimizers.Shampoo &#8212; mlx-optimizers 0.2.0 documentation</title>
   
   
   
@@ -45,12 +45,11 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/mlx_optimizers.Muon';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/mlx_optimizers.Shampoo';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mlx_optimizers.QHAdam" href="mlx_optimizers.QHAdam.html" />
-    <link rel="prev" title="mlx_optimizers.DiffGrad" href="mlx_optimizers.DiffGrad.html" />
+    <link rel="prev" title="mlx_optimizers.Lamb" href="mlx_optimizers.Lamb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.2.0" />
@@ -155,11 +154,11 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../optimizers.html">Optimizers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.ADOPT.html">mlx_optimizers.ADOPT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.DiffGrad.html">mlx_optimizers.DiffGrad</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">mlx_optimizers.Muon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Muon.html">mlx_optimizers.Muon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.QHAdam.html">mlx_optimizers.QHAdam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.MADGRAD.html">mlx_optimizers.MADGRAD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Lamb.html">mlx_optimizers.Lamb</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Shampoo.html">mlx_optimizers.Shampoo</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">mlx_optimizers.Shampoo</a></li>
 </ul>
 </details></li>
 </ul>
@@ -236,7 +235,7 @@
       
       
       
-      <li><a href="../_sources/_autosummary/mlx_optimizers.Muon.rst" target="_blank"
+      <li><a href="../_sources/_autosummary/mlx_optimizers.Shampoo.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +311,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>mlx_optimizers.Muon</h1>
+    <h1>mlx_optimizers.Shampoo</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -322,7 +321,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlx_optimizers.Muon"><code class="docutils literal notranslate"><span class="pre">Muon</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlx_optimizers.Shampoo"><code class="docutils literal notranslate"><span class="pre">Shampoo</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -334,45 +333,46 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="mlx-optimizers-muon">
-<h1>mlx_optimizers.Muon<a class="headerlink" href="#mlx-optimizers-muon" title="Link to this heading">#</a></h1>
+  <section id="mlx-optimizers-shampoo">
+<h1>mlx_optimizers.Shampoo<a class="headerlink" href="#mlx-optimizers-shampoo" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="mlx_optimizers.Muon">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Muon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">learning_rate:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">~typing.Callable[[~mlx.core.array],</span> <span class="pre">~mlx.core.array]</span> <span class="pre">=</span> <span class="pre">0.02,</span> <span class="pre">momentum:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.95,</span> <span class="pre">nesterov:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">backend:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'newtonschulz5',</span> <span class="pre">backend_steps:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">alternate_optimizer:</span> <span class="pre">~mlx.optimizers.optimizers.Optimizer</span> <span class="pre">=</span> <span class="pre">&lt;mlx.optimizers.optimizers.AdamW</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mlx_optimizers.Muon" title="Link to this definition">#</a></dt>
-<dd><p>MomentUm Orthogonalized by Newton-schulz [1].</p>
+<dt class="sig sig-object py" id="mlx_optimizers.Shampoo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Shampoo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_freq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mlx_optimizers.Shampoo" title="Link to this definition">#</a></dt>
+<dd><p>Preconditioned Stochastic Tensor Optimization (general tensor case) [1].</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}m_t &amp;= \mu m_{t-1} + g_t \\
-g_t &amp;= \mu m_t + g_t \text{ if nesterov} \\
-O_t &amp;= \text{orthogonalize}(g_t) \\
-\theta_{t} &amp;= \theta_{t-1} - \eta (O_t + \lambda \theta_{t-1})\end{split}\]</div>
-<p>[1] Keller Jordan, 2024. <a class="github reference external" href="https://github.com/KellerJordan/Muon">KellerJordan/Muon</a></p>
+\[\begin{split}W_1 &amp;= 0_{n_1 \times \dots \times n_k}; \forall i \in [k]: H_0^i = \epsilon I_{n_i}\\
+H_t^i &amp;= H_{t-1}^i + G_t^{(i)}\\
+\tilde{G}_t &amp;= \tilde{G}_t \times_i (H_t^i)^{-1/2k}\\
+W_{t+1} &amp;= W_t - \eta \tilde{G}_t\end{split}\]</div>
+<p>[1] Gupta, Vineet, Tomer Koren, and Yoram Singer, 2018. Shampoo: Preconditioned
+stochastic tensor optimization. ICML 2018.
+<a class="reference external" href="https://arxiv.org/abs/1802.09568">https://arxiv.org/abs/1802.09568</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>learning_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em> or </em><em>callable</em>) – The learning rate <span class="math notranslate nohighlight">\(\eta\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">0.02</span></code></p></li>
-<li><p><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – The momentum strength <span class="math notranslate nohighlight">\(\mu\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">0.95</span></code></p></li>
-<li><p><strong>nesterov</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Enables Nesterov momentum. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
-<li><p><strong>backend</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>optional</em>) – The orthogonalization backend. Default: <code class="docutils literal notranslate"><span class="pre">&quot;newtonschulz5&quot;</span></code></p></li>
-<li><p><strong>backend_steps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>optional</em>) – The number of steps for orthogonalization. Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
-<li><p><strong>alternate_optimizer</strong> (<em>Optimizer</em><em>, </em><em>optional</em>) – The alternate optimizer to use when
-the parameter is not a 2D tensor. Default: <code class="docutils literal notranslate"><span class="pre">AdamW(0.001)</span></code></p></li>
+<li><p><strong>learning_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em> or </em><em>callable</em>) – learning rate <span class="math notranslate nohighlight">\(\eta\)</span>.</p></li>
+<li><p><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – momentum factor. Default: <code class="docutils literal notranslate"><span class="pre">0.00</span></code></p></li>
+<li><p><strong>weight_decay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – weight decay factor. Default: <code class="docutils literal notranslate"><span class="pre">0.00</span></code></p></li>
+<li><p><strong>update_freq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>optional</em>) – frequency of updating the preconditioner. Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – term <span class="math notranslate nohighlight">\(\epsilon\)</span> added to the
+denominator to improve numerical stability. Default: <code class="docutils literal notranslate"><span class="pre">1e-6</span></code></p></li>
 </ul>
 </dd>
 </dl>
 <blockquote>
-<div><img alt="../_images/rosenbrock_Muon.png" class="align-center" src="../_images/rosenbrock_Muon.png" />
+<div><img alt="../_images/rosenbrock_Shampoo.png" class="align-center" src="../_images/rosenbrock_Shampoo.png" />
 </div></blockquote>
 <p class="rubric">Methods</p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([learning_rate, momentum, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>(learning_rate[, momentum, ...])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_single</span></code>(gradient, parameter, state)</p></td>
-<td><p>Apply Muon optimization update with Newton-Schulz orthogonalization.</p></td>
+<td><p>Performs a single optimization step, updating <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(v\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_single</span></code>(parameter, state)</p></td>
-<td><p>To be extended by the children classes to implement each optimizer's state initialization.</p></td>
+<td><p>Initialize optimizer state</p></td>
 </tr>
 </tbody>
 </table>
@@ -393,22 +393,13 @@ the parameter is not a 2D tensor. Default: <code class="docutils literal notrans
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="mlx_optimizers.DiffGrad.html"
+       href="mlx_optimizers.Lamb.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">mlx_optimizers.DiffGrad</p>
+        <p class="prev-next-title">mlx_optimizers.Lamb</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="mlx_optimizers.QHAdam.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">mlx_optimizers.QHAdam</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -427,7 +418,7 @@ the parameter is not a 2D tensor. Default: <code class="docutils literal notrans
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlx_optimizers.Muon"><code class="docutils literal notranslate"><span class="pre">Muon</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlx_optimizers.Shampoo"><code class="docutils literal notranslate"><span class="pre">Shampoo</span></code></a></li>
 </ul>
   </nav></div>
 
