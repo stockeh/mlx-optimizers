@@ -11,12 +11,12 @@
 [**Examples**](#examples) |
 [**Contributing**](#contributing)
 
-[![ci](https://github.com/stockeh/mlx-optimizers/workflows/Main/badge.svg?event=push&branch=main)](https://pypi.org/project/mlx-optimizers/)
+[![ci](https://github.com/stockeh/mlx-optimizers/workflows/Main/badge.svg)](https://pypi.org/project/mlx-optimizers/)
 [![PyPI](https://img.shields.io/pypi/v/mlx-optimizers)](https://pypi.org/project/mlx-optimizers/)
 
 A library to experiment with new optimization algorithms in [MLX](https://github.com/ml-explore/mlx). 
 
-- **Diverse Exploration**: includes proven and experimental optimizers like DiffGrad, QHAdam, and Muon (see [docs](https://stockeh.github.io/mlx-optimizers/build/html/optimizers.html)).
+- **Diverse Exploration**: includes proven and experimental optimizers like DiffGrad, QHAdam, and Muon ([docs](https://stockeh.github.io/mlx-optimizers/build/html/optimizers.html)).
 - **Easy Integration**: fully compatible with MLX for straightforward experimentation and downstream adoption.
 - **Benchmark Examples**: enables quick testing on classic optimization and machine learning tasks.
 
