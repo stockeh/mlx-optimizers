@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mlx_optimizers.DiffGrad &#8212; mlx-optimizers 0.1.0 documentation</title>
+    <title>mlx_optimizers.DiffGrad &#8212; mlx-optimizers 0.2.0 documentation</title>
   
   
   
@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0bf717e3" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,19 +40,20 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/mlx_optimizers.DiffGrad';</script>
-    <link rel="icon" href="../_static/light-mode-logo.svg"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="mlx_optimizers.Muon" href="mlx_optimizers.Muon.html" />
     <link rel="prev" title="mlx_optimizers.ADOPT" href="mlx_optimizers.ADOPT.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.0" />
+  <meta name="docsearch:version" content="0.2.0" />
   </head>
   
   
@@ -130,8 +132,8 @@
       
     
     
-    <img src="../_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.1.0 documentation - Home"/>
-    <img src="../_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.1.0 documentation - Home"/>
+    <img src="../_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.2.0 documentation - Home"/>
+    <img src="../_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.2.0 documentation - Home"/>
   
   
 </a></div>
@@ -157,6 +159,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.QHAdam.html">mlx_optimizers.QHAdam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.MADGRAD.html">mlx_optimizers.MADGRAD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Lamb.html">mlx_optimizers.Lamb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Shampoo.html">mlx_optimizers.Shampoo</a></li>
 </ul>
 </details></li>
 </ul>
@@ -336,7 +339,31 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="mlx_optimizers.DiffGrad">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DiffGrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">betas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[0.9,</span> <span class="pre">0.99]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mlx_optimizers.DiffGrad" title="Link to this definition">#</a></dt>
-<dd><p>The DiffGrad optimizer [1].</p>
+<dd><p>Difference of Gradients [1].</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}m_0 &amp;= 0, v_0 = 0, gp_0 = 0 \\
+m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
+v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
+c_t &amp;= (1 + \exp({-|gp_{t-1} - g_t|}))^{-1} \\
+\alpha_t &amp;= \eta \frac{\sqrt{1 - \beta_1^t}}{1 - \beta_2^t} \\
+\theta_{t} &amp;= \theta_{t-1} - \alpha_t \frac{m_t c_t}{\sqrt{v_t} + \epsilon}\end{split}\]</div>
+<p>[1] Dubey, Shiv Ram, et al., 2019. DiffGrad: an optimization method for
+convolutional neural networks. IEEE Transactions.
+<a class="reference external" href="https://arxiv.org/abs/1909.11015">https://arxiv.org/abs/1909.11015</a>
+<a class="github reference external" href="https://github.com/shivram1987/diffGrad">shivram1987/diffGrad</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>learning_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em> or </em><em>callable</em>) – learning rate <span class="math notranslate nohighlight">\(\eta\)</span>.</p></li>
+<li><p><strong>betas</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em><em>, </em><em>optional</em>) – coefficients
+<span class="math notranslate nohighlight">\((\beta_1, \beta_2)\)</span> used for computing running averages of the
+gradient and its square. Default: <code class="docutils literal notranslate"><span class="pre">(0.9,</span> <span class="pre">0.999)</span></code></p></li>
+<li><p><strong>weight_decay</strong> – weight decay . Default: <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></li>
+<li><p><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – term <span class="math notranslate nohighlight">\(\epsilon\)</span> added to the
+denominator to improve numerical stability. Default: <code class="docutils literal notranslate"><span class="pre">1e-8</span></code></p></li>
+</ul>
+</dd>
+</dl>
 <blockquote>
 <div><img alt="../_images/rosenbrock_DiffGrad.png" class="align-center" src="../_images/rosenbrock_DiffGrad.png" />
 </div></blockquote>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Optimizers &#8212; mlx-optimizers 0.1.0 documentation</title>
+    <title>Optimizers &#8212; mlx-optimizers 0.2.0 documentation</title>
   
   
   
@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0bf717e3" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,20 +40,20 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="_static/documentation_options.js?v=7f7c277e"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'optimizers';</script>
-    <link rel="icon" href="_static/light-mode-logo.svg"/>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="mlx_optimizers.ADOPT" href="_autosummary/mlx_optimizers.ADOPT.html" />
     <link rel="prev" title="Build and Install" href="install.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.0" />
+  <meta name="docsearch:version" content="0.2.0" />
   </head>
   
   
@@ -131,8 +132,8 @@
       
     
     
-    <img src="_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.1.0 documentation - Home"/>
-    <img src="_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.1.0 documentation - Home"/>
+    <img src="_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.2.0 documentation - Home"/>
+    <img src="_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.2.0 documentation - Home"/>
   
   
 </a></div>
@@ -158,6 +159,7 @@
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.QHAdam.html">mlx_optimizers.QHAdam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.MADGRAD.html">mlx_optimizers.MADGRAD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.Lamb.html">mlx_optimizers.Lamb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/mlx_optimizers.Shampoo.html">mlx_optimizers.Shampoo</a></li>
 </ul>
 </details></li>
 </ul>
@@ -327,22 +329,25 @@
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.ADOPT.html#mlx_optimizers.ADOPT" title="mlx_optimizers.ADOPT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADOPT</span></code></a>(learning_rate[, betas, eps])</p></td>
-<td><p>The ADOPT optimizer [1].</p></td>
+<td><p>ADaptive gradient method with the OPTimal convergence rate [1].</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.DiffGrad.html#mlx_optimizers.DiffGrad" title="mlx_optimizers.DiffGrad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffGrad</span></code></a>(learning_rate[, betas, ...])</p></td>
-<td><p>The DiffGrad optimizer [1].</p></td>
+<td><p>Difference of Gradients [1].</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.Muon.html#mlx_optimizers.Muon" title="mlx_optimizers.Muon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Muon</span></code></a>(learning_rate, ~mlx.core.array] = 0.02, ...)</p></td>
-<td><p>Muon - MomentUm Orthogonalized by Newton-schulz</p></td>
+<td><p>MomentUm Orthogonalized by Newton-schulz [1].</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.QHAdam.html#mlx_optimizers.QHAdam" title="mlx_optimizers.QHAdam"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QHAdam</span></code></a>(learning_rate[, betas, nus, ...])</p></td>
-<td><p>Quasi-Hyperbolic Adam.</p></td>
+<td><p>Quasi-Hyperbolic Adaptive Moment Estimation [1].</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.MADGRAD.html#mlx_optimizers.MADGRAD" title="mlx_optimizers.MADGRAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MADGRAD</span></code></a>(learning_rate[, momentum, ...])</p></td>
-<td><p>MADGRAD - A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization.</p></td>
+<td><p>Momentumized, Adaptive, Dual averaged GRADient [1].</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.Lamb.html#mlx_optimizers.Lamb" title="mlx_optimizers.Lamb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Lamb</span></code></a>(learning_rate[, betas, weight_decay, ...])</p></td>
-<td><p>The Lamb optimizer [1].</p></td>
+<td><p>Layerwise Adaptive Large Batch Optimization [1].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/mlx_optimizers.Shampoo.html#mlx_optimizers.Shampoo" title="mlx_optimizers.Shampoo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Shampoo</span></code></a>(learning_rate[, momentum, ...])</p></td>
+<td><p>Preconditioned Stochastic Tensor Optimization (general tensor case) [1].</p></td>
 </tr>
 </tbody>
 </table>

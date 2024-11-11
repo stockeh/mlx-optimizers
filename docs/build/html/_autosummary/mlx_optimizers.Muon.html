@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mlx_optimizers.Muon &#8212; mlx-optimizers 0.1.0 documentation</title>
+    <title>mlx_optimizers.Muon &#8212; mlx-optimizers 0.2.0 documentation</title>
   
   
   
@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0bf717e3" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -39,19 +40,20 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../_static/documentation_options.js?v=7f7c277e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/mlx_optimizers.Muon';</script>
-    <link rel="icon" href="../_static/light-mode-logo.svg"/>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="mlx_optimizers.QHAdam" href="mlx_optimizers.QHAdam.html" />
     <link rel="prev" title="mlx_optimizers.DiffGrad" href="mlx_optimizers.DiffGrad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.0" />
+  <meta name="docsearch:version" content="0.2.0" />
   </head>
   
   
@@ -130,8 +132,8 @@
       
     
     
-    <img src="../_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.1.0 documentation - Home"/>
-    <img src="../_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.1.0 documentation - Home"/>
+    <img src="../_static/light-mode-logo.svg" class="logo__image only-light" alt="mlx-optimizers 0.2.0 documentation - Home"/>
+    <img src="../_static/dark-mode-logo.svg" class="logo__image only-dark pst-js-only" alt="mlx-optimizers 0.2.0 documentation - Home"/>
   
   
 </a></div>
@@ -157,6 +159,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.QHAdam.html">mlx_optimizers.QHAdam</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.MADGRAD.html">mlx_optimizers.MADGRAD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Lamb.html">mlx_optimizers.Lamb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlx_optimizers.Shampoo.html">mlx_optimizers.Shampoo</a></li>
 </ul>
 </details></li>
 </ul>
@@ -335,8 +338,27 @@
 <h1>mlx_optimizers.Muon<a class="headerlink" href="#mlx-optimizers-muon" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="mlx_optimizers.Muon">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Muon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">learning_rate:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">~typing.Callable[[~mlx.core.array],</span> <span class="pre">~mlx.core.array]</span> <span class="pre">=</span> <span class="pre">0.02,</span> <span class="pre">momentum:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.95,</span> <span class="pre">nesterov:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">weight_decay:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">backend:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'newtonschulz5',</span> <span class="pre">backend_steps:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">alternate_optimizer:</span> <span class="pre">~typing.Type[~mlx.optimizers.optimizers.Optimizer]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'mlx.optimizers.optimizers.AdamW'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mlx_optimizers.Muon" title="Link to this definition">#</a></dt>
-<dd><p>Muon - MomentUm Orthogonalized by Newton-schulz</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Muon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">learning_rate:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">~typing.Callable[[~mlx.core.array],</span> <span class="pre">~mlx.core.array]</span> <span class="pre">=</span> <span class="pre">0.02,</span> <span class="pre">momentum:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.95,</span> <span class="pre">nesterov:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">backend:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'newtonschulz5',</span> <span class="pre">backend_steps:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">alternate_optimizer:</span> <span class="pre">~mlx.optimizers.optimizers.Optimizer</span> <span class="pre">=</span> <span class="pre">&lt;mlx.optimizers.optimizers.AdamW</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mlx_optimizers.Muon" title="Link to this definition">#</a></dt>
+<dd><p>MomentUm Orthogonalized by Newton-schulz [1].</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}m_t &amp;= \mu m_{t-1} + g_t \\
+g_t &amp;= \mu m_t + g_t \text{ if nesterov} \\
+O_t &amp;= \text{orthogonalize}(g_t) \\
+\theta_{t} &amp;= \theta_{t-1} - \eta (O_t + \lambda \theta_{t-1})\end{split}\]</div>
+<p>[1] Keller Jordan, 2024. <a class="github reference external" href="https://github.com/KellerJordan/Muon">KellerJordan/Muon</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>learning_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em> or </em><em>callable</em>) – The learning rate <span class="math notranslate nohighlight">\(\eta\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">0.02</span></code></p></li>
+<li><p><strong>momentum</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>optional</em>) – The momentum strength <span class="math notranslate nohighlight">\(\mu\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">0.95</span></code></p></li>
+<li><p><strong>nesterov</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Enables Nesterov momentum. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>backend</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>optional</em>) – The orthogonalization backend. Default: <code class="docutils literal notranslate"><span class="pre">&quot;newtonschulz5&quot;</span></code></p></li>
+<li><p><strong>backend_steps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>optional</em>) – The number of steps for orthogonalization. Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p></li>
+<li><p><strong>alternate_optimizer</strong> (<em>Optimizer</em><em>, </em><em>optional</em>) – The alternate optimizer to use when
+the parameter is not a 2D tensor. Default: <code class="docutils literal notranslate"><span class="pre">AdamW(0.001)</span></code></p></li>
+</ul>
+</dd>
+</dl>
 <blockquote>
 <div><img alt="../_images/rosenbrock_Muon.png" class="align-center" src="../_images/rosenbrock_Muon.png" />
 </div></blockquote>
