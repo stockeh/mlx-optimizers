@@ -231,39 +231,6 @@ def _balance_Q(Q):
     return [q * (geometric_mean / norms[i]) for i, q in enumerate(Q)]
 
 
-def _solve_triangular(a, b, *, upper, left=True):
-    """
-    Simplified triangular solve implementation.
-    Args:
-        a: A batch of triangular matrices with shape (..., m, m).
-        b: A batch of matrices with shape (..., m, n) if left is True,
-           or shape (..., n, m) otherwise.
-        upper: If True, uses the upper triangular part of `a`. Otherwise, uses the lower part.
-        left: If True, solves A * X = B. If False, solves X * A = B.
-    Returns:
-        The solution matrix with the same shape as `b`.
-    """
-    a = np.asarray(a)
-    b = np.asarray(b)
-
-    if a.shape[-1] != a.shape[-2]:
-        raise ValueError("Matrix `a` must be square in its last two dimensions.")
-    if left and a.shape[-1] != b.shape[-2]:
-        raise ValueError("Shapes of `a` and `b` are incompatible for left-side solve.")
-    if not left and a.shape[-1] != b.shape[-1]:
-        raise ValueError("Shapes of `a` and `b` are incompatible for right-side solve.")
-
-    a = np.triu(a) if upper else np.tril(a)
-    if left:
-        solution = np.linalg.solve(a, b)  # Solve A * X = B
-    else:
-        solution = np.linalg.solve(a.swapaxes(-1, -2), b.swapaxes(-1, -2)).swapaxes(
-            -1, -2
-        )  # Solve X * A = B
-
-    return mx.array(solution)
-
-
 @mx.compile
 def _calc_A_and_conjB(exprA, G, Q, V):
     A = mx.einsum(exprA, *Q, G)
@@ -293,7 +260,6 @@ def _q_terms(exprGs, A, conjB):
     return terms
 
 
-# @mx.compile
 def _lb(A, max_abs):
     H = lambda a: mx.conj(mx.transpose(a))
     imax = lambda a: (mx.max(a), mx.argmax(a))
