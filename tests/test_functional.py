@@ -58,7 +58,6 @@ def test_compiled_optimizer(optclass):
         optimizer.update(model, grad)
 
     uncompiled_step(x)
-    print(optimizer.state)
     uncompiled_params = model.parameters()
 
     # Pure version
@@ -97,8 +96,6 @@ def test_compiled_optimizer(optclass):
         optimizer.update(model, grad)
 
     impure_step(x)
-    print(optimizer.state)
     impure_params = model.parameters()
     assert mx.allclose(impure_params["weight"], uncompiled_params["weight"])  # type: ignore
-    assert mx.allclose(impure_params["bias"], uncompiled_params["bias"])  # type: ignore
     assert mx.allclose(impure_params["bias"], uncompiled_params["bias"])  # type: ignore

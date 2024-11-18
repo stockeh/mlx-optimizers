@@ -69,5 +69,3 @@ def test_benchmark_function(case, optimizer_config):
 
     name = optimizer.__class__.__name__
     assert name in optimizer.__repr__()
-    assert name in optimizer.__repr__()
-    assert name in optimizer.__repr__()

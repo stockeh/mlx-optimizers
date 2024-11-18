@@ -87,5 +87,3 @@ def test_neuralnet(optimizer_config):
 
     acc = mx.sum(mx.argmax(model(X), axis=1) == T) / T.shape[0]  # type: ignore
     assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
-    assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
-    assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
