@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="madgrad_8py" kind="file" language="Python">
+    <compoundname>madgrad.py</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d" prot="public">mlx_optimizers::madgrad::MADGRAD</innerclass>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1madgrad">mlx_optimizers::madgrad</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1madgrad" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Callable,<sp/>Union</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>mlx.core<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>mx</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.optimizers<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Optimizer</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d" kindref="compound">MADGRAD</ref>(Optimizer):</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;Momentumized,<sp/>Adaptive,<sp/>Dual<sp/>averaged<sp/>GRADient<sp/>[1].</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s_0<sp/>&amp;=<sp/>0,<sp/>v_0<sp/>=<sp/>0,<sp/>x_0<sp/>=<sp/>\theta<sp/>\\</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\lambda_t<sp/>&amp;=<sp/>\eta<sp/>\sqrt{t<sp/>+<sp/>1}<sp/>\\</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s_{t+1}<sp/>&amp;=<sp/>s_t<sp/>+<sp/>\lambda_t<sp/>g_t<sp/>\\</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v_{t+1}<sp/>&amp;=<sp/>v_t<sp/>+<sp/>\lambda_t<sp/>g_t^2<sp/>\\</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>z_{t+1}<sp/>&amp;=<sp/>x_0<sp/>-<sp/>\frac{s_{t+1}}{\sqrt[3]{v_{t+1}}<sp/>+<sp/>\epsilon}<sp/>\\</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\theta_{t+1}<sp/>&amp;=<sp/>(1<sp/>-<sp/>\beta)<sp/>\theta_t<sp/>+<sp/>\beta<sp/>z_{t+1}</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>[1]<sp/>Defazio,<sp/>Aaron,<sp/>and<sp/>Samy<sp/>Jelassi,<sp/>2022.<sp/>A<sp/>momentumized,<sp/>adaptive,<sp/>dual</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>averaged<sp/>gradient<sp/>method.<sp/>JMLR<sp/>23.144<sp/>(2022):<sp/>1-34.</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://arxiv.org/abs/2101.11075</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://github.com/facebookresearch/madgrad</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate<sp/>(float<sp/>or<sp/>callable):<sp/>The<sp/>learning<sp/>rate<sp/>:math:`\eta`.</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum<sp/>(float,<sp/>optional):<sp/>The<sp/>momentum<sp/>coefficient<sp/>:math:`\beta`.<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Default:<sp/>``0.9``</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay<sp/>(float,<sp/>optional):<sp/>The<sp/>weight<sp/>decay<sp/>coefficient.<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Default:<sp/>``0.0``</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps<sp/>(float,<sp/>optional):<sp/>The<sp/>term<sp/>:math:`\epsilon`<sp/>added<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denominator<sp/>to<sp/>improve<sp/>numerical<sp/>stability.<sp/>Default:<sp/>``1e-6``</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ae15b0e18cddd30ee63fe0a5c9d79042d" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]],</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum:<sp/>float<sp/>=<sp/>0.9,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>float<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps:<sp/>float<sp/>=<sp/>1e-6,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ae15b0e18cddd30ee63fe0a5c9d79042d" kindref="member">__init__</ref>()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate&quot;</highlight><highlight class="normal">,<sp/>learning_rate)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" kindref="member">momentum</ref><sp/>=<sp/>momentum</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a698dc8950a706ad9e62dcee86d559e03" kindref="member">weight_decay</ref><sp/>=<sp/>weight_decay</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a4df6836c8ca414062be023a67e020494" kindref="member">eps</ref><sp/>=<sp/>eps</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a0b3f5bf8149b65180e56a3ad4394c1c5" kindref="member">init_single</ref>(self,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ada6337ae4c044d1c6fb1b9be008fab37" kindref="member">apply_single</ref>(self,<sp/>gradient:<sp/>mx.array,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a4df6836c8ca414062be023a67e020494" kindref="member">eps</ref></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate.astype(gradient.dtype)<sp/>+<sp/>eps</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>cheat<sp/>code<sp/>because<sp/>__init_single__<sp/>has<sp/>grad<sp/>(not<sp/>param)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" kindref="member">momentum</ref><sp/>!=<sp/>0<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;x0&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>state:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;x0&quot;</highlight><highlight class="normal">]<sp/>=<sp/>parameter</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ck<sp/>=<sp/>1<sp/>-<sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" kindref="member">momentum</ref></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lamb<sp/>=<sp/>lr<sp/>*<sp/>mx.sqrt(self.state[</highlight><highlight class="stringliteral">&quot;step&quot;</highlight><highlight class="normal">])</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a698dc8950a706ad9e62dcee86d559e03" kindref="member">weight_decay</ref><sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a698dc8950a706ad9e62dcee86d559e03" kindref="member">weight_decay</ref><sp/>*<sp/>parameter</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" kindref="member">momentum</ref><sp/>==<sp/>0:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rms<sp/>=<sp/>mx.power(v,<sp/>1<sp/>/<sp/>3)<sp/>+<sp/>eps</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x0<sp/>=<sp/>parameter<sp/>+<sp/>s<sp/>/<sp/>rms</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x0<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;x0&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>=<sp/>s<sp/>+<sp/>lamb<sp/>*<sp/>gradient</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>v<sp/>+<sp/>lamb<sp/>*<sp/>mx.square(gradient)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rms<sp/>=<sp/>mx.power(v,<sp/>1<sp/>/<sp/>3)<sp/>+<sp/>eps</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>eps<sp/>==<sp/>0:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rms<sp/>=<sp/>mx.where(rms<sp/>!=<sp/>0,<sp/>rms,<sp/>float(</highlight><highlight class="stringliteral">&quot;inf&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" kindref="member">momentum</ref><sp/>==<sp/>0:</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameter<sp/>=<sp/>x0<sp/>-<sp/>s<sp/>/<sp/>rms</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>z<sp/>=<sp/>x0<sp/>-<sp/>s<sp/>/<sp/>rms</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameter<sp/>=<sp/>(1<sp/>-<sp/>ck)<sp/>*<sp/>parameter<sp/>+<sp/>ck<sp/>*<sp/>z</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]<sp/>=<sp/>v</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">]<sp/>=<sp/>s</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parameter</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/madgrad.py"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_9eecc1e8ecc488ebc484b8ea4d871ce3" kind="dir">
+    <compoundname>mlx_optimizers</compoundname>
+    <innerfile refid="____init_____8py">__init__.py</innerfile>
+    <innerfile refid="adopt_8py">adopt.py</innerfile>
+    <innerfile refid="diffgrad_8py">diffgrad.py</innerfile>
+    <innerfile refid="kron_8py">kron.py</innerfile>
+    <innerfile refid="lamb_8py">lamb.py</innerfile>
+    <innerfile refid="madgrad_8py">madgrad.py</innerfile>
+    <innerfile refid="muon_8py">muon.py</innerfile>
+    <innerfile refid="qhadam_8py">qhadam.py</innerfile>
+    <innerfile refid="shampoo_8py">shampoo.py</innerfile>
+    <innerfile refid="version_8py">version.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/"/>
+  </compounddef>
+</doxygen>

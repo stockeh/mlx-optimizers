@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="diffgrad_8py" kind="file" language="Python">
+    <compoundname>diffgrad.py</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad" prot="public">mlx_optimizers::diffgrad::DiffGrad</innerclass>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1diffgrad">mlx_optimizers::diffgrad</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1diffgrad" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Callable,<sp/>List,<sp/>Union</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>mlx.core<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>mx</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.optimizers<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Optimizer</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad" kindref="compound">DiffGrad</ref>(Optimizer):</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;Difference<sp/>of<sp/>Gradients<sp/>[1].</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_0<sp/>&amp;=<sp/>0,<sp/>v_0<sp/>=<sp/>0,<sp/>gp_0<sp/>=<sp/>0<sp/>\\</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_t<sp/>&amp;=<sp/>\beta_1<sp/>m_{t-1}<sp/>+<sp/>(1<sp/>-<sp/>\beta_1)<sp/>g_t<sp/>\\</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v_t<sp/>&amp;=<sp/>\beta_2<sp/>v_{t-1}<sp/>+<sp/>(1<sp/>-<sp/>\beta_2)<sp/>g_t^2<sp/>\\</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c_t<sp/>&amp;=<sp/>(1<sp/>+<sp/>\exp({-|gp_{t-1}<sp/>-<sp/>g_t|}))^{-1}<sp/>\\</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\alpha_t<sp/>&amp;=<sp/>\eta<sp/>\frac{\sqrt{1<sp/>-<sp/>\beta_1^t}}{1<sp/>-<sp/>\beta_2^t}<sp/>\\</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\theta_{t}<sp/>&amp;=<sp/>\theta_{t-1}<sp/>-<sp/>\alpha_t<sp/>\frac{m_t<sp/>c_t}{\sqrt{v_t}<sp/>+<sp/>\epsilon}</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>[1]<sp/>Dubey,<sp/>Shiv<sp/>Ram,<sp/>et<sp/>al.,<sp/>2019.<sp/>DiffGrad:<sp/>an<sp/>optimization<sp/>method<sp/>for</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>convolutional<sp/>neural<sp/>networks.<sp/>IEEE<sp/>Transactions.</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://arxiv.org/abs/1909.11015</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://github.com/shivram1987/diffGrad</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate<sp/>(float<sp/>or<sp/>callable):<sp/>learning<sp/>rate<sp/>:math:`\eta`.</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas<sp/>(Tuple[float,<sp/>float],<sp/>optional):<sp/>coefficients</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:math:`(\beta_1,<sp/>\beta_2)`<sp/>used<sp/>for<sp/>computing<sp/>running<sp/>averages<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>and<sp/>its<sp/>square.<sp/>Default:<sp/>``(0.9,<sp/>0.999)``</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>weight<sp/>decay<sp/>.<sp/>Default:<sp/>``0.0``</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps<sp/>(float,<sp/>optional):<sp/>term<sp/>:math:`\epsilon`<sp/>added<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denominator<sp/>to<sp/>improve<sp/>numerical<sp/>stability.<sp/>Default:<sp/>``1e-8``</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a3761939e07d131ecc1385b721f40c245" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]],</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas:<sp/>List[float]<sp/>=<sp/>[0.9,<sp/>0.99],</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>float<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps:<sp/>float<sp/>=<sp/>1e-8,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a3761939e07d131ecc1385b721f40c245" kindref="member">__init__</ref>()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate&quot;</highlight><highlight class="normal">,<sp/>learning_rate)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a4821c6dc177c6ff083efe3d896d23f9c" kindref="member">betas</ref><sp/>=<sp/>betas</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1ab56b60dce36066a5f4a098d1424bdd1b" kindref="member">weight_decay</ref><sp/>=<sp/>weight_decay</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a6d9cec91c4dac13ed4e4103d1e5d707f" kindref="member">eps</ref><sp/>=<sp/>eps</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a8c97920658dc70b706c97925b212926f" kindref="member">init_single</ref>(self,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Initialize<sp/>optimizer<sp/>state&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;gp&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1aab7a241532007f7b7548475c1c105add" kindref="member">apply_single</ref>(self,<sp/>gradient:<sp/>mx.array,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate.astype(gradient.dtype)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1,<sp/>b2<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a4821c6dc177c6ff083efe3d896d23f9c" kindref="member">betas</ref></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>TODO:<sp/>gradient.is_space<sp/>RuntimeError</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1ab56b60dce36066a5f4a098d1424bdd1b" kindref="member">weight_decay</ref><sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1ab56b60dce36066a5f4a098d1424bdd1b" kindref="member">weight_decay</ref><sp/>*<sp/>parameter</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>b1<sp/>*<sp/>m<sp/>+<sp/>(1<sp/>-<sp/>b1)<sp/>*<sp/>gradient</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>b2<sp/>*<sp/>v<sp/>+<sp/>(1<sp/>-<sp/>b2)<sp/>*<sp/>mx.square(gradient)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denom<sp/>=<sp/>mx.sqrt(v)<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a6d9cec91c4dac13ed4e4103d1e5d707f" kindref="member">eps</ref></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gp<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;gp&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>step<sp/>not<sp/>passed<sp/>with<sp/>state,<sp/>needs<sp/>self</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1_adj<sp/>=<sp/>1<sp/>-<sp/>b1<sp/>**<sp/>self.state[</highlight><highlight class="stringliteral">&quot;step&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b2_adj<sp/>=<sp/>1<sp/>-<sp/>b2<sp/>**<sp/>self.state[</highlight><highlight class="stringliteral">&quot;step&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>diff<sp/>=<sp/>mx.abs(gp<sp/>-<sp/>gradient)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dfc<sp/>=<sp/>1<sp/>/<sp/>(1.0<sp/>+<sp/>mx.exp(-diff))</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">]<sp/>=<sp/>m</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]<sp/>=<sp/>v</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;gp&quot;</highlight><highlight class="normal">]<sp/>=<sp/>gradient</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eta<sp/>=<sp/>lr<sp/>*<sp/>mx.sqrt(b2_adj)<sp/>/<sp/>b1_adj</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parameter<sp/>-<sp/>eta<sp/>*<sp/>(m<sp/>*<sp/>dfc<sp/>/<sp/>denom)</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/diffgrad.py"/>
+  </compounddef>
+</doxygen>

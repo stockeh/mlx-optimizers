@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::diffgrad::DiffGrad</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a4821c6dc177c6ff083efe3d896d23f9c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.diffgrad.DiffGrad::betas</definition>
+        <argsstring></argsstring>
+        <name>betas</name>
+        <qualifiedname>mlx_optimizers.diffgrad.DiffGrad.betas</qualifiedname>
+        <initializer>=  betas</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/diffgrad.py" line="46" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1ab56b60dce36066a5f4a098d1424bdd1b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.diffgrad.DiffGrad::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.diffgrad.DiffGrad.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/diffgrad.py" line="47" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a6d9cec91c4dac13ed4e4103d1e5d707f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.diffgrad.DiffGrad::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.diffgrad.DiffGrad.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/diffgrad.py" line="48" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a3761939e07d131ecc1385b721f40c245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.diffgrad.DiffGrad.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.99], float weight_decay=0.0, float eps=1e-8)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.diffgrad.DiffGrad.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>betas</defname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>betas</declname>
+          <defname>weight_decay</defname>
+          <array>[float]</array>
+          <defval>[0.9, 0.99]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>eps</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defval>1e-8</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/diffgrad.py" line="36" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="42" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a8c97920658dc70b706c97925b212926f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.diffgrad.DiffGrad.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.diffgrad.DiffGrad.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/diffgrad.py" line="50" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1aab7a241532007f7b7548475c1c105add" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.diffgrad.DiffGrad.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.diffgrad.DiffGrad.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/diffgrad.py" line="56" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="56" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Difference of Gradients [1].
+
+.. math::
+
+    m_0 &amp;= 0, v_0 = 0, gp_0 = 0 \\
+    m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
+    v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
+    c_t &amp;= (1 + \exp({-|gp_{t-1} - g_t|}))^{-1} \\
+    \alpha_t &amp;= \eta \frac{\sqrt{1 - \beta_1^t}}{1 - \beta_2^t} \\
+    \theta_{t} &amp;= \theta_{t-1} - \alpha_t \frac{m_t c_t}{\sqrt{v_t} + \epsilon}
+
+[1] Dubey, Shiv Ram, et al., 2019. DiffGrad: an optimization method for
+convolutional neural networks. IEEE Transactions.
+https://arxiv.org/abs/1909.11015
+https://github.com/shivram1987/diffGrad
+
+Args:
+    learning_rate (float or callable): learning rate :math:`\eta`.
+    betas (Tuple[float, float], optional): coefficients
+        :math:`(\beta_1, \beta_2)` used for computing running averages of the
+        gradient and its square. Default: ``(0.9, 0.999)``
+    weight_decay: weight decay . Default: ``0.0``
+    eps (float, optional): term :math:`\epsilon` added to the
+        denominator to improve numerical stability. Default: ``1e-8``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.diffgrad.DiffGrad</label>
+        <link refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.diffgrad.DiffGrad</label>
+        <link refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/diffgrad.py" line="7" column="1" bodyfile="mlx_optimizers/diffgrad.py" bodystart="7" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a3761939e07d131ecc1385b721f40c245" prot="public" virt="non-virtual"><scope>mlx_optimizers::diffgrad::DiffGrad</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1aab7a241532007f7b7548475c1c105add" prot="public" virt="non-virtual"><scope>mlx_optimizers::diffgrad::DiffGrad</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a4821c6dc177c6ff083efe3d896d23f9c" prot="public" virt="non-virtual"><scope>mlx_optimizers::diffgrad::DiffGrad</scope><name>betas</name></member>
+      <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a6d9cec91c4dac13ed4e4103d1e5d707f" prot="public" virt="non-virtual"><scope>mlx_optimizers::diffgrad::DiffGrad</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a8c97920658dc70b706c97925b212926f" prot="public" virt="non-virtual"><scope>mlx_optimizers::diffgrad::DiffGrad</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1ab56b60dce36066a5f4a098d1424bdd1b" prot="public" virt="non-virtual"><scope>mlx_optimizers::diffgrad::DiffGrad</scope><name>weight_decay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

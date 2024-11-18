@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1lamb_1_1_lamb" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::lamb::Lamb</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1lamb_1_1_lamb_1ab87d1a4974a6c10eacefaaf7d28d1804" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.lamb.Lamb::betas</definition>
+        <argsstring></argsstring>
+        <name>betas</name>
+        <qualifiedname>mlx_optimizers.lamb.Lamb.betas</qualifiedname>
+        <initializer>=  betas</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/lamb.py" line="47" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1lamb_1_1_lamb_1a2942e6d9fd238aced22396f27e88d764" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.lamb.Lamb::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.lamb.Lamb.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/lamb.py" line="48" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1lamb_1_1_lamb_1adb37d81413f512c7ef6639f5f5fc7d5a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.lamb.Lamb::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.lamb.Lamb.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/lamb.py" line="49" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1lamb_1_1_lamb_1acc2d8e404d9528eaa790c2e4445a95ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.lamb.Lamb.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.999], float weight_decay=0.0, float eps=1e-8)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.lamb.Lamb.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>betas</defname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>betas</declname>
+          <defname>weight_decay</defname>
+          <array>[float]</array>
+          <defval>[0.9, 0.999]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>eps</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defval>1e-8</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/lamb.py" line="37" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="43" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1lamb_1_1_lamb_1a9c6a27a2818114f64324c15260234824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.lamb.Lamb.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.lamb.Lamb.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/lamb.py" line="51" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1lamb_1_1_lamb_1abf49c29464fe89449ec831076a9c0393" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.lamb.Lamb.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.lamb.Lamb.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Performs a single optimization step, updating :math:`m` and :math:`v`</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/lamb.py" line="56" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="56" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Layerwise Adaptive Large Batch Optimization [1].
+
+.. math::
+
+    m_0 &amp;= 0, v_0 = 0 \\
+    m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
+    v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
+    mh_t &amp;= m_t / (1 - \beta_1^t) \\
+    vh_t &amp;= v_t / (1 - \beta_2^t) \\
+    r_t &amp;= \frac{mh_t}{\sqrt{vh_t} + \epsilon} \\
+    \theta_{t+1} &amp;= \theta_t - \eta \frac{\phi(\|\theta_t\|)}{\|r_t + \lambda \theta_t\|} \left(r_t + \lambda \theta_t\right)
+
+[1] You, Yang, et al., 2019. Large Batch Optimization for Deep Learning: 
+Training BERT in 76 Minutes. 
+https://arxiv.org/abs/1904.00962 v5
+https://github.com/tensorflow/addons/blob/master/tensorflow_addons/optimizers/lamb.py
+
+Args:
+    learning_rate (float or callable): learning rate :math:`\eta`.
+    betas (Tuple[float, float], optional): coefficients
+        :math:`(\beta_1, \beta_2)` used for computing running averages of the
+        gradient and its square. Default: ``(0.9, 0.999)``
+    weight_decay (float): weight decay. Default: ``0.0``
+    eps (float, optional): term :math:`\epsilon` added to the
+        denominator to improve numerical stability. Default: ``1e-8``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.lamb.Lamb</label>
+        <link refid="classmlx__optimizers_1_1lamb_1_1_lamb"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.lamb.Lamb</label>
+        <link refid="classmlx__optimizers_1_1lamb_1_1_lamb"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/lamb.py" line="7" column="1" bodyfile="mlx_optimizers/lamb.py" bodystart="7" bodyend="86"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1acc2d8e404d9528eaa790c2e4445a95ce" prot="public" virt="non-virtual"><scope>mlx_optimizers::lamb::Lamb</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1abf49c29464fe89449ec831076a9c0393" prot="public" virt="non-virtual"><scope>mlx_optimizers::lamb::Lamb</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1ab87d1a4974a6c10eacefaaf7d28d1804" prot="public" virt="non-virtual"><scope>mlx_optimizers::lamb::Lamb</scope><name>betas</name></member>
+      <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1adb37d81413f512c7ef6639f5f5fc7d5a" prot="public" virt="non-virtual"><scope>mlx_optimizers::lamb::Lamb</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1a9c6a27a2818114f64324c15260234824" prot="public" virt="non-virtual"><scope>mlx_optimizers::lamb::Lamb</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1a2942e6d9fd238aced22396f27e88d764" prot="public" virt="non-virtual"><scope>mlx_optimizers::lamb::Lamb</scope><name>weight_decay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

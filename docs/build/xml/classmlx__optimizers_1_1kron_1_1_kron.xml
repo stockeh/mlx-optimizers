@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1kron_1_1_kron" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::kron::Kron</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1ab878e08b42d6766d73afcd5e21a1623b" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::rng</definition>
+        <argsstring></argsstring>
+        <name>rng</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.rng</qualifiedname>
+        <initializer>=  random.Random(5318008)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="67" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a7311c555c452817a4b11fbd7e6f73edb" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::b1</definition>
+        <argsstring></argsstring>
+        <name>b1</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.b1</qualifiedname>
+        <initializer>=  b1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="83" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a1ef835f2272a79acceeb6e27b128b155" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="84" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a8f42d324af8ce652263e4c85a96fb12c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::precond_update_prob</definition>
+        <argsstring></argsstring>
+        <name>precond_update_prob</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.precond_update_prob</qualifiedname>
+        <initializer>=  precond_update_prob</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="85" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1ab5b2bdf99a1a040adef57a7ff2832ff7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::max_size_triangular</definition>
+        <argsstring></argsstring>
+        <name>max_size_triangular</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.max_size_triangular</qualifiedname>
+        <initializer>=  max_size_triangular</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="87" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a501418dc2a3135b176cef9a83a453783" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::min_ndim_triangular</definition>
+        <argsstring></argsstring>
+        <name>min_ndim_triangular</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.min_ndim_triangular</qualifiedname>
+        <initializer>=  min_ndim_triangular</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="88" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1af8f6cda6be902c347b669dc6d5f048d0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::memory_save_mode</definition>
+        <argsstring></argsstring>
+        <name>memory_save_mode</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.memory_save_mode</qualifiedname>
+        <initializer>=  memory_save_mode</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="89" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1ae9cb2246b142e2d76ceb3447db2f2f6f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::momentum_into_precond_update</definition>
+        <argsstring></argsstring>
+        <name>momentum_into_precond_update</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.momentum_into_precond_update</qualifiedname>
+        <initializer>=  momentum_into_precond_update</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="90" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a893f9afd4f96d55cf2f6c69a4e58d885" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>mlx_optimizers.kron.Kron::precond_learning_rate</definition>
+        <argsstring></argsstring>
+        <name>precond_learning_rate</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.precond_learning_rate</qualifiedname>
+        <initializer>=  0.1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="91" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1ae7c1f7e56d949f67fdc8f17402a65d44" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mlx_optimizers.kron.Kron::precond_init_scale</definition>
+        <argsstring></argsstring>
+        <name>precond_init_scale</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.precond_init_scale</qualifiedname>
+        <initializer>=  1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="92" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a69d0bfa0158a67ebed295c4c493ee705" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mlx_optimizers.kron.Kron::trust_region</definition>
+        <argsstring></argsstring>
+        <name>trust_region</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.trust_region</qualifiedname>
+        <initializer>=  lambda x: 0.1 * mx.sign(x) * mx.log(mx.abs(x) + 1) + 0.9 * mx.tanh(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="95" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a9b78679964ed2ae43ad9f6f55b479c48" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>mlx_optimizers.kron.Kron::_tiny</definition>
+        <argsstring></argsstring>
+        <name>_tiny</name>
+        <qualifiedname>mlx_optimizers.kron.Kron._tiny</qualifiedname>
+        <initializer>=  1e-8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="94" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1kron_1_1_kron_1a082126dbacf9c3827690efc5543eadb2" prot="protected" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron::_do_update_balance</definition>
+        <argsstring></argsstring>
+        <name>_do_update_balance</name>
+        <qualifiedname>mlx_optimizers.kron.Kron._do_update_balance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="97" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="97" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1kron_1_1_kron_1ae6f7b816cbb5c57c04de68279f02dc22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, float b1=0.9, float weight_decay=0.0, Optional[Union[float, Callable[[mx.array], mx.array]]] precond_update_prob=None, int max_size_triangular=8192, int min_ndim_triangular=2, Optional[str] memory_save_mode=None, bool momentum_into_precond_update=True)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>b1</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b1</declname>
+          <defname>weight_decay</defname>
+          <defval>0.9</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>precond_update_prob</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>Optional</type>
+          <defname>max_size_triangular</defname>
+          <array>[Union[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]]</type>
+          <declname>precond_update_prob</declname>
+          <defname>min_ndim_triangular</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max_size_triangular</declname>
+          <defname>memory_save_mode</defname>
+          <defval>8192</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>min_ndim_triangular</declname>
+          <defname>momentum_into_precond_update</defname>
+          <defval>2</defval>
+        </param>
+        <param>
+          <type>Optional</type>
+          <declname>memory_save_mode</declname>
+          <array>[str]</array>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>momentum_into_precond_update</declname>
+          <defval>True</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="69" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="79" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1kron_1_1_kron_1addd708455583ada6a0831dfb17a87ba5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="111" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="111" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1kron_1_1_kron_1a4791ef356fcca43a084a08ebb9223634" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.kron.Kron.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Performs a single optimization step, updating :math:`m` and :math:`v`</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="122" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="122" bodyend="158"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1kron_1_1_kron_1a0678e5d49b26018064ff82dd7571ee96" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.Kron._do_update_balance</definition>
+        <argsstring>(self, step)</argsstring>
+        <name>_do_update_balance</name>
+        <qualifiedname>mlx_optimizers.kron.Kron._do_update_balance</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>step</type>
+          <defname>step</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="99" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="99" bodyend="110"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Kronecker-Factored Preconditioned Stochastic Gradient Descent [1].
+
+PSGD is a second-order optimizer that uses Hessian- or whitening-based :math:`(gg^T)`
+preconditioners and Lie groups to improve convergence. Kron uses Kronecker-factored
+preconditioners for tensors of any number dimension.
+
+[1] Xi-Lin Li, 2015. Preconditioned Stochastic Gradient Descent.
+https://arxiv.org/abs/1512.04202
+https://github.com/lixilinx/psgd_torch
+
+Args:
+    learning_rate (float or callable): the learning rate.
+    b1 (float, optional): coefficient used for computing running averages of the
+        gradient. Default: ``0.9``
+    weight_decay (float, optional): weight decay factor. Default: ``0.0``
+    precond_update_prob (float or callable, optional): probability of updating the
+        preconditioner. Default: ``None`` (flat exponential schedule)
+    max_size_triangular (int, optional):  maximum size for dim&apos;s preconditioner to be
+        triangular. Default: ``8192``
+    min_ndim_triangular (int, optional): minimum number of dimensions a layer needs
+        to have triangular preconditioners. Default: ``2``
+    memory_save_mode (str, optional): (None, &apos;one_diag&apos;, or &apos;all_diag&apos;). None: set all
+        preconditioners to be triangular, &apos;one_diag&apos;: sets the largest or last dim to
+        be diagonal per layer, and &apos;all_diag&apos;: sets all preconditioners to be diagonal.
+        Default: ``None``
+    momentum_into_precond_update (bool, optional): whether to use momentum in
+        preconditioner update. Default: ``True``
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.kron.Kron</label>
+        <link refid="classmlx__optimizers_1_1kron_1_1_kron"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.kron.Kron</label>
+        <link refid="classmlx__optimizers_1_1kron_1_1_kron"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/kron.py" line="36" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="36" bodyend="158"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ae6f7b816cbb5c57c04de68279f02dc22" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a082126dbacf9c3827690efc5543eadb2" prot="protected" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>_do_update_balance</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a0678e5d49b26018064ff82dd7571ee96" prot="protected" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>_do_update_balance</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a9b78679964ed2ae43ad9f6f55b479c48" prot="protected" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>_tiny</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a4791ef356fcca43a084a08ebb9223634" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a7311c555c452817a4b11fbd7e6f73edb" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>b1</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1addd708455583ada6a0831dfb17a87ba5" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ab5b2bdf99a1a040adef57a7ff2832ff7" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>max_size_triangular</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1af8f6cda6be902c347b669dc6d5f048d0" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>memory_save_mode</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a501418dc2a3135b176cef9a83a453783" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>min_ndim_triangular</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ae9cb2246b142e2d76ceb3447db2f2f6f" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>momentum_into_precond_update</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ae7c1f7e56d949f67fdc8f17402a65d44" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>precond_init_scale</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a893f9afd4f96d55cf2f6c69a4e58d885" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>precond_learning_rate</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a8f42d324af8ce652263e4c85a96fb12c" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>precond_update_prob</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ab878e08b42d6766d73afcd5e21a1623b" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>rng</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a69d0bfa0158a67ebed295c4c493ee705" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>trust_region</name></member>
+      <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a1ef835f2272a79acceeb6e27b128b155" prot="public" virt="non-virtual"><scope>mlx_optimizers::kron::Kron</scope><name>weight_decay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

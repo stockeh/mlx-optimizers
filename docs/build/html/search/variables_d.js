@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['weight_5fdecay_0',['weight_decay',['../classmlx__optimizers_1_1diffgrad_1_1_diff_grad.html#ab56b60dce36066a5f4a098d1424bdd1b',1,'mlx_optimizers.diffgrad.DiffGrad.weight_decay'],['../classmlx__optimizers_1_1kron_1_1_kron.html#a1ef835f2272a79acceeb6e27b128b155',1,'mlx_optimizers.kron.Kron.weight_decay'],['../classmlx__optimizers_1_1lamb_1_1_lamb.html#a2942e6d9fd238aced22396f27e88d764',1,'mlx_optimizers.lamb.Lamb.weight_decay'],['../classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d.html#a698dc8950a706ad9e62dcee86d559e03',1,'mlx_optimizers.madgrad.MADGRAD.weight_decay'],['../classmlx__optimizers_1_1qhadam_1_1_q_h_adam.html#ae13b441a820ed53d98535daa123ad16a',1,'mlx_optimizers.qhadam.QHAdam.weight_decay'],['../classmlx__optimizers_1_1shampoo_1_1_shampoo.html#af3b62ed4a749dc01687ccedcc346faef',1,'mlx_optimizers.shampoo.Shampoo.weight_decay']]]
+];

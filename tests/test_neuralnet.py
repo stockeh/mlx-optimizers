@@ -7,6 +7,8 @@ from mlx.optimizers import AdamW
 
 import mlx_optimizers as optim
 
+from .common import MLP, ids
+
 
 def generate_moons(n_samples: int = 100, noise: float = 0.2):
     n_samples_out = n_samples // 2
@@ -37,27 +39,6 @@ def generate_moons(n_samples: int = 100, noise: float = 0.2):
     return X, T
 
 
-class MLP(nn.Module):
-    def __init__(self, n_inputs: int = 2, n_hiddens_list: list = [10, 10], n_outputs: int = 2):
-        super().__init__()
-        assert len(n_hiddens_list) > 0 and all(n > 0 for n in n_hiddens_list)
-        activation = nn.ReLU
-        self.layers = [
-            layer
-            for ni, no in zip([n_inputs] + n_hiddens_list, n_hiddens_list)
-            for layer in (nn.Linear(ni, no), activation())
-        ] + [nn.Linear(n_hiddens_list[-1], n_outputs)]
-
-    def __call__(self, x):
-        for layer in self.layers:
-            x = layer(x)
-        return x
-
-
-def ids(v):
-    return f"{v[0].__name__, } {v[1:]}"
-
-
 optimizers = [
     (optim.QHAdam, {"learning_rate": 0.01}, 50),
     (optim.DiffGrad, {"learning_rate": 0.01}, 100),
@@ -68,8 +49,9 @@ optimizers = [
     ),
     (optim.MADGRAD, {"learning_rate": 0.01}, 50),
     (optim.ADOPT, {"learning_rate": 0.01}, 50),
-    (optim.Lamb, {"learning_rate": 0.01}, 50),
+    (optim.Lamb, {"learning_rate": 0.03}, 50),
     (optim.Shampoo, {"learning_rate": 0.03}, 50),
+    (optim.Kron, {"learning_rate": 0.03}, 50),
 ]
 
 

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers_1_1shampoo" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers::shampoo</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1shampoo_1_1_shampoo" prot="public">mlx_optimizers::shampoo::Shampoo</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1shampoo_1a55b0cb17f5af39067601154e127b7217" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>mx.array</type>
+        <definition> mx.array mlx_optimizers.shampoo._matrix_power</definition>
+        <argsstring>(mx.array matrix, float power, eps=1e-16)</argsstring>
+        <name>_matrix_power</name>
+        <qualifiedname>mlx_optimizers.shampoo._matrix_power</qualifiedname>
+        <param>
+          <type>mx.array</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>power</declname>
+        </param>
+        <param>
+          <type>eps</type>
+          <defname>eps</defname>
+          <defval>1e-16</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="7" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="7" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/shampoo.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

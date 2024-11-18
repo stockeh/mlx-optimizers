@@ -1,0 +1,10 @@
+/* CSS to handle image width based on screen size */
+.desktop-width {
+    width: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+    .desktop-width {
+        width: 100%;
+    }
+}

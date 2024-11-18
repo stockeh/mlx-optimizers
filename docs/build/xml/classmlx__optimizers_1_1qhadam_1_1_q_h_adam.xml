@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::qhadam::QHAdam</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a72e33d2ba0a911a650d698bfacc23c07" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam::betas</definition>
+        <argsstring></argsstring>
+        <name>betas</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.betas</qualifiedname>
+        <initializer>=  betas</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="49" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1aa1a0eaf861e00c6262418207cfff5456" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam::nus</definition>
+        <argsstring></argsstring>
+        <name>nus</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.nus</qualifiedname>
+        <initializer>=  nus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="50" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="51" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a0c917c20da7d95dae3f309129b5d25ae" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam::decouple_weight_decay</definition>
+        <argsstring></argsstring>
+        <name>decouple_weight_decay</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.decouple_weight_decay</qualifiedname>
+        <initializer>=  decouple_weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="52" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1af499ac475545c8acb4b5fb2e41c31930" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="53" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a61829a941e53e8891a789857642eca41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.999], List[float] nus=[1.0, 1.0], float weight_decay=0.0, bool decouple_weight_decay=False, float eps=1e-8)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>betas</defname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>betas</declname>
+          <defname>nus</defname>
+          <array>[float]</array>
+          <defval>[0.9, 0.999]</defval>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>nus</declname>
+          <defname>weight_decay</defname>
+          <array>[float]</array>
+          <defval>[1.0, 1.0]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>decouple_weight_decay</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>decouple_weight_decay</declname>
+          <defname>eps</defname>
+          <defval>False</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defval>1e-8</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="37" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="45" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a920f824a76b024840e2d463fcc4918f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="55" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a685f54100aff46a5d07d513477083713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.qhadam.QHAdam.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.qhadam.QHAdam.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/qhadam.py" line="62" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="62" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Quasi-Hyperbolic Adaptive Moment Estimation [1].
+
+.. math::
+
+    g_{t+1} &amp;= \beta_1 g_t + (1 - \beta_1) g_t \\
+    \theta_{t+1} &amp;= \theta_t - \eta \left[ (1 - \nu) g_t + \nu g_{t+1}\right]
+
+[1] Ma, Jerry, and Denis Yarats, 2019. Quasi-hyperbolic momentum 
+and Adam for deep learning. ICLR 2019.
+https://arxiv.org/abs/1810.06801
+https://github.com/facebookresearch/qhoptim/
+
+Args:
+    learning_rate (float or callable): learning rate :math:`\eta`.
+    betas (Tuple[float, float], optional): coefficients
+      :math:`(\beta_1, \beta_2)` used for computing running averages of the
+      gradient and its square. Default: ``(0.9, 0.999)``
+    nus (Tuple[float, float], optional): immediate discount factors
+        used to estimate the gradient and its square :math:`(\nu_1, \nu_2)`. 
+        Default: ``(1.0, 1.0)``
+    weight_decay: weight decay. Default: ``0.0``
+    decouple_weight_decay: whether to decouple weight decay from the
+        optimization step. Default: ``False``
+    eps: term added to the denominator to improve numerical stability.
+        Default: ``1e-8``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.qhadam.QHAdam</label>
+        <link refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.qhadam.QHAdam</label>
+        <link refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/qhadam.py" line="7" column="1" bodyfile="mlx_optimizers/qhadam.py" bodystart="7" bodyend="104"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a61829a941e53e8891a789857642eca41" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a685f54100aff46a5d07d513477083713" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a72e33d2ba0a911a650d698bfacc23c07" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>betas</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a0c917c20da7d95dae3f309129b5d25ae" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>decouple_weight_decay</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1af499ac475545c8acb4b5fb2e41c31930" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a920f824a76b024840e2d463fcc4918f3" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1aa1a0eaf861e00c6262418207cfff5456" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>nus</name></member>
+      <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" prot="public" virt="non-virtual"><scope>mlx_optimizers::qhadam::QHAdam</scope><name>weight_decay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

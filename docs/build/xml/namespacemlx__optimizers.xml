@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers</compoundname>
+    <innernamespace refid="namespacemlx__optimizers_1_1adopt">mlx_optimizers::adopt</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1diffgrad">mlx_optimizers::diffgrad</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1kron">mlx_optimizers::kron</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1lamb">mlx_optimizers::lamb</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1madgrad">mlx_optimizers::madgrad</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1muon">mlx_optimizers::muon</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1qhadam">mlx_optimizers::qhadam</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1shampoo">mlx_optimizers::shampoo</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1version">mlx_optimizers::version</innernamespace>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemlx__optimizers_1ab9a9adee12fba6f38d2ed90366a04f99" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.__version__</definition>
+        <argsstring></argsstring>
+        <name>__version__</name>
+        <qualifiedname>mlx_optimizers.__version__</qualifiedname>
+        <initializer>=  VERSION</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/__init__.py" line="3" column="1" bodyfile="mlx_optimizers/__init__.py" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemlx__optimizers_1a931e82b7aa01b47aed334c32d10fa74d" prot="private" static="no" mutable="no">
+        <type>list</type>
+        <definition>list mlx_optimizers.__all__</definition>
+        <argsstring></argsstring>
+        <name>__all__</name>
+        <qualifiedname>mlx_optimizers.__all__</qualifiedname>
+        <initializer>=  [
+    &quot;ADOPT&quot;,
+    &quot;DiffGrad&quot;,
+    &quot;Kron&quot;,
+    &quot;Lamb&quot;,
+    &quot;MADGRAD&quot;,
+    &quot;Muon&quot;,
+    &quot;QHAdam&quot;,
+    &quot;Shampoo&quot;,
+    &quot;__version__&quot;,
+]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/__init__.py" line="14" column="1" bodyfile="mlx_optimizers/__init__.py" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="version_8py" kind="file" language="Python">
+    <compoundname>version.py</compoundname>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1version">mlx_optimizers::version</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1version" refkind="compound"><highlight class="normal">_MAJOR<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">_MINOR<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;3&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">#<sp/>On<sp/>main<sp/>and<sp/>in<sp/>a<sp/>nightly<sp/>release<sp/>the<sp/>patch<sp/>should<sp/>be<sp/>one<sp/>ahead<sp/>of<sp/>the<sp/>last</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">#<sp/>released<sp/>build.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">_PATCH<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">#<sp/>This<sp/>is<sp/>mainly<sp/>for<sp/>nightly<sp/>builds<sp/>which<sp/>have<sp/>the<sp/>suffix<sp/>&quot;.dev$DATE&quot;.<sp/>See</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">#<sp/>https://semver.org/#is-v123-a-semantic-version<sp/>for<sp/>the<sp/>semantics.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">_SUFFIX<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">VERSION_SHORT<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;{0}.{1}&quot;</highlight><highlight class="normal">.format(_MAJOR,<sp/>_MINOR)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">VERSION<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;{0}.{1}.{2}{3}&quot;</highlight><highlight class="normal">.format(_MAJOR,<sp/>_MINOR,<sp/>_PATCH,<sp/>_SUFFIX)</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/version.py"/>
+  </compounddef>
+</doxygen>

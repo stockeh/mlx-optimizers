@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="en-US">
+  <compound refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t" kind="class"><name>mlx_optimizers::adopt::ADOPT</name>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" kind="variable"><name>betas</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a49ccc0a76f72c4dbe8f693dd23ee982c" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad" kind="class"><name>mlx_optimizers::diffgrad::DiffGrad</name>
+    <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a4821c6dc177c6ff083efe3d896d23f9c" kind="variable"><name>betas</name></member>
+    <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1ab56b60dce36066a5f4a098d1424bdd1b" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a6d9cec91c4dac13ed4e4103d1e5d707f" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a3761939e07d131ecc1385b721f40c245" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1a8c97920658dc70b706c97925b212926f" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1diffgrad_1_1_diff_grad_1aab7a241532007f7b7548475c1c105add" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1kron_1_1_kron" kind="class"><name>mlx_optimizers::kron::Kron</name>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ab878e08b42d6766d73afcd5e21a1623b" kind="variable"><name>rng</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a7311c555c452817a4b11fbd7e6f73edb" kind="variable"><name>b1</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a1ef835f2272a79acceeb6e27b128b155" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a8f42d324af8ce652263e4c85a96fb12c" kind="variable"><name>precond_update_prob</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ab5b2bdf99a1a040adef57a7ff2832ff7" kind="variable"><name>max_size_triangular</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a501418dc2a3135b176cef9a83a453783" kind="variable"><name>min_ndim_triangular</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1af8f6cda6be902c347b669dc6d5f048d0" kind="variable"><name>memory_save_mode</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ae9cb2246b142e2d76ceb3447db2f2f6f" kind="variable"><name>momentum_into_precond_update</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a893f9afd4f96d55cf2f6c69a4e58d885" kind="variable"><name>precond_learning_rate</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ae7c1f7e56d949f67fdc8f17402a65d44" kind="variable"><name>precond_init_scale</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a69d0bfa0158a67ebed295c4c493ee705" kind="variable"><name>trust_region</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a9b78679964ed2ae43ad9f6f55b479c48" kind="variable"><name>_tiny</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a082126dbacf9c3827690efc5543eadb2" kind="variable"><name>_do_update_balance</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1ae6f7b816cbb5c57c04de68279f02dc22" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1addd708455583ada6a0831dfb17a87ba5" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a4791ef356fcca43a084a08ebb9223634" kind="function"><name>apply_single</name></member>
+    <member refid="classmlx__optimizers_1_1kron_1_1_kron_1a0678e5d49b26018064ff82dd7571ee96" kind="function"><name>_do_update_balance</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1lamb_1_1_lamb" kind="class"><name>mlx_optimizers::lamb::Lamb</name>
+    <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1ab87d1a4974a6c10eacefaaf7d28d1804" kind="variable"><name>betas</name></member>
+    <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1a2942e6d9fd238aced22396f27e88d764" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1adb37d81413f512c7ef6639f5f5fc7d5a" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1acc2d8e404d9528eaa790c2e4445a95ce" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1a9c6a27a2818114f64324c15260234824" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1lamb_1_1_lamb_1abf49c29464fe89449ec831076a9c0393" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d" kind="class"><name>mlx_optimizers::madgrad::MADGRAD</name>
+    <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" kind="variable"><name>momentum</name></member>
+    <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a698dc8950a706ad9e62dcee86d559e03" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a4df6836c8ca414062be023a67e020494" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ae15b0e18cddd30ee63fe0a5c9d79042d" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a0b3f5bf8149b65180e56a3ad4394c1c5" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ada6337ae4c044d1c6fb1b9be008fab37" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1muon_1_1_muon" kind="class"><name>mlx_optimizers::muon::Muon</name>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" kind="variable"><name>momentum</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a63d2be8a2c3c2c410d1560d2c50f3e4e" kind="variable"><name>nesterov</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1ab3c4eeafc15a251481a88b7e7b1367be" kind="variable"><name>backend</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a9492423350f4e9647dd9e0d71a194192" kind="variable"><name>backend_steps</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1aab939e07089cec77add3a7eb00d7c033" kind="variable"><name>alternate_optimizer</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a9dbf4da2fe276162e0ee069e5fb1aa2c" kind="variable"><name>orthogonalize</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a63263c12b6cdcc9b2d9f52c6d3956877" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a3f2ff347a8c53853f80051e0aef00f6b" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a0304f3e10866d3f1801e42e5b7ceff79" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam" kind="class"><name>mlx_optimizers::qhadam::QHAdam</name>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a72e33d2ba0a911a650d698bfacc23c07" kind="variable"><name>betas</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1aa1a0eaf861e00c6262418207cfff5456" kind="variable"><name>nus</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a0c917c20da7d95dae3f309129b5d25ae" kind="variable"><name>decouple_weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1af499ac475545c8acb4b5fb2e41c31930" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a61829a941e53e8891a789857642eca41" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a920f824a76b024840e2d463fcc4918f3" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a685f54100aff46a5d07d513477083713" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="classmlx__optimizers_1_1shampoo_1_1_shampoo" kind="class"><name>mlx_optimizers::shampoo::Shampoo</name>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a5248e287b9734c62def59d520c0a1236" kind="variable"><name>momentum</name></member>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1af3b62ed4a749dc01687ccedcc346faef" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1aafb65cd4fde6e1771a7e80ef6188dadb" kind="variable"><name>update_freq</name></member>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a6d80a3d527130fa1d67405a132af416a" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1ae94013c01a1d8d74c46ea9425cc8068c" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a2e1cdc11fd87d5e9b7294546fc86320b" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a1b35724a9c1b125887864b032fee7630" kind="function"><name>apply_single</name></member>
+  </compound>
+  <compound refid="namespacemlx__optimizers" kind="namespace"><name>mlx_optimizers</name>
+    <member refid="namespacemlx__optimizers_1ab9a9adee12fba6f38d2ed90366a04f99" kind="variable"><name>__version__</name></member>
+    <member refid="namespacemlx__optimizers_1a931e82b7aa01b47aed334c32d10fa74d" kind="variable"><name>__all__</name></member>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1adopt" kind="namespace"><name>mlx_optimizers::adopt</name>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1diffgrad" kind="namespace"><name>mlx_optimizers::diffgrad</name>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1kron" kind="namespace"><name>mlx_optimizers::kron</name>
+    <member refid="namespacemlx__optimizers_1_1kron_1a0056a1ad6ff5afc6a451f651607a316f" kind="function"><name>flat_exponential_schedule</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a357f1e530e4c0b3f060d86cfdb499bf2" kind="function"><name>init_Q_exprs</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1aca6648303e7d398cb45d5fe3de44adc6" kind="function"><name>_balance_Q</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a541f5fe431db26da518047429721392d" kind="function"><name>_calc_A_and_conjB</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a5f3821e840692d4a47968064f68827ed" kind="function"><name>_q_terms</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1aca341f6e0342949b701402955c4da1c8" kind="function"><name>H</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a1c0ace15f507823de06c1797ef91efb5" kind="function"><name>imax</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1ab1d035c743d5a17dd39649afbc0c81d5" kind="function"><name>_lb</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a189fcddc99067aa970b0a5baabe08382" kind="function"><name>_norm_lower_bound</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a9194fe7ea214e8c92205d792e96cebc6" kind="function"><name>_update_precond</name></member>
+    <member refid="namespacemlx__optimizers_1_1kron_1a20fa43deb257b8bf5efdbb3a539ed0a5" kind="function"><name>_precond_grad</name></member>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1lamb" kind="namespace"><name>mlx_optimizers::lamb</name>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1madgrad" kind="namespace"><name>mlx_optimizers::madgrad</name>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1muon" kind="namespace"><name>mlx_optimizers::muon</name>
+    <member refid="namespacemlx__optimizers_1_1muon_1a82e5c8146a0ccc55f218d8439e3556f1" kind="function"><name>zeropower_via_svd</name></member>
+    <member refid="namespacemlx__optimizers_1_1muon_1a574131c3c099a6029fe4070080a2376a" kind="function"><name>zeropower_via_newtonschulz5</name></member>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1qhadam" kind="namespace"><name>mlx_optimizers::qhadam</name>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1shampoo" kind="namespace"><name>mlx_optimizers::shampoo</name>
+    <member refid="namespacemlx__optimizers_1_1shampoo_1a55b0cb17f5af39067601154e127b7217" kind="function"><name>_matrix_power</name></member>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1version" kind="namespace"><name>mlx_optimizers::version</name>
+    <member refid="namespacemlx__optimizers_1_1version_1a5e6e8c606d3b11df1936b3659d0b881b" kind="variable"><name>_MAJOR</name></member>
+    <member refid="namespacemlx__optimizers_1_1version_1a47cfec7ec2ccefc517319e00842d2ed7" kind="variable"><name>_MINOR</name></member>
+    <member refid="namespacemlx__optimizers_1_1version_1ae8d8c5a7deb7f1cdd2584eeb61338d05" kind="variable"><name>_PATCH</name></member>
+    <member refid="namespacemlx__optimizers_1_1version_1a79f8b03a305965485ade582ebb9e1463" kind="variable"><name>_SUFFIX</name></member>
+    <member refid="namespacemlx__optimizers_1_1version_1a7d2014c5459e3fe8e17f33fdda4e3f53" kind="variable"><name>VERSION_SHORT</name></member>
+    <member refid="namespacemlx__optimizers_1_1version_1afafd2a4d3eb62571cf1141c8bcff397d" kind="variable"><name>VERSION</name></member>
+  </compound>
+  <compound refid="____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="adopt_8py" kind="file"><name>adopt.py</name>
+  </compound>
+  <compound refid="diffgrad_8py" kind="file"><name>diffgrad.py</name>
+  </compound>
+  <compound refid="kron_8py" kind="file"><name>kron.py</name>
+  </compound>
+  <compound refid="lamb_8py" kind="file"><name>lamb.py</name>
+  </compound>
+  <compound refid="madgrad_8py" kind="file"><name>madgrad.py</name>
+  </compound>
+  <compound refid="muon_8py" kind="file"><name>muon.py</name>
+  </compound>
+  <compound refid="qhadam_8py" kind="file"><name>qhadam.py</name>
+  </compound>
+  <compound refid="shampoo_8py" kind="file"><name>shampoo.py</name>
+  </compound>
+  <compound refid="version_8py" kind="file"><name>version.py</name>
+  </compound>
+  <compound refid="dir_9eecc1e8ecc488ebc484b8ea4d871ce3" kind="dir"><name>mlx_optimizers</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1shampoo_1_1_shampoo" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::shampoo::Shampoo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a5248e287b9734c62def59d520c0a1236" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.shampoo.Shampoo::momentum</definition>
+        <argsstring></argsstring>
+        <name>momentum</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.momentum</qualifiedname>
+        <initializer>=  momentum</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="50" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1af3b62ed4a749dc01687ccedcc346faef" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.shampoo.Shampoo::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="51" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1aafb65cd4fde6e1771a7e80ef6188dadb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mlx_optimizers.shampoo.Shampoo::update_freq</definition>
+        <argsstring></argsstring>
+        <name>update_freq</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.update_freq</qualifiedname>
+        <initializer>=  update_freq</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="52" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a6d80a3d527130fa1d67405a132af416a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.shampoo.Shampoo::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="53" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1ae94013c01a1d8d74c46ea9425cc8068c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.shampoo.Shampoo.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, float momentum=0.0, float weight_decay=0.0, int update_freq=1, float eps=1e-4)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>momentum</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>momentum</declname>
+          <defname>weight_decay</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>update_freq</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>update_freq</declname>
+          <defname>eps</defname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defval>1e-4</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="39" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="46" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a2e1cdc11fd87d5e9b7294546fc86320b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.shampoo.Shampoo.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="55" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="55" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a1b35724a9c1b125887864b032fee7630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.shampoo.Shampoo.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.shampoo.Shampoo.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Performs a single optimization step, updating :math:`m` and :math:`v`</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/shampoo.py" line="65" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="65" bodyend="110"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Preconditioned Stochastic Tensor Optimization (general tensor case) [1].
+
+.. math::
+
+    W_1 &amp;= 0_{n_1 \times \dots \times n_k}; \forall i \in [k]: H_0^i = \epsilon I_{n_i}\\
+    H_t^i &amp;= H_{t-1}^i + G_t^{(i)}\\
+    \tilde{G}_t &amp;= \tilde{G}_t \times_i (H_t^i)^{-1/2k}\\
+    W_{t+1} &amp;= W_t - \eta \tilde{G}_t
+
+[1] Gupta, Vineet, Tomer Koren, and Yoram Singer, 2018. Shampoo: Preconditioned 
+stochastic tensor optimization. ICML 2018.
+https://arxiv.org/abs/1802.09568
+
+
+Args:
+    learning_rate (float or callable): learning rate :math:`\eta`.
+    momentum (float, optional): momentum factor. Default: ``0.00``
+    weight_decay (float, optional): weight decay factor. Default: ``0.00``
+    update_freq (int, optional): frequency of updating the preconditioner. Default: ``1``
+    eps (float, optional): term :math:`\epsilon` added to the
+        denominator to improve numerical stability. Default: ``1e-6``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.shampoo.Shampoo</label>
+        <link refid="classmlx__optimizers_1_1shampoo_1_1_shampoo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.shampoo.Shampoo</label>
+        <link refid="classmlx__optimizers_1_1shampoo_1_1_shampoo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/shampoo.py" line="13" column="1" bodyfile="mlx_optimizers/shampoo.py" bodystart="13" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1ae94013c01a1d8d74c46ea9425cc8068c" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a1b35724a9c1b125887864b032fee7630" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a6d80a3d527130fa1d67405a132af416a" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a2e1cdc11fd87d5e9b7294546fc86320b" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a5248e287b9734c62def59d520c0a1236" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>momentum</name></member>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1aafb65cd4fde6e1771a7e80ef6188dadb" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>update_freq</name></member>
+      <member refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1af3b62ed4a749dc01687ccedcc346faef" prot="public" virt="non-virtual"><scope>mlx_optimizers::shampoo::Shampoo</scope><name>weight_decay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

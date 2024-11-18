@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1muon_1_1_muon" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::muon::Muon</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon::momentum</definition>
+        <argsstring></argsstring>
+        <name>momentum</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.momentum</qualifiedname>
+        <initializer>=  momentum</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="73" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1muon_1_1_muon_1a63d2be8a2c3c2c410d1560d2c50f3e4e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon::nesterov</definition>
+        <argsstring></argsstring>
+        <name>nesterov</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.nesterov</qualifiedname>
+        <initializer>=  nesterov</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="74" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1muon_1_1_muon_1ab3c4eeafc15a251481a88b7e7b1367be" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon::backend</definition>
+        <argsstring></argsstring>
+        <name>backend</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.backend</qualifiedname>
+        <initializer>=  backend</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="75" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1muon_1_1_muon_1a9492423350f4e9647dd9e0d71a194192" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon::backend_steps</definition>
+        <argsstring></argsstring>
+        <name>backend_steps</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.backend_steps</qualifiedname>
+        <initializer>=  backend_steps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="76" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1muon_1_1_muon_1aab939e07089cec77add3a7eb00d7c033" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon::alternate_optimizer</definition>
+        <argsstring></argsstring>
+        <name>alternate_optimizer</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.alternate_optimizer</qualifiedname>
+        <initializer>=  alternate_optimizer</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="77" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1muon_1_1_muon_1a9dbf4da2fe276162e0ee069e5fb1aa2c" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict mlx_optimizers.muon.Muon::orthogonalize</definition>
+        <argsstring></argsstring>
+        <name>orthogonalize</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.orthogonalize</qualifiedname>
+        <initializer>=  {
+                &quot;svd&quot;: <ref refid="namespacemlx__optimizers_1_1muon_1a82e5c8146a0ccc55f218d8439e3556f1" kindref="member">zeropower_via_svd</ref>,
+                &quot;newtonschulz5&quot;: <ref refid="namespacemlx__optimizers_1_1muon_1a574131c3c099a6029fe4070080a2376a" kindref="member">zeropower_via_newtonschulz5</ref>,
+            }[<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1ab3c4eeafc15a251481a88b7e7b1367be" kindref="member">backend</ref>]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="80" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1muon_1_1_muon_1a63263c12b6cdcc9b2d9f52c6d3956877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate=0.02, float momentum=0.95, bool nesterov=True, str backend=&quot;newtonschulz5&quot;, int backend_steps=5, Optimizer alternate_optimizer=AdamW(0.001))</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>momentum</defname>
+          <defval>0.02</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>momentum</declname>
+          <defname>nesterov</defname>
+          <defval>0.95</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>nesterov</declname>
+          <defname>backend</defname>
+          <defval>True</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>backend</declname>
+          <defname>backend_steps</defname>
+          <defval>&quot;newtonschulz5&quot;</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>backend_steps</declname>
+          <defname>alternate_optimizer</defname>
+          <defval>5</defval>
+        </param>
+        <param>
+          <type>Optimizer</type>
+          <declname>alternate_optimizer</declname>
+          <defval>AdamW(0.001)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="62" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="70" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1muon_1_1_muon_1a3f2ff347a8c53853f80051e0aef00f6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="87" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1muon_1_1_muon_1a0304f3e10866d3f1801e42e5b7ceff79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.muon.Muon.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.muon.Muon.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Apply Muon optimization update with Newton-Schulz orthogonalization.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="92" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="92" bodyend="107"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>MomentUm Orthogonalized by Newton-schulz [1].
+
+.. math::
+
+    m_t &amp;= \mu m_{t-1} + g_t \\
+    g_t &amp;= \mu m_t + g_t \text{ if nesterov} \\
+    O_t &amp;= \text{orthogonalize}(g_t) \\
+    \theta_{t} &amp;= \theta_{t-1} - \eta (O_t + \lambda \theta_{t-1})
+
+
+[1] Keller Jordan, 2024. https://github.com/KellerJordan/Muon
+
+Args:
+    learning_rate (float or callable): The learning rate :math:`\eta`. Default: ``0.02``
+    momentum (float, optional): The momentum strength :math:`\mu`. Default: ``0.95``
+    nesterov (bool, optional): Enables Nesterov momentum. Default: ``True``
+    backend (str, optional): The orthogonalization backend. Default: ``&quot;newtonschulz5&quot;``
+    backend_steps (int, optional): The number of steps for orthogonalization. Default: ``5``
+    alternate_optimizer (Optimizer, optional): The alternate optimizer to use when
+        the parameter is not a 2D tensor. Default: ``AdamW(0.001)``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.muon.Muon</label>
+        <link refid="classmlx__optimizers_1_1muon_1_1_muon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.muon.Muon</label>
+        <link refid="classmlx__optimizers_1_1muon_1_1_muon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/muon.py" line="37" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="37" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a63263c12b6cdcc9b2d9f52c6d3956877" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1aab939e07089cec77add3a7eb00d7c033" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>alternate_optimizer</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a0304f3e10866d3f1801e42e5b7ceff79" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1ab3c4eeafc15a251481a88b7e7b1367be" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>backend</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a9492423350f4e9647dd9e0d71a194192" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>backend_steps</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a3f2ff347a8c53853f80051e0aef00f6b" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>momentum</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a63d2be8a2c3c2c410d1560d2c50f3e4e" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>nesterov</name></member>
+      <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a9dbf4da2fe276162e0ee069e5fb1aa2c" prot="public" virt="non-virtual"><scope>mlx_optimizers::muon::Muon</scope><name>orthogonalize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

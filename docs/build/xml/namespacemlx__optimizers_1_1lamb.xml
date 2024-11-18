@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers_1_1lamb" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers::lamb</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1lamb_1_1_lamb" prot="public">mlx_optimizers::lamb::Lamb</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/lamb.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

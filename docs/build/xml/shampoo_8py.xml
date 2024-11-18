@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="shampoo_8py" kind="file" language="Python">
+    <compoundname>shampoo.py</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1shampoo_1_1_shampoo" prot="public">mlx_optimizers::shampoo::Shampoo</innerclass>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1shampoo">mlx_optimizers::shampoo</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1shampoo" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Callable,<sp/>Union</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>mlx.core<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>mx</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.optimizers<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Optimizer</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemlx__optimizers_1_1shampoo_1a55b0cb17f5af39067601154e127b7217" kindref="member">_matrix_power</ref>(matrix:<sp/>mx.array,<sp/>power:<sp/>float,<sp/>eps=1e-16)<sp/>-&gt;<sp/>mx.array:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>u,<sp/>s,<sp/>vt<sp/>=<sp/>mx.linalg.svd(matrix,<sp/>stream=mx.cpu)<sp/><sp/></highlight><highlight class="comment">#<sp/>type:<sp/>ignore</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>eps:<sp/>needed<sp/>to<sp/>avoid<sp/>runtime<sp/>command<sp/>buffer<sp/>execution<sp/>(MLX)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u<sp/>@<sp/>mx.power(s<sp/>+<sp/>eps,<sp/>power).diag()<sp/>@<sp/>vt</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classmlx__optimizers_1_1shampoo_1_1_shampoo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo" kindref="compound">Shampoo</ref>(Optimizer):</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;Preconditioned<sp/>Stochastic<sp/>Tensor<sp/>Optimization<sp/>(general<sp/>tensor<sp/>case)<sp/>[1].</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>W_1<sp/>&amp;=<sp/>0_{n_1<sp/>\times<sp/>\dots<sp/>\times<sp/>n_k};<sp/>\forall<sp/>i<sp/>\in<sp/>[k]:<sp/>H_0^i<sp/>=<sp/>\epsilon<sp/>I_{n_i}\\</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>H_t^i<sp/>&amp;=<sp/>H_{t-1}^i<sp/>+<sp/>G_t^{(i)}\\</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\tilde{G}_t<sp/>&amp;=<sp/>\tilde{G}_t<sp/>\times_i<sp/>(H_t^i)^{-1/2k}\\</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>W_{t+1}<sp/>&amp;=<sp/>W_t<sp/>-<sp/>\eta<sp/>\tilde{G}_t</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>[1]<sp/>Gupta,<sp/>Vineet,<sp/>Tomer<sp/>Koren,<sp/>and<sp/>Yoram<sp/>Singer,<sp/>2018.<sp/>Shampoo:<sp/>Preconditioned<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>stochastic<sp/>tensor<sp/>optimization.<sp/>ICML<sp/>2018.</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://arxiv.org/abs/1802.09568</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate<sp/>(float<sp/>or<sp/>callable):<sp/>learning<sp/>rate<sp/>:math:`\eta`.</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum<sp/>(float,<sp/>optional):<sp/>momentum<sp/>factor.<sp/>Default:<sp/>``0.00``</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay<sp/>(float,<sp/>optional):<sp/>weight<sp/>decay<sp/>factor.<sp/>Default:<sp/>``0.00``</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update_freq<sp/>(int,<sp/>optional):<sp/>frequency<sp/>of<sp/>updating<sp/>the<sp/>preconditioner.<sp/>Default:<sp/>``1``</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps<sp/>(float,<sp/>optional):<sp/>term<sp/>:math:`\epsilon`<sp/>added<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denominator<sp/>to<sp/>improve<sp/>numerical<sp/>stability.<sp/>Default:<sp/>``1e-6``</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..</highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1ae94013c01a1d8d74c46ea9425cc8068c" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]],</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum:<sp/>float<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>float<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update_freq:<sp/>int<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps:<sp/>float<sp/>=<sp/>1e-4,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1ae94013c01a1d8d74c46ea9425cc8068c" kindref="member">__init__</ref>()</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate&quot;</highlight><highlight class="normal">,<sp/>learning_rate)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a5248e287b9734c62def59d520c0a1236" kindref="member">momentum</ref><sp/>=<sp/>momentum</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1af3b62ed4a749dc01687ccedcc346faef" kindref="member">weight_decay</ref><sp/>=<sp/>weight_decay</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1aafb65cd4fde6e1771a7e80ef6188dadb" kindref="member">update_freq</ref><sp/>=<sp/>update_freq</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a6d80a3d527130fa1d67405a132af416a" kindref="member">eps</ref><sp/>=<sp/>eps</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a2e1cdc11fd87d5e9b7294546fc86320b" kindref="member">init_single</ref>(self,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Initialize<sp/>optimizer<sp/>state&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a5248e287b9734c62def59d520c0a1236" kindref="member">momentum</ref><sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;buf&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i,<sp/>dim<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(parameter.shape):</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[f</highlight><highlight class="stringliteral">&quot;precond_{i}&quot;</highlight><highlight class="normal">]<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a6d80a3d527130fa1d67405a132af416a" kindref="member">eps</ref><sp/>*<sp/>mx.eye(dim)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[f</highlight><highlight class="stringliteral">&quot;inv_precond_{i}&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros((dim,<sp/>dim))</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;dim_inds&quot;</highlight><highlight class="normal">]<sp/>=<sp/>list(range(parameter.ndim))</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;update_step&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a1b35724a9c1b125887864b032fee7630" kindref="member">apply_single</ref>(self,<sp/>gradient:<sp/>mx.array,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Performs<sp/>a<sp/>single<sp/>optimization<sp/>step,<sp/>updating<sp/>:math:`m`<sp/>and<sp/>:math:`v`&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate.astype(gradient.dtype)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1a5248e287b9734c62def59d520c0a1236" kindref="member">momentum</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;dim_inds&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>order<sp/>=<sp/>gradient.ndim</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>original_size<sp/>=<sp/>gradient.shape</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>momentum<sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>state[</highlight><highlight class="stringliteral">&quot;update_step&quot;</highlight><highlight class="normal">]<sp/>==<sp/>0:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;buf&quot;</highlight><highlight class="normal">]<sp/>=<sp/>gradient</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>(1<sp/>-<sp/>momentum)<sp/>*<sp/>gradient<sp/>+<sp/>momentum<sp/>*<sp/>state[</highlight><highlight class="stringliteral">&quot;buf&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1af3b62ed4a749dc01687ccedcc346faef" kindref="member">weight_decay</ref><sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1af3b62ed4a749dc01687ccedcc346faef" kindref="member">weight_decay</ref><sp/>*<sp/>parameter</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i,<sp/>dim<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(gradient.shape):</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>precond<sp/>=<sp/>state[f</highlight><highlight class="stringliteral">&quot;precond_{i}&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inv_precond<sp/>=<sp/>state[f</highlight><highlight class="stringliteral">&quot;inv_precond_{i}&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>i<sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient.transpose([d[i]]<sp/>+<sp/>d[1:i]<sp/>+<sp/>[d[0]]<sp/>+<sp/>d[i<sp/>+<sp/>1<sp/>:])</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transpose_size<sp/>=<sp/>gradient.shape</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient.reshape(dim,<sp/>-1)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient_t<sp/>=<sp/>gradient.T</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>precond<sp/>=<sp/>precond<sp/>+<sp/>gradient<sp/>@<sp/>gradient_t</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>state[</highlight><highlight class="stringliteral">&quot;update_step&quot;</highlight><highlight class="normal">]<sp/>%<sp/>self.<ref refid="classmlx__optimizers_1_1shampoo_1_1_shampoo_1aafb65cd4fde6e1771a7e80ef6188dadb" kindref="member">update_freq</ref><sp/>==<sp/>0:</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inv_precond<sp/>=<sp/><ref refid="namespacemlx__optimizers_1_1shampoo_1a55b0cb17f5af39067601154e127b7217" kindref="member">_matrix_power</ref>(precond,<sp/>-1<sp/>/<sp/>order)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>i<sp/>==<sp/>order<sp/>-<sp/>1:<sp/><sp/></highlight><highlight class="comment">#<sp/>finally</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient_t<sp/>@<sp/>inv_precond</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient.reshape(original_size)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[f</highlight><highlight class="stringliteral">&quot;precond_{i}&quot;</highlight><highlight class="normal">]<sp/>=<sp/>precond</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[f</highlight><highlight class="stringliteral">&quot;inv_precond_{i}&quot;</highlight><highlight class="normal">]<sp/>=<sp/>inv_precond</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>inv_precond<sp/>@<sp/>gradient</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient.reshape(transpose_size)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>momentum<sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;buf&quot;</highlight><highlight class="normal">]<sp/>=<sp/>gradient</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;update_step&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient.reshape(original_size)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parameter<sp/>-<sp/>lr<sp/>*<sp/>gradient</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/shampoo.py"/>
+  </compounddef>
+</doxygen>

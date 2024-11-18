@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::adopt::ADOPT</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT::betas</definition>
+        <argsstring></argsstring>
+        <name>betas</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.betas</qualifiedname>
+        <initializer>=  betas</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="42" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="43" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a49ccc0a76f72c4dbe8f693dd23ee982c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.9999], float eps=1e-6)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>betas</defname>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>betas</declname>
+          <defname>eps</defname>
+          <array>[float]</array>
+          <defval>[0.9, 0.9999]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defval>1e-6</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="33" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="38" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="45" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="45" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Performs a single optimization step, updating :math:`m` and :math:`v`</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="51" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="51" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>ADaptive gradient method with the OPTimal convergence rate [1].
+
+.. math::
+
+    v_0 &amp;= g_0^2, m_1 = g_1 / \max{\sqrt{v_0}, \epsilon} \\
+    \theta_{t} &amp;= \theta_{t-1} - \eta m_{t-1} \\
+    v_{t} &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
+    m_{t+1} &amp;= \beta_1 m_{t} + (1 - \beta_1) (g_{t+1} / \max{\sqrt{v_t}, \epsilon})
+
+[1] Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
+Converge with Any :math:`\beta_2` with the Optimal Rate. NeurIPS 2024.
+https://arxiv.org/abs/2411.02853
+https://github.com/iShohei220/adopt
+
+Args:
+    learning_rate (float or callable): The learning rate :math:`\eta`.
+    betas (Tuple[float, float], optional): The coefficients
+        :math:`(\beta_1, \beta_2)` used for computing running averages of the
+        gradient and its square. Default: ``(0.9, 0.9999)``
+    eps (float, optional): The term :math:`\epsilon` added to the
+        denominator to improve numerical stability. Default: ``1e-6``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.adopt.ADOPT</label>
+        <link refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.adopt.ADOPT</label>
+        <link refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/adopt.py" line="7" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="7" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a49ccc0a76f72c4dbe8f693dd23ee982c" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>betas</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>init_single</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

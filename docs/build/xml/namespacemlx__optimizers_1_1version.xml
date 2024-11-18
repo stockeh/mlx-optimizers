@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers_1_1version" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers::version</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemlx__optimizers_1_1version_1a5e6e8c606d3b11df1936b3659d0b881b" prot="protected" static="no" mutable="no">
+        <type>str</type>
+        <definition>str mlx_optimizers::version._MAJOR</definition>
+        <argsstring></argsstring>
+        <name>_MAJOR</name>
+        <qualifiedname>mlx_optimizers.version._MAJOR</qualifiedname>
+        <initializer>=  &quot;0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/version.py" line="1" column="1" bodyfile="mlx_optimizers/version.py" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemlx__optimizers_1_1version_1a47cfec7ec2ccefc517319e00842d2ed7" prot="protected" static="no" mutable="no">
+        <type>str</type>
+        <definition>str mlx_optimizers::version._MINOR</definition>
+        <argsstring></argsstring>
+        <name>_MINOR</name>
+        <qualifiedname>mlx_optimizers.version._MINOR</qualifiedname>
+        <initializer>=  &quot;3&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/version.py" line="2" column="1" bodyfile="mlx_optimizers/version.py" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemlx__optimizers_1_1version_1ae8d8c5a7deb7f1cdd2584eeb61338d05" prot="protected" static="no" mutable="no">
+        <type>str</type>
+        <definition>str mlx_optimizers::version._PATCH</definition>
+        <argsstring></argsstring>
+        <name>_PATCH</name>
+        <qualifiedname>mlx_optimizers.version._PATCH</qualifiedname>
+        <initializer>=  &quot;0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/version.py" line="5" column="1" bodyfile="mlx_optimizers/version.py" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemlx__optimizers_1_1version_1a79f8b03a305965485ade582ebb9e1463" prot="protected" static="no" mutable="no">
+        <type>str</type>
+        <definition>str mlx_optimizers::version._SUFFIX</definition>
+        <argsstring></argsstring>
+        <name>_SUFFIX</name>
+        <qualifiedname>mlx_optimizers.version._SUFFIX</qualifiedname>
+        <initializer>=  &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/version.py" line="8" column="1" bodyfile="mlx_optimizers/version.py" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemlx__optimizers_1_1version_1a7d2014c5459e3fe8e17f33fdda4e3f53" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str mlx_optimizers::version.VERSION_SHORT</definition>
+        <argsstring></argsstring>
+        <name>VERSION_SHORT</name>
+        <qualifiedname>mlx_optimizers.version.VERSION_SHORT</qualifiedname>
+        <initializer>=  &quot;{0}.{1}&quot;.format(<ref refid="namespacemlx__optimizers_1_1version_1a5e6e8c606d3b11df1936b3659d0b881b" kindref="member">_MAJOR</ref>, <ref refid="namespacemlx__optimizers_1_1version_1a47cfec7ec2ccefc517319e00842d2ed7" kindref="member">_MINOR</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/version.py" line="10" column="1" bodyfile="mlx_optimizers/version.py" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemlx__optimizers_1_1version_1afafd2a4d3eb62571cf1141c8bcff397d" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str mlx_optimizers::version.VERSION</definition>
+        <argsstring></argsstring>
+        <name>VERSION</name>
+        <qualifiedname>mlx_optimizers.version.VERSION</qualifiedname>
+        <initializer>=  &quot;{0}.{1}.{2}{3}&quot;.format(<ref refid="namespacemlx__optimizers_1_1version_1a5e6e8c606d3b11df1936b3659d0b881b" kindref="member">_MAJOR</ref>, <ref refid="namespacemlx__optimizers_1_1version_1a47cfec7ec2ccefc517319e00842d2ed7" kindref="member">_MINOR</ref>, <ref refid="namespacemlx__optimizers_1_1version_1ae8d8c5a7deb7f1cdd2584eeb61338d05" kindref="member">_PATCH</ref>, <ref refid="namespacemlx__optimizers_1_1version_1a79f8b03a305965485ade582ebb9e1463" kindref="member">_SUFFIX</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/version.py" line="11" column="1" bodyfile="mlx_optimizers/version.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/version.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

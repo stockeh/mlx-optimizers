@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="muon_8py" kind="file" language="Python">
+    <compoundname>muon.py</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1muon_1_1_muon" prot="public">mlx_optimizers::muon::Muon</innerclass>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1muon">mlx_optimizers::muon</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1muon" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Callable,<sp/>Union</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>mlx.core<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>mx</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.optimizers<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>AdamW,<sp/>Optimizer</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemlx__optimizers_1_1muon_1a82e5c8146a0ccc55f218d8439e3556f1" kindref="member">zeropower_via_svd</ref>(G,<sp/>steps=None)<sp/>-&gt;<sp/>mx.array:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>U,<sp/>S,<sp/>Vt<sp/>=<sp/>mx.linalg.svd(G,<sp/>stream=mx.cpu)<sp/><sp/></highlight><highlight class="comment">#<sp/>type:<sp/>ignore</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>U<sp/>@<sp/>Vt</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">@mx.compile</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemlx__optimizers_1_1muon_1a574131c3c099a6029fe4070080a2376a" kindref="member">zeropower_via_newtonschulz5</ref>(G,<sp/>steps=10,<sp/>eps=1e-7)<sp/>-&gt;<sp/>mx.array:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;Newton-Schulz<sp/>iteration<sp/>to<sp/>compute<sp/>the<sp/>zeroth<sp/>power<sp/>/<sp/>orthogonalization<sp/>of<sp/>:math:`G`.<sp/>We<sp/>opt<sp/>to</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>use<sp/>a<sp/>quintic<sp/>iteration<sp/>whose<sp/>coefficients<sp/>are<sp/>selected<sp/>to<sp/>maximize<sp/>the<sp/>slope<sp/>at<sp/>zero.<sp/>For<sp/>the<sp/>purpose</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>of<sp/>minimizing<sp/>steps,<sp/>it<sp/>turns<sp/>out<sp/>to<sp/>be<sp/>empirically<sp/>effective<sp/>to<sp/>keep<sp/>increasing<sp/>the<sp/>slope<sp/>at</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>zero<sp/>even<sp/>beyond<sp/>the<sp/>point<sp/>where<sp/>the<sp/>iteration<sp/>no<sp/>longer<sp/>converges<sp/>all<sp/>the<sp/>way<sp/>to<sp/>one<sp/>everywhere</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>on<sp/>the<sp/>interval.<sp/>This<sp/>iteration<sp/>therefore<sp/>does<sp/>not<sp/>produce<sp/>:math:`UV^T`<sp/>but<sp/>rather<sp/>something<sp/>like</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:math:`US&apos;V^T`<sp/>where<sp/>:math:`S&apos;`<sp/>is<sp/>diagonal<sp/>with<sp/>:math:`S_{ii}&apos;<sp/>\sim<sp/>Uniform(0.5,<sp/>1.5)`,<sp/>which<sp/>turns</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>out<sp/>not<sp/>to<sp/>hurt<sp/>model<sp/>performance<sp/>at<sp/>all<sp/>relative<sp/>to<sp/>:math:`UV^T`,<sp/>where<sp/>:math:`USV^T<sp/>=<sp/>G`<sp/>is<sp/>the<sp/>SVD.</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/>len(G.shape)<sp/>==<sp/>2</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>a,<sp/>b,<sp/>c<sp/>=<sp/>(3.4445,<sp/>-4.7750,<sp/>2.0315)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>X<sp/>=<sp/>G.astype(mx.bfloat16)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>X<sp/>/=<sp/>mx.linalg.norm(X)<sp/>+<sp/>eps<sp/><sp/></highlight><highlight class="comment">#<sp/>ensure<sp/>top<sp/>singular<sp/>value<sp/>&lt;=<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>G.shape[0]<sp/>&gt;<sp/>G.shape[1]:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>X<sp/>=<sp/>X.T</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>_<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(steps):</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>=<sp/>X<sp/>@<sp/>X.T</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>B<sp/>=<sp/>A<sp/>@<sp/>X</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>X<sp/>=<sp/>a<sp/>*<sp/>X<sp/>+<sp/>b<sp/>*<sp/>B<sp/>+<sp/>c<sp/>*<sp/>A<sp/>@<sp/>B</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>G.shape[0]<sp/>&gt;<sp/>G.shape[1]:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>X<sp/>=<sp/>X.T</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>X</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classmlx__optimizers_1_1muon_1_1_muon" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1muon_1_1_muon" kindref="compound">Muon</ref>(Optimizer):</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;MomentUm<sp/>Orthogonalized<sp/>by<sp/>Newton-schulz<sp/>[1].</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_t<sp/>&amp;=<sp/>\mu<sp/>m_{t-1}<sp/>+<sp/>g_t<sp/>\\</highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>g_t<sp/>&amp;=<sp/>\mu<sp/>m_t<sp/>+<sp/>g_t<sp/>\text{<sp/>if<sp/>nesterov}<sp/>\\</highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>O_t<sp/>&amp;=<sp/>\text{orthogonalize}(g_t)<sp/>\\</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\theta_{t}<sp/>&amp;=<sp/>\theta_{t-1}<sp/>-<sp/>\eta<sp/>(O_t<sp/>+<sp/>\lambda<sp/>\theta_{t-1})</highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>[1]<sp/>Keller<sp/>Jordan,<sp/>2024.<sp/>https://github.com/KellerJordan/Muon</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate<sp/>(float<sp/>or<sp/>callable):<sp/>The<sp/>learning<sp/>rate<sp/>:math:`\eta`.<sp/>Default:<sp/>``0.02``</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum<sp/>(float,<sp/>optional):<sp/>The<sp/>momentum<sp/>strength<sp/>:math:`\mu`.<sp/>Default:<sp/>``0.95``</highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nesterov<sp/>(bool,<sp/>optional):<sp/>Enables<sp/>Nesterov<sp/>momentum.<sp/>Default:<sp/>``True``</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>backend<sp/>(str,<sp/>optional):<sp/>The<sp/>orthogonalization<sp/>backend.<sp/>Default:<sp/>``&quot;newtonschulz5&quot;``</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>backend_steps<sp/>(int,<sp/>optional):<sp/>The<sp/>number<sp/>of<sp/>steps<sp/>for<sp/>orthogonalization.<sp/>Default:<sp/>``5``</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alternate_optimizer<sp/>(Optimizer,<sp/>optional):<sp/>The<sp/>alternate<sp/>optimizer<sp/>to<sp/>use<sp/>when</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>parameter<sp/>is<sp/>not<sp/>a<sp/>2D<sp/>tensor.<sp/>Default:<sp/>``AdamW(0.001)``</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..</highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a63263c12b6cdcc9b2d9f52c6d3956877" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]]<sp/>=<sp/>0.02,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>momentum:<sp/>float<sp/>=<sp/>0.95,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nesterov:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>backend:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;newtonschulz5&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>backend_steps:<sp/>int<sp/>=<sp/>5,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alternate_optimizer:<sp/>Optimizer<sp/>=<sp/>AdamW(0.001),</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a63263c12b6cdcc9b2d9f52c6d3956877" kindref="member">__init__</ref>()</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate&quot;</highlight><highlight class="normal">,<sp/>learning_rate)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" kindref="member">momentum</ref><sp/>=<sp/>momentum</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a63d2be8a2c3c2c410d1560d2c50f3e4e" kindref="member">nesterov</ref><sp/>=<sp/>nesterov</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1ab3c4eeafc15a251481a88b7e7b1367be" kindref="member">backend</ref><sp/>=<sp/>backend</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a9492423350f4e9647dd9e0d71a194192" kindref="member">backend_steps</ref><sp/>=<sp/>backend_steps</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1aab939e07089cec77add3a7eb00d7c033" kindref="member">alternate_optimizer</ref><sp/>=<sp/>alternate_optimizer</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a9dbf4da2fe276162e0ee069e5fb1aa2c" kindref="member">orthogonalize</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;svd&quot;</highlight><highlight class="normal">:<sp/>zeropower_via_svd,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;newtonschulz5&quot;</highlight><highlight class="normal">:<sp/>zeropower_via_newtonschulz5,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}[backend]</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">except</highlight><highlight class="normal"><sp/>KeyError:</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"><sp/>ValueError(f</highlight><highlight class="stringliteral">&quot;Unknown<sp/>backend:<sp/>{backend}&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a3f2ff347a8c53853f80051e0aef00f6b" kindref="member">init_single</ref>(self,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>parameter.ndim<sp/>!=<sp/>2<sp/></highlight><highlight class="keywordflow">or</highlight><highlight class="normal"><sp/>sum(parameter.shape)<sp/>&gt;<sp/>9999:</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1aab939e07089cec77add3a7eb00d7c033" kindref="member">alternate_optimizer</ref>.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a3f2ff347a8c53853f80051e0aef00f6b" kindref="member">init_single</ref>(parameter,<sp/>state)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;muon_buf&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a0304f3e10866d3f1801e42e5b7ceff79" kindref="member">apply_single</ref>(self,<sp/>gradient:<sp/>mx.array,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Apply<sp/>Muon<sp/>optimization<sp/>update<sp/>with<sp/>Newton-Schulz<sp/>orthogonalization.&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate.astype(gradient.dtype)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;muon_buf&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>state:</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1aab939e07089cec77add3a7eb00d7c033" kindref="member">alternate_optimizer</ref>.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a0304f3e10866d3f1801e42e5b7ceff79" kindref="member">apply_single</ref>(gradient,<sp/>parameter,<sp/>state)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;muon_buf&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf<sp/>=<sp/>buf<sp/>*<sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" kindref="member">momentum</ref><sp/>+<sp/>gradient</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;muon_buf&quot;</highlight><highlight class="normal">]<sp/>=<sp/>buf</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>(gradient<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" kindref="member">momentum</ref><sp/>*<sp/>buf)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a63d2be8a2c3c2c410d1560d2c50f3e4e" kindref="member">nesterov</ref><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>buf</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a9dbf4da2fe276162e0ee069e5fb1aa2c" kindref="member">orthogonalize</ref>(gradient,<sp/>steps=self.<ref refid="classmlx__optimizers_1_1muon_1_1_muon_1a9492423350f4e9647dd9e0d71a194192" kindref="member">backend_steps</ref>)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>*=<sp/>max(1,<sp/>gradient.shape[0]<sp/>/<sp/>gradient.shape[1])<sp/>**<sp/>0.5</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parameter<sp/>-<sp/>lr<sp/>*<sp/>gradient</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/muon.py"/>
+  </compounddef>
+</doxygen>

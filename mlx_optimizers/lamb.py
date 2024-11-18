@@ -12,14 +12,14 @@ class Lamb(Optimizer):
         m_0 &= 0, v_0 = 0 \\
         m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
         v_t &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
-        m_t &= m_t / (1 - \beta_1^t) \\
-        v_t &= v_t / (1 - \beta_2^t) \\
-        r_t &= \frac{m_t}{\sqrt{v_t} + \epsilon} \\
+        mh_t &= m_t / (1 - \beta_1^t) \\
+        vh_t &= v_t / (1 - \beta_2^t) \\
+        r_t &= \frac{mh_t}{\sqrt{vh_t} + \epsilon} \\
         \theta_{t+1} &= \theta_t - \eta \frac{\phi(\|\theta_t\|)}{\|r_t + \lambda \theta_t\|} \left(r_t + \lambda \theta_t\right)
 
     [1] You, Yang, et al., 2019. Large Batch Optimization for Deep Learning: 
     Training BERT in 76 Minutes. 
-    https://arxiv.org/abs/1904.00962
+    https://arxiv.org/abs/1904.00962 v5
     https://github.com/tensorflow/addons/blob/master/tensorflow_addons/optimizers/lamb.py
 
     Args:
@@ -27,14 +27,9 @@ class Lamb(Optimizer):
         betas (Tuple[float, float], optional): coefficients
             :math:`(\beta_1, \beta_2)` used for computing running averages of the
             gradient and its square. Default: ``(0.9, 0.999)``
+        weight_decay (float): weight decay. Default: ``0.0``
         eps (float, optional): term :math:`\epsilon` added to the
-            denominator to improve numerical stability. Default: ``1e-6``
-        weight_decay: weight decay. Default: ``0.9``
-        clamp_value: clamp weight_norm in (clamp_value, inf) to scale trust ratio.
-            Best to set to a high value (e.g :math:`10e3`). Default: ``10``
-        adam: always use trust ratio = 1, which turns this
-            into Adam. Useful for comparison purposes. Default: ``False``
-        debias: debias adam by (1 - beta**step). Default: ``False``
+            denominator to improve numerical stability. Default: ``1e-8``
 
     ..
     """
@@ -44,20 +39,14 @@ class Lamb(Optimizer):
         learning_rate: Union[float, Callable[[mx.array], mx.array]],
         betas: List[float] = [0.9, 0.999],
         weight_decay: float = 0.0,
-        clamp_value: float = 10,
-        eps: float = 1e-6,
-        adam: bool = False,
-        debias: bool = False,
+        eps: float = 1e-8,
     ):
         super().__init__()
 
         self._maybe_schedule("learning_rate", learning_rate)
         self.betas = betas
         self.weight_decay = weight_decay
-        self.clamp_value = clamp_value
         self.eps = eps
-        self.adam = adam
-        self.debias = debias
 
     def init_single(self, parameter: mx.array, state: dict):
         """Initialize optimizer state"""
@@ -75,27 +64,22 @@ class Lamb(Optimizer):
         m = b1 * m + (1 - b1) * gradient
         v = b2 * v + (1 - b2) * mx.square(gradient)
 
-        bias_correction = (
-            (mx.sqrt(1 - mx.power(b2, self.state["step"])) / (1 - mx.power(b1, self.state["step"])))
-            if self.debias
-            else 1
-        )
+        m_hat = m / (1 - mx.power(b1, self.state["step"]))
+        v_hat = v / (1 - mx.power(b2, self.state["step"]))
 
-        eta = lr * bias_correction
-        weight_norm = mx.clip(mx.linalg.norm(parameter), self.clamp_value, float("inf"))
-        adam_step = m / (mx.sqrt(v) + self.eps)
-
+        update = m_hat / (mx.sqrt(v_hat) + self.eps)
         if self.weight_decay:
-            adam_step = adam_step + self.weight_decay * parameter
+            update = update + self.weight_decay * parameter
 
-        adam_norm = mx.linalg.norm(adam_step)
-        trust_ratio = (
-            1
-            if self.adam  # TODO: or not mx.any(weight_norm) or not mx.any(adam_norm)
-            else weight_norm / adam_norm
+        w_norm = mx.linalg.norm(parameter)
+        g_norm = mx.linalg.norm(update)
+        ratio = mx.where(
+            mx.greater(w_norm, 0),
+            mx.where(mx.greater(g_norm, 0), (w_norm / g_norm), 1),
+            1,
         )
 
         state["m"] = m
         state["v"] = v
 
-        return parameter - eta * trust_ratio * adam_step
+        return parameter - lr * ratio * update

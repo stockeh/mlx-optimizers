@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="qhadam_8py" kind="file" language="Python">
+    <compoundname>qhadam.py</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam" prot="public">mlx_optimizers::qhadam::QHAdam</innerclass>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1qhadam">mlx_optimizers::qhadam</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1qhadam" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Callable,<sp/>List,<sp/>Union</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>mlx.core<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>mx</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.optimizers<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Optimizer</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam" kindref="compound">QHAdam</ref>(Optimizer):</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;Quasi-Hyperbolic<sp/>Adaptive<sp/>Moment<sp/>Estimation<sp/>[1].</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>g_{t+1}<sp/>&amp;=<sp/>\beta_1<sp/>g_t<sp/>+<sp/>(1<sp/>-<sp/>\beta_1)<sp/>g_t<sp/>\\</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\theta_{t+1}<sp/>&amp;=<sp/>\theta_t<sp/>-<sp/>\eta<sp/>\left[<sp/>(1<sp/>-<sp/>\nu)<sp/>g_t<sp/>+<sp/>\nu<sp/>g_{t+1}\right]</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>[1]<sp/>Ma,<sp/>Jerry,<sp/>and<sp/>Denis<sp/>Yarats,<sp/>2019.<sp/>Quasi-hyperbolic<sp/>momentum<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>and<sp/>Adam<sp/>for<sp/>deep<sp/>learning.<sp/>ICLR<sp/>2019.</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://arxiv.org/abs/1810.06801</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://github.com/facebookresearch/qhoptim/</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate<sp/>(float<sp/>or<sp/>callable):<sp/>learning<sp/>rate<sp/>:math:`\eta`.</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas<sp/>(Tuple[float,<sp/>float],<sp/>optional):<sp/>coefficients</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:math:`(\beta_1,<sp/>\beta_2)`<sp/>used<sp/>for<sp/>computing<sp/>running<sp/>averages<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>and<sp/>its<sp/>square.<sp/>Default:<sp/>``(0.9,<sp/>0.999)``</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nus<sp/>(Tuple[float,<sp/>float],<sp/>optional):<sp/>immediate<sp/>discount<sp/>factors</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>used<sp/>to<sp/>estimate<sp/>the<sp/>gradient<sp/>and<sp/>its<sp/>square<sp/>:math:`(\nu_1,<sp/>\nu_2)`.<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Default:<sp/>``(1.0,<sp/>1.0)``</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>weight<sp/>decay.<sp/>Default:<sp/>``0.0``</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>decouple_weight_decay:<sp/>whether<sp/>to<sp/>decouple<sp/>weight<sp/>decay<sp/>from<sp/>the</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>optimization<sp/>step.<sp/>Default:<sp/>``False``</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps:<sp/>term<sp/>added<sp/>to<sp/>the<sp/>denominator<sp/>to<sp/>improve<sp/>numerical<sp/>stability.</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Default:<sp/>``1e-8``</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a61829a941e53e8891a789857642eca41" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]],</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas:<sp/>List[float]<sp/>=<sp/>[0.9,<sp/>0.999],</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nus:<sp/>List[float]<sp/>=<sp/>[1.0,<sp/>1.0],</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>float<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>decouple_weight_decay:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps:<sp/>float<sp/>=<sp/>1e-8,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a61829a941e53e8891a789857642eca41" kindref="member">__init__</ref>()</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate&quot;</highlight><highlight class="normal">,<sp/>learning_rate)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a72e33d2ba0a911a650d698bfacc23c07" kindref="member">betas</ref><sp/>=<sp/>betas</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1aa1a0eaf861e00c6262418207cfff5456" kindref="member">nus</ref><sp/>=<sp/>nus</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" kindref="member">weight_decay</ref><sp/>=<sp/>weight_decay</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a0c917c20da7d95dae3f309129b5d25ae" kindref="member">decouple_weight_decay</ref><sp/>=<sp/>decouple_weight_decay</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1af499ac475545c8acb4b5fb2e41c31930" kindref="member">eps</ref><sp/>=<sp/>eps</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a920f824a76b024840e2d463fcc4918f3" kindref="member">init_single</ref>(self,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Initialize<sp/>optimizer<sp/>state&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;b1_w&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;b2_w&quot;</highlight><highlight class="normal">]<sp/>=<sp/>0.0</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a685f54100aff46a5d07d513477083713" kindref="member">apply_single</ref>(self,<sp/>gradient:<sp/>mx.array,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate.astype(gradient.dtype)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1,<sp/>b2<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a72e33d2ba0a911a650d698bfacc23c07" kindref="member">betas</ref></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nu1,<sp/>nu2<sp/>=<sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1aa1a0eaf861e00c6262418207cfff5456" kindref="member">nus</ref></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>TODO:<sp/>gradient.is_space<sp/>RuntimeError</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" kindref="member">weight_decay</ref><sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1a0c917c20da7d95dae3f309129b5d25ae" kindref="member">decouple_weight_decay</ref>:</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameter<sp/>=<sp/>parameter<sp/>*<sp/>(1<sp/>-<sp/>lr<sp/>*<sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" kindref="member">weight_decay</ref>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient<sp/>=<sp/>gradient<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1ae13b441a820ed53d98535daa123ad16a" kindref="member">weight_decay</ref><sp/>*<sp/>parameter</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1_w<sp/>=<sp/>1.0<sp/>+<sp/>b1<sp/>*<sp/>state[</highlight><highlight class="stringliteral">&quot;b1_w&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b2_w<sp/>=<sp/>1.0<sp/>+<sp/>b2<sp/>*<sp/>state[</highlight><highlight class="stringliteral">&quot;b2_w&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1_adj<sp/>=<sp/>1<sp/>-<sp/>1.0<sp/>/<sp/>b1_w</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b2_adj<sp/>=<sp/>1<sp/>-<sp/>1.0<sp/>/<sp/>b2_w</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradient_sq<sp/>=<sp/>mx.square(gradient)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>m<sp/>*<sp/>b1_adj<sp/>+<sp/>(1<sp/>-<sp/>b1_adj)<sp/>*<sp/>gradient</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>v<sp/>*<sp/>b2_adj<sp/>+<sp/>(1<sp/>-<sp/>b2_adj)<sp/>*<sp/>gradient_sq</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>avg_grad<sp/>=<sp/>m<sp/>*<sp/>nu1</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>nu1<sp/>!=<sp/>1.0:</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>avg_grad<sp/>=<sp/>avg_grad<sp/>+<sp/>(1.0<sp/>-<sp/>nu1)<sp/>*<sp/>gradient</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>avg_grad_rms<sp/>=<sp/>v<sp/>*<sp/>nu2</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>nu2<sp/>!=<sp/>1.0:</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>avg_grad_rms<sp/>=<sp/>avg_grad_rms<sp/>+<sp/>(1.0<sp/>-<sp/>nu2)<sp/>*<sp/>gradient_sq</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>avg_grad_rms<sp/>=<sp/>mx.sqrt(avg_grad_rms)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1af499ac475545c8acb4b5fb2e41c31930" kindref="member">eps</ref><sp/>!=<sp/>0:</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>avg_grad_rms<sp/>=<sp/>avg_grad_rms<sp/>+<sp/>self.<ref refid="classmlx__optimizers_1_1qhadam_1_1_q_h_adam_1af499ac475545c8acb4b5fb2e41c31930" kindref="member">eps</ref></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;b1_w&quot;</highlight><highlight class="normal">]<sp/>=<sp/>b1_w</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;b2_w&quot;</highlight><highlight class="normal">]<sp/>=<sp/>b2_w</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">]<sp/>=<sp/>m</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[</highlight><highlight class="stringliteral">&quot;v&quot;</highlight><highlight class="normal">]<sp/>=<sp/>v</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parameter<sp/>-<sp/>lr<sp/>*<sp/>(avg_grad<sp/>/<sp/>avg_grad_rms)</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/qhadam.py"/>
+  </compounddef>
+</doxygen>

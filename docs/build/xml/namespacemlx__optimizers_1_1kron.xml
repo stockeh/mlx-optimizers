@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers_1_1kron" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers::kron</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1kron_1_1_kron" prot="public">mlx_optimizers::kron::Kron</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a0056a1ad6ff5afc6a451f651607a316f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Callable</type>
+        <definition> Callable mlx_optimizers.kron.flat_exponential_schedule</definition>
+        <argsstring>(float max_prob=1.0, float min_prob=0.03, float decay=0.001, float flat_start=250)</argsstring>
+        <name>flat_exponential_schedule</name>
+        <qualifiedname>mlx_optimizers.kron.flat_exponential_schedule</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>max_prob</declname>
+          <defval>1.0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_prob</declname>
+          <defval>0.03</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>decay</declname>
+          <defval>0.001</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>flat_start</declname>
+          <defval>250</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Anneal preconditioner update probability during beginning of training.
+
+PSGD benefits from more preconditioner updates at the beginning of training,
+but once the preconditioner is learned the update probability can drop low.
+
+This schedule is an exponential anneal with a flat start. Default settings keep
+update probability at 1.0 for 200 steps then exponentially anneal down to
+`min_prob` by 4000 steps. Default settings work very well for most models and
+training regimes.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="9" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="14" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a357f1e530e4c0b3f060d86cfdb499bf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.init_Q_exprs</definition>
+        <argsstring>(t, scale, max_size, min_ndim_triangular, memory_save_mode)</argsstring>
+        <name>init_Q_exprs</name>
+        <qualifiedname>mlx_optimizers.kron.init_Q_exprs</qualifiedname>
+        <param>
+          <type>t</type>
+          <defname>t</defname>
+        </param>
+        <param>
+          <type>scale</type>
+          <defname>scale</defname>
+        </param>
+        <param>
+          <type>max_size</type>
+          <defname>max_size</defname>
+        </param>
+        <param>
+          <type>min_ndim_triangular</type>
+          <defname>min_ndim_triangular</defname>
+        </param>
+        <param>
+          <type>memory_save_mode</type>
+          <defname>memory_save_mode</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>For a scalar or tensor t, we initialize its preconditioner Q and
+reusable einsum expressions for updating Q and preconditioning gradient.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="159" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="159" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1aca6648303e7d398cb45d5fe3de44adc6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._balance_Q</definition>
+        <argsstring>(Q)</argsstring>
+        <name>_balance_Q</name>
+        <qualifiedname>mlx_optimizers.kron._balance_Q</qualifiedname>
+        <param>
+          <type>Q</type>
+          <defname>Q</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="244" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="244" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a541f5fe431db26da518047429721392d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._calc_A_and_conjB</definition>
+        <argsstring>(exprA, G, Q, V)</argsstring>
+        <name>_calc_A_and_conjB</name>
+        <qualifiedname>mlx_optimizers.kron._calc_A_and_conjB</qualifiedname>
+        <param>
+          <type>exprA</type>
+          <defname>exprA</defname>
+        </param>
+        <param>
+          <type>G</type>
+          <defname>G</defname>
+        </param>
+        <param>
+          <type>Q</type>
+          <defname>Q</defname>
+        </param>
+        <param>
+          <type>V</type>
+          <defname>V</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="251" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="251" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a5f3821e840692d4a47968064f68827ed" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._q_terms</definition>
+        <argsstring>(exprGs, A, conjB)</argsstring>
+        <name>_q_terms</name>
+        <qualifiedname>mlx_optimizers.kron._q_terms</qualifiedname>
+        <param>
+          <type>exprGs</type>
+          <defname>exprGs</defname>
+        </param>
+        <param>
+          <type>A</type>
+          <defname>A</defname>
+        </param>
+        <param>
+          <type>conjB</type>
+          <defname>conjB</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="269" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="269" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1aca341f6e0342949b701402955c4da1c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.H</definition>
+        <argsstring>(a)</argsstring>
+        <name>H</name>
+        <qualifiedname>mlx_optimizers.kron.H</qualifiedname>
+        <param>
+          <type>a</type>
+          <defname>a</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="278" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a1c0ace15f507823de06c1797ef91efb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron.imax</definition>
+        <argsstring>(a)</argsstring>
+        <name>imax</name>
+        <qualifiedname>mlx_optimizers.kron.imax</qualifiedname>
+        <param>
+          <type>a</type>
+          <defname>a</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="282" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="282" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1ab1d035c743d5a17dd39649afbc0c81d5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._lb</definition>
+        <argsstring>(A, max_abs)</argsstring>
+        <name>_lb</name>
+        <qualifiedname>mlx_optimizers.kron._lb</qualifiedname>
+        <param>
+          <type>A</type>
+          <defname>A</defname>
+        </param>
+        <param>
+          <type>max_abs</type>
+          <defname>max_abs</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="286" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="286" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a189fcddc99067aa970b0a5baabe08382" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._norm_lower_bound</definition>
+        <argsstring>(A)</argsstring>
+        <name>_norm_lower_bound</name>
+        <qualifiedname>mlx_optimizers.kron._norm_lower_bound</qualifiedname>
+        <param>
+          <type>A</type>
+          <defname>A</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Cheap lower bound for the spectral norm of A.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="299" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="299" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a9194fe7ea214e8c92205d792e96cebc6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._update_precond</definition>
+        <argsstring>(Q, exprs, V, G, step, tiny)</argsstring>
+        <name>_update_precond</name>
+        <qualifiedname>mlx_optimizers.kron._update_precond</qualifiedname>
+        <param>
+          <type>Q</type>
+          <defname>Q</defname>
+        </param>
+        <param>
+          <type>exprs</type>
+          <defname>exprs</defname>
+        </param>
+        <param>
+          <type>V</type>
+          <defname>V</defname>
+        </param>
+        <param>
+          <type>G</type>
+          <defname>G</defname>
+        </param>
+        <param>
+          <type>step</type>
+          <defname>step</defname>
+        </param>
+        <param>
+          <type>tiny</type>
+          <defname>tiny</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Update Kronecker product preconditioner Q with pair (V, G).</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="305" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="305" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1kron_1a20fa43deb257b8bf5efdbb3a539ed0a5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.kron._precond_grad</definition>
+        <argsstring>(Q, exprs, G)</argsstring>
+        <name>_precond_grad</name>
+        <qualifiedname>mlx_optimizers.kron._precond_grad</qualifiedname>
+        <param>
+          <type>Q</type>
+          <defname>Q</defname>
+        </param>
+        <param>
+          <type>exprs</type>
+          <defname>exprs</defname>
+        </param>
+        <param>
+          <type>G</type>
+          <defname>G</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Precondition gradient G with preconditioner Q.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/kron.py" line="331" column="1" bodyfile="mlx_optimizers/kron.py" bodystart="331" bodyend="334"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/kron.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

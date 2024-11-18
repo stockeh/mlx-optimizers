@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::madgrad::MADGRAD</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mlx_optimizers.madgrad.MADGRAD::momentum</definition>
+        <argsstring></argsstring>
+        <name>momentum</name>
+        <qualifiedname>mlx_optimizers.madgrad.MADGRAD.momentum</qualifiedname>
+        <initializer>=  momentum</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/madgrad.py" line="44" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a698dc8950a706ad9e62dcee86d559e03" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.madgrad.MADGRAD::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.madgrad.MADGRAD.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/madgrad.py" line="45" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a4df6836c8ca414062be023a67e020494" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.madgrad.MADGRAD::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.madgrad.MADGRAD.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/madgrad.py" line="46" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ae15b0e18cddd30ee63fe0a5c9d79042d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.madgrad.MADGRAD.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, float momentum=0.9, float weight_decay=0, float eps=1e-6)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.madgrad.MADGRAD.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>momentum</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>momentum</declname>
+          <defname>weight_decay</defname>
+          <defval>0.9</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>eps</defname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defval>1e-6</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/madgrad.py" line="35" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="41" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a0b3f5bf8149b65180e56a3ad4394c1c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.madgrad.MADGRAD.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.madgrad.MADGRAD.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/madgrad.py" line="48" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ada6337ae4c044d1c6fb1b9be008fab37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.madgrad.MADGRAD.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.madgrad.MADGRAD.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/madgrad.py" line="52" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="52" bodyend="92"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Momentumized, Adaptive, Dual averaged GRADient [1].
+
+.. math::
+
+    s_0 &amp;= 0, v_0 = 0, x_0 = \theta \\
+    \lambda_t &amp;= \eta \sqrt{t + 1} \\
+    s_{t+1} &amp;= s_t + \lambda_t g_t \\
+    v_{t+1} &amp;= v_t + \lambda_t g_t^2 \\
+    z_{t+1} &amp;= x_0 - \frac{s_{t+1}}{\sqrt[3]{v_{t+1}} + \epsilon} \\
+    \theta_{t+1} &amp;= (1 - \beta) \theta_t + \beta z_{t+1}
+
+[1] Defazio, Aaron, and Samy Jelassi, 2022. A momentumized, adaptive, dual
+averaged gradient method. JMLR 23.144 (2022): 1-34.
+https://arxiv.org/abs/2101.11075
+https://github.com/facebookresearch/madgrad
+
+Args:
+    learning_rate (float or callable): The learning rate :math:`\eta`.
+    momentum (float, optional): The momentum coefficient :math:`\beta`. 
+        Default: ``0.9``
+    weight_decay (float, optional): The weight decay coefficient. 
+        Default: ``0.0``
+    eps (float, optional): The term :math:`\epsilon` added to the
+        denominator to improve numerical stability. Default: ``1e-6``
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.madgrad.MADGRAD</label>
+        <link refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.madgrad.MADGRAD</label>
+        <link refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/madgrad.py" line="7" column="1" bodyfile="mlx_optimizers/madgrad.py" bodystart="7" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ae15b0e18cddd30ee63fe0a5c9d79042d" prot="public" virt="non-virtual"><scope>mlx_optimizers::madgrad::MADGRAD</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ada6337ae4c044d1c6fb1b9be008fab37" prot="public" virt="non-virtual"><scope>mlx_optimizers::madgrad::MADGRAD</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a4df6836c8ca414062be023a67e020494" prot="public" virt="non-virtual"><scope>mlx_optimizers::madgrad::MADGRAD</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a0b3f5bf8149b65180e56a3ad4394c1c5" prot="public" virt="non-virtual"><scope>mlx_optimizers::madgrad::MADGRAD</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a9b8caf8388338910a1ea84530373e35f" prot="public" virt="non-virtual"><scope>mlx_optimizers::madgrad::MADGRAD</scope><name>momentum</name></member>
+      <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a698dc8950a706ad9e62dcee86d559e03" prot="public" virt="non-virtual"><scope>mlx_optimizers::madgrad::MADGRAD</scope><name>weight_decay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

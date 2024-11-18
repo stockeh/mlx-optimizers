@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers_1_1muon" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers::muon</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1muon_1_1_muon" prot="public">mlx_optimizers::muon::Muon</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1muon_1a82e5c8146a0ccc55f218d8439e3556f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>mx.array</type>
+        <definition> mx.array mlx_optimizers.muon.zeropower_via_svd</definition>
+        <argsstring>(G, steps=None)</argsstring>
+        <name>zeropower_via_svd</name>
+        <qualifiedname>mlx_optimizers.muon.zeropower_via_svd</qualifiedname>
+        <param>
+          <type>G</type>
+          <defname>G</defname>
+        </param>
+        <param>
+          <type>steps</type>
+          <defname>steps</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="7" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="7" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1muon_1a574131c3c099a6029fe4070080a2376a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>mx.array</type>
+        <definition> mx.array mlx_optimizers.muon.zeropower_via_newtonschulz5</definition>
+        <argsstring>(G, steps=10, eps=1e-7)</argsstring>
+        <name>zeropower_via_newtonschulz5</name>
+        <qualifiedname>mlx_optimizers.muon.zeropower_via_newtonschulz5</qualifiedname>
+        <param>
+          <type>G</type>
+          <defname>G</defname>
+        </param>
+        <param>
+          <type>steps</type>
+          <defname>steps</defname>
+          <defval>10</defval>
+        </param>
+        <param>
+          <type>eps</type>
+          <defname>eps</defname>
+          <defval>1e-7</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Newton-Schulz iteration to compute the zeroth power / orthogonalization of :math:`G`. We opt to
+    use a quintic iteration whose coefficients are selected to maximize the slope at zero. For the purpose
+    of minimizing steps, it turns out to be empirically effective to keep increasing the slope at
+    zero even beyond the point where the iteration no longer converges all the way to one everywhere
+    on the interval. This iteration therefore does not produce :math:`UV^T` but rather something like
+    :math:`US&apos;V^T` where :math:`S&apos;` is diagonal with :math:`S_{ii}&apos; \sim Uniform(0.5, 1.5)`, which turns
+    out not to hurt model performance at all relative to :math:`UV^T`, where :math:`USV^T = G` is the SVD.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/muon.py" line="13" column="1" bodyfile="mlx_optimizers/muon.py" bodystart="13" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/muon.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
