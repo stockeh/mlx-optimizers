@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - optim: Kron PSGD
 - tests: functional compilation (uncompiled, pure, and impure) and init from state
 
+### Fixed
+- optim: Lamb, closer to algorithm with updated scaling function
+
 ## [v0.2.0](https://github.com/stockeh/mlx-optimizers/releases/tag/v0.2.0) - 2024-11-11
 
 ### Added
