@@ -103,10 +103,11 @@ def execute_experiments(optimizers, objective, func, plot_func, initial_state):
                 all_steps.append(steps)
                 all_labels.append(name)
 
-    plot_func(all_steps, name="all", labels=all_labels)
+    # plot_func(all_steps, name="all", labels=all_labels)
 
 
 if __name__ == "__main__":
+    mx.random.seed(42)
     optimizers = [
         # default
         (Adam, 0, 0.2, {}),
@@ -120,6 +121,7 @@ if __name__ == "__main__":
         (optim.Lamb, 0, 0.25, {}),
         (optim.Muon, 0, 0.2, {"alternate_optimizer": AdamW(learning_rate=0.0842)}),  # fixed lr
         (optim.Shampoo, 0, 2, {}),
+        (optim.Kron, 0, 0.5, {}),
     ]
     execute_experiments(
         optimizers, objective_rosenbrock, rosenbrock, plot_rosenbrock, ROSENBROCK_INITIAL
