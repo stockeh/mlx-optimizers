@@ -6,7 +6,8 @@ import pytest
 from mlx.utils import tree_flatten, tree_unflatten
 
 import mlx_optimizers as optim
-from tests import MLP
+
+from .common import MLP
 
 optimizers = [
     optim.QHAdam,
@@ -48,20 +49,20 @@ def test_compiled_optimizer(optclass):
 
     orig_params = model.parameters()
 
-    def loss(model, x):  # type: ignore
+    def uncompiled_loss(model, x):
         return model(x).sum()
 
     # Uncompiled version
-    def step(x):  # type: ignore
-        _, grad = nn.value_and_grad(model, loss)(model, x)
+    def uncompiled_step(x):
+        _, grad = nn.value_and_grad(model, uncompiled_loss)(model, x)
         optimizer.update(model, grad)
 
-    step(x)
+    uncompiled_step(x)
     print(optimizer.state)
     uncompiled_params = model.parameters()
 
     # Pure version
-    def loss(params, x):  # type: ignore
+    def pure_loss(params, x):
         model.update(params)
         return model(x).sum()
 
@@ -70,19 +71,19 @@ def test_compiled_optimizer(optclass):
     optimizer = optclass(learning_rate=1e-2)
 
     @mx.compile
-    def step(params, opt_state, x):  # type: ignore
-        grad = mx.grad(loss)(params, x)
+    def pure_step(params, opt_state, x):  # type: ignore
+        grad = mx.grad(pure_loss)(params, x)
         optimizer.state = opt_state
         params = optimizer.apply_gradients(grad, params)
         return params, optimizer.state
 
     optimizer.init(model.parameters())
-    pure_params, _ = step(model.parameters(), optimizer.state, x)
+    pure_params, _ = pure_step(model.parameters(), optimizer.state, x)
     assert mx.allclose(pure_params["weight"], uncompiled_params["weight"])  # type: ignore
     assert mx.allclose(pure_params["bias"], uncompiled_params["bias"])  # type: ignore
 
     # Impure version
-    def loss(model, x):
+    def impure_loss(model, x):
         return model(x).sum()
 
     model.update(orig_params)
@@ -91,12 +92,13 @@ def test_compiled_optimizer(optclass):
     state = [model.state, optimizer.state]
 
     @partial(mx.compile, inputs=state, outputs=state)
-    def step(x):
-        _, grad = nn.value_and_grad(model, loss)(model, x)
+    def impure_step(x):
+        _, grad = nn.value_and_grad(model, impure_loss)(model, x)
         optimizer.update(model, grad)
 
-    step(x)
+    impure_step(x)
     print(optimizer.state)
     impure_params = model.parameters()
     assert mx.allclose(impure_params["weight"], uncompiled_params["weight"])  # type: ignore
+    assert mx.allclose(impure_params["bias"], uncompiled_params["bias"])  # type: ignore
     assert mx.allclose(impure_params["bias"], uncompiled_params["bias"])  # type: ignore

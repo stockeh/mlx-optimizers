@@ -6,7 +6,8 @@ import pytest
 from mlx.optimizers import AdamW
 
 import mlx_optimizers as optim
-from tests import MLP, ids
+
+from .common import MLP, ids
 
 
 def generate_moons(n_samples: int = 100, noise: float = 0.2):
@@ -85,5 +86,6 @@ def test_neuralnet(optimizer_config):
             break
 
     acc = mx.sum(mx.argmax(model(X), axis=1) == T) / T.shape[0]  # type: ignore
+    assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
     assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
     assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"

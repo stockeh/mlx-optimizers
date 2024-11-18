@@ -3,7 +3,8 @@ import pytest
 from mlx.optimizers import AdamW
 
 import mlx_optimizers as optim
-from tests import ids
+
+from .common import ids
 
 
 def rosenbrock(xy):
@@ -39,11 +40,11 @@ optimizers = [
     (
         optim.Muon,  # using alternate for ndim < 2
         {
-            "alternate_optimizer": AdamW(learning_rate=0.15, betas=[0.9, 0.99]),
+            "alternate_optimizer": AdamW(learning_rate=0.12, betas=[0.9, 0.99]),
         },
-        500,
+        700,
     ),
-    (optim.Kron, {"learning_rate": 0.015, "precond_update_prob": 0.75}, 700),
+    (optim.Kron, {"learning_rate": 0.015, "precond_update_prob": 0.75}, 800),
     # TODO: Lamb & Shampoo tests
 ]
 
@@ -67,5 +68,6 @@ def test_benchmark_function(case, optimizer_config):
     assert mx.allclose(x, min_loc, atol=0.01), f"x=({x[0]:.4f},{x[1]:.4f}), {error=:.4f}"
 
     name = optimizer.__class__.__name__
+    assert name in optimizer.__repr__()
     assert name in optimizer.__repr__()
     assert name in optimizer.__repr__()

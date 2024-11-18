@@ -1,16 +1,9 @@
-# original: https://github.com/lixilinx/psgd_torch
-# kron torch: https://github.com/evanatyourservice/kron_torch
-# heavyball: https://github.com/ClashLuke/HeavyBall
-
 import random
 import string
-from functools import partial
 from typing import Callable, Optional, Union
 
 import mlx.core as mx
-import numpy as np
 from mlx.optimizers import Optimizer
-from tqdm import tqdm
 
 
 def flat_exponential_schedule(
@@ -41,10 +34,34 @@ def flat_exponential_schedule(
 
 
 class Kron(Optimizer):
-    """Implements PSGD Kron from https://github.com/lixilinx/psgd_torch.
+    """Kronecker-Factored Preconditioned Stochastic Gradient Descent [1].
 
-    Kron is a preconditioned SGD optimizer that uses a Kronecker-factored
-    approximation of the Fisher information matrix to precondition the gradient.
+    PSGD is a second-order optimizer that uses Hessian- or whitening-based :math:`(gg^T)`
+    preconditioners and Lie groups to improve convergence. Kron uses Kronecker-factored
+    preconditioners for tensors of any number dimension.
+
+    [1] Xi-Lin Li, 2015. Preconditioned Stochastic Gradient Descent.
+    https://arxiv.org/abs/1512.04202
+    https://github.com/lixilinx/psgd_torch
+
+    Args:
+        learning_rate (float or callable): the learning rate.
+        b1 (float, optional): coefficient used for computing running averages of the
+            gradient. Default: ``0.9``
+        weight_decay (float, optional): weight decay factor. Default: ``0.0``
+        precond_update_prob (float or callable, optional): probability of updating the
+            preconditioner. Default: ``None`` (flat exponential schedule)
+        max_size_triangular (int, optional):  maximum size for dim's preconditioner to be
+            triangular. Default: ``8192``
+        min_ndim_triangular (int, optional): minimum number of dimensions a layer needs
+            to have triangular preconditioners. Default: ``2``
+        memory_save_mode (str, optional): (None, 'one_diag', or 'all_diag'). None: set all
+            preconditioners to be triangular, 'one_diag': sets the largest or last dim to
+            be diagonal per layer, and 'all_diag': sets all preconditioners to be diagonal.
+            Default: ``None``
+        momentum_into_precond_update (bool, optional): whether to use momentum in
+            preconditioner update. Default: ``True``
+    ..
     """
 
     rng = random.Random(5318008)
@@ -85,9 +102,9 @@ class Kron(Optimizer):
             if self.precond_update_prob is None
             else self.precond_update_prob
         )
-        if isinstance(precond_update_prob, Callable):
-            precond_update_prob = precond_update_prob(step)
-        do_update = self.rng.random() < precond_update_prob
+        if callable(precond_update_prob):
+            precond_update_prob = precond_update_prob(step)  # type: ignore
+        do_update = self.rng.random() < precond_update_prob  # type: ignore
         balance = self.rng.random() < 0.01 and do_update
         return mx.array((do_update, balance))
 
@@ -221,7 +238,6 @@ def init_Q_exprs(t, scale, max_size, min_ndim_triangular, memory_save_mode):
         exprA = ",".join(piece1A) + "," + piece2A + "->" + piece3A
         exprP = ",".join(piece1P) + "," + ",".join(piece2P) + "," + piece3P + "->" + piece4P
 
-    exprGs = tuple(exprGs)
     return [Q, (exprA, exprGs, exprP)]
 
 
@@ -241,13 +257,12 @@ def _calc_A_and_conjB(exprA, G, Q, V):
         conjB = (
             conjB / q
             if q.ndim < 2
-            # else _solve_triangular(q, conjB[None, :], upper=True, left=False)[0]
+            # TODO: better to use `solve_triangular(q, conjB, upper=True, left=False)`
             else conjB @ mx.linalg.inv(q, stream=mx.cpu)  # type: ignore
         )
         j = order - 1
         if i < j:
-            # Swap i-th and j-th dimensions of conjB
-            conjB = mx.transpose(conjB, p[:i] + [p[j]] + p[i + 1 : j] + [p[i]] + p[j + 1 :])
+            conjB = mx.swapaxes(conjB, i, j)
     return A, conjB
 
 
@@ -260,10 +275,15 @@ def _q_terms(exprGs, A, conjB):
     return terms
 
 
-def _lb(A, max_abs):
-    H = lambda a: mx.conj(mx.transpose(a))
-    imax = lambda a: (mx.max(a), mx.argmax(a))
+def H(a):
+    return mx.conj(mx.transpose(a))
 
+
+def imax(a):
+    return mx.max(a), mx.argmax(a)
+
+
+def _lb(A, max_abs):
     A = A / max_abs
     aa = mx.real(A * mx.conj(A))
     vcol, i = imax(mx.sum(aa, axis=0))
