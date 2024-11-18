@@ -13,4 +13,5 @@ Optimizers
    QHAdam
    MADGRAD
    Lamb
+   Kron
    Shampoo
