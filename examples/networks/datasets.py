@@ -32,8 +32,8 @@ def mnist(batch_size, img_size=(28, 28), root=None):
 
 
 def cifar10(batch_size, img_size=(32, 32), root=None):
-    mean = np.array([0.485, 0.456, 0.406]).reshape((1, 1, 3))
-    std = np.array([0.229, 0.224, 0.225]).reshape((1, 1, 3))
+    mean = np.array([0.4914, 0.4822, 0.4465]).reshape((1, 1, 3))
+    std = np.array([0.2470, 0.2435, 0.2616]).reshape((1, 1, 3))
 
     def normalize(x):  # z-score normalize
         x = x.astype("float32") / 255.0

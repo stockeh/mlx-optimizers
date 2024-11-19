@@ -4,7 +4,7 @@ from functools import partial
 import mlx.core as mx
 import mlx.nn as nn
 from datasets import cifar10, mnist
-from mlx.optimizers import Optimizer
+from mlx.optimizers import Optimizer, clip_grad_norm
 from models import Network
 from tqdm import tqdm
 
@@ -44,6 +44,7 @@ class Manager:
         def step(X, T):
             train_step_fn = nn.value_and_grad(self.model, self.eval_fn)
             (loss, correct), grads = train_step_fn(X, T)
+            grads, _ = clip_grad_norm(grads, max_norm=1.0)
             self.optimizer.update(self.model, grads)
             return loss, correct
 
