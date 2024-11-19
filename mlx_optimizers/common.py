@@ -15,3 +15,7 @@ def newton_schulz(G, steps=5, eps=1e-7) -> mx.array:
     if G.shape[0] > G.shape[1]:
         X = X.T
     return X.astype(G.dtype)
+
+
+def numel(x: mx.array) -> int:
+    return int(mx.prod(mx.array(x.shape)))

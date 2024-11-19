@@ -55,6 +55,7 @@ optimizers = [
     (optim.MARS, {"learning_rate": 0.03, "mars_type": "mars-adamw"}, 50),
     (optim.MARS, {"learning_rate": 0.03, "mars_type": "mars-lion"}, 50),
     (optim.MARS, {"learning_rate": 0.03, "mars_type": "mars-shampoo"}, 50),
+    (optim.MARS, {"learning_rate": 0.03, "amsgrad": True}, 50),
 ]
 
 
