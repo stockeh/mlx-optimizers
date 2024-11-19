@@ -7,6 +7,7 @@ from .diffgrad import DiffGrad
 from .kron import Kron
 from .lamb import Lamb
 from .madgrad import MADGRAD
+from .mars import MARS
 from .muon import Muon
 from .qhadam import QHAdam
 from .shampoo import Shampoo
@@ -17,6 +18,7 @@ __all__ = [
     "Kron",
     "Lamb",
     "MADGRAD",
+    "MARS",
     "Muon",
     "QHAdam",
     "Shampoo",

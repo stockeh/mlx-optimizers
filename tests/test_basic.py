@@ -45,6 +45,9 @@ optimizers = [
         700,
     ),
     (optim.Kron, {"learning_rate": 0.015, "precond_update_prob": 0.75}, 800),
+    (optim.MARS, {"learning_rate": 0.1, "mars_type": "mars-adamw"}, 150),
+    (optim.MARS, {"learning_rate": 0.1, "mars_type": "mars-lion"}, 150),
+    (optim.MARS, {"learning_rate": 0.1, "mars_type": "mars-shampoo"}, 150),
     # TODO: Lamb & Shampoo tests
 ]
 
