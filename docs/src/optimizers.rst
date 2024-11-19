@@ -10,6 +10,7 @@ Optimizers
    ADOPT
    DiffGrad
    Muon
+   MARS
    QHAdam
    MADGRAD
    Lamb

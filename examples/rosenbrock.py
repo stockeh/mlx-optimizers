@@ -122,6 +122,7 @@ if __name__ == "__main__":
         (optim.Muon, 0, 0.2, {"alternate_optimizer": AdamW(learning_rate=0.0842)}),  # fixed lr
         (optim.Shampoo, 0, 2, {}),
         (optim.Kron, 0, 0.5, {}),
+        (optim.MARS, 0, 0.8, {"optimize_1d": True, "mars_type": "mars-adamw"}),
     ]
     execute_experiments(
         optimizers, objective_rosenbrock, rosenbrock, plot_rosenbrock, ROSENBROCK_INITIAL

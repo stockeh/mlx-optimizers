@@ -52,6 +52,10 @@ optimizers = [
     (optim.Lamb, {"learning_rate": 0.03}, 50),
     (optim.Shampoo, {"learning_rate": 0.03}, 50),
     (optim.Kron, {"learning_rate": 0.03}, 50),
+    (optim.MARS, {"learning_rate": 0.03, "mars_type": "mars-adamw"}, 50),
+    (optim.MARS, {"learning_rate": 0.03, "mars_type": "mars-lion"}, 50),
+    (optim.MARS, {"learning_rate": 0.03, "mars_type": "mars-shampoo"}, 50),
+    (optim.MARS, {"learning_rate": 0.03, "amsgrad": True}, 50),
 ]
 
 
@@ -86,4 +90,5 @@ def test_neuralnet(optimizer_config):
             break
 
     acc = mx.sum(mx.argmax(model(X), axis=1) == T) / T.shape[0]  # type: ignore
-    assert losses[0] > 2 * losses[-1], f"loss={losses[-1]:.5f}, {acc=:.3f}"
+    assert losses[0] > 2 * losses[-1], f"Bad loss: loss={losses[-1]:.5f}, {acc=:.3f}"
+    assert acc > 0.85, f"Bad Acc: loss={losses[-1]:.5f}, {acc=:.3f}"
