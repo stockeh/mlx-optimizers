@@ -17,6 +17,7 @@ optimizers = [
     optim.Muon,
     optim.Lamb,
     optim.Kron,
+    optim.MARS,
     # optim.Shampoo,
 ]
 

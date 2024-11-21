@@ -117,6 +117,28 @@ class MLP(Base):
 
 
 class Network(Base):
+    """Fully Connected / Convolutional Neural Network
+
+    Args:
+        n_inputs (Union[List[int], Tuple[int], mx.array]): Input shape
+        n_outputs (int): Number of output classes
+        conv_layers_list (List[dict], optional): List of convolutional layers. Defaults to [].
+        n_hiddens_list (Union[List, int], optional): List of hidden units. Defaults to 0.
+        activation_f (str, optional): Activation function. Defaults to "relu".
+        dropout (float, optional): Dropout rate. Defaults to 0.0.
+
+    conv_layers_list dict keys:
+        filters: int
+        kernel_size: int
+        stride: int
+        dilation: int
+        padding: int
+        bias: bool
+        batch_norm: bool
+        repeat: int
+
+    """
+
     def __init__(
         self,
         n_inputs: Union[List[int], Tuple[int], mx.array],
@@ -124,6 +146,7 @@ class Network(Base):
         conv_layers_list: List[dict] = [],
         n_hiddens_list: Union[List, int] = 0,
         activation_f: str = "relu",
+        dropout: float = 0.0,
     ):
         super().__init__()
 
@@ -155,19 +178,30 @@ class Network(Base):
 
                 self.conv.extend(
                     [
-                        nn.Conv2d(
-                            n_channels,
-                            conv_layer["filters"],
-                            conv_layer["kernel_size"],
-                            stride=conv_layer.get("stride", 1),
-                            padding=padding,
-                            dilation=conv_layer.get("dilation", 1),
-                            bias=conv_layer.get("bias", True),
-                        ),
-                        activation(),
-                        nn.MaxPool2d(2, stride=2),
+                        layer
+                        for i in range(conv_layer.get("repeat", 1))
+                        for layer in [
+                            nn.Conv2d(
+                                n_channels if i == 0 else conv_layer["filters"],
+                                conv_layer["filters"],
+                                conv_layer["kernel_size"],
+                                stride=conv_layer.get("stride", 1),
+                                padding=padding,
+                                dilation=conv_layer.get("dilation", 1),
+                                bias=conv_layer.get("bias", True),
+                            ),
+                            activation(),
+                        ]
+                        + (
+                            [nn.BatchNorm(conv_layer["filters"])]
+                            if conv_layer.get("batch_norm")
+                            else []
+                        )
                     ]
+                    + [nn.MaxPool2d(2, stride=2)]
                 )
+                if dropout > 0:
+                    self.conv.append(nn.Dropout(dropout))
                 ni = mx.concatenate([ni[:-1] // 2, mx.array([conv_layer["filters"]])])
 
         ni = int(mx.prod(ni))
@@ -176,6 +210,8 @@ class Network(Base):
             for _, n_units in enumerate(n_hiddens_list):
                 self.fcn.append(nn.Linear(ni, n_units))
                 self.fcn.append(activation())
+                if dropout > 0:
+                    self.fcn.append(nn.Dropout(dropout))
                 ni = n_units
         self.output = nn.Linear(ni, n_outputs)
 
