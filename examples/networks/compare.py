@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import mlx.core as mx
 from datasets import cifar10, mnist
 from manager import Manager
-from mlx.optimizers import Adam, cosine_decay, join_schedules, linear_schedule
+from mlx.optimizers import Adam, AdamW, cosine_decay, join_schedules, linear_schedule
 from models import Network
 
 import mlx_optimizers as optim
@@ -19,42 +19,74 @@ parser.add_argument("--seed", type=int, default=0, help="random seed")
 parser.add_argument("--cpu", action="store_true", help="use cpu only")
 
 
-def get_optimizers(args):
-    n_warmup = 50000 // args.batch_size * 6
-    decay_steps = n_warmup // 6 * args.epochs
-    max_lr = 1e-4
-    min_lr = 1e-7
+def get_cosine_schedule(max_lr, min_lr, n_warmup, decay_steps):
     learning_rate = join_schedules(
         [linear_schedule(min_lr, max_lr, n_warmup), cosine_decay(max_lr, decay_steps, min_lr)],
         [n_warmup],
     )
+    return learning_rate
 
+
+def get_optimizers(args):
+    total_steps = 50_000 // args.batch_size * args.epochs
+    n_warmup = int(total_steps * 0.10)  # % of total steps
+    decay_steps = total_steps - n_warmup
+    weight_decay = 1e-4
+    learning_rate = get_cosine_schedule(6e-4, 1e-6, n_warmup, decay_steps)
     optimizers = [
-        (Adam, {"learning_rate": learning_rate}),
-        (optim.ADOPT, {"learning_rate": learning_rate}),
-        (optim.MARS, {"learning_rate": learning_rate}),
-        (optim.Muon, {"learning_rate": learning_rate}),
+        (
+            Adam,
+            {
+                "learning_rate": learning_rate,
+            },
+        ),
+        (
+            AdamW,
+            {
+                "learning_rate": learning_rate,
+                "weight_decay": weight_decay,
+            },
+        ),
+        (
+            optim.ADOPT,
+            {
+                "learning_rate": learning_rate,
+                "weight_decay": weight_decay,
+            },
+        ),
+        (
+            optim.MARS,
+            {
+                "learning_rate": get_cosine_schedule(3e-3, 1e-6, n_warmup, decay_steps),
+                "weight_decay": weight_decay,
+                "learning_rate_1d": get_cosine_schedule(3e-3, 1e-6, n_warmup, decay_steps),
+                "weight_decay_1d": weight_decay,
+            },
+        ),
     ]
+
     return optimizers
 
 
 def plot_results(results, optimizers, args):
-    #! plotting
-    fig, ax = plt.subplots(figsize=(5, 3.5))
-    colors = ["#74add1", "#4575b4", "#1a9850", "#00441b"]
-    for i, r in enumerate(results):
-        ax.plot(range(1, len(r) + 1), r, label=optimizers[i][0].__name__, lw=2, color=colors[i])
+    fig, ax = plt.subplots(figsize=(5.5, 3.5))
+    colors = ["#74add1", "#1730bd", "#1a9850", "#001c01"]
 
-    ax.set_title(f"{args.dataset.upper()}", loc="left")
-    ax.legend(ncols=2, columnspacing=0.8)
-    ax.set_xlabel("Epoch")
-    ax.set_ylabel("Test Accuracy (%)")
-    ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
-    ax.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-    num_ticks = 5
-    y_min, y_max = ax.get_ylim()
-    ax.set_yticks(mx.linspace(y_min, y_max, num_ticks, dtype=mx.int8))
+    for i, acc in enumerate(results):
+        ax.plot(range(1, len(acc) + 1), acc, label=optimizers[i][0].__name__, lw=2, color=colors[i])
+
+    ax.set_title(f"{args.dataset.upper()} (val)", loc="left")
+    ax.set_xlabel("Epoch", fontsize="medium")
+    ax.set_ylabel("Accuracy (%)", fontsize="medium")
+
+    ax.legend(ncols=2, columnspacing=0.8, fontsize="medium")
     ax.grid(alpha=0.2)
+
+    ax.set_ylim(90 if args.dataset == "mnist" else 70)
+    acc_min, acc_max = ax.get_ylim()
+    ax.set_yticks(mx.linspace(acc_min, acc_max, 5, dtype=mx.int8))
+    ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
+
     fig.tight_layout()
     fig.savefig(
         f"../../docs/src/_static/media/compare-{args.dataset}-blank.png",
@@ -65,7 +97,7 @@ def plot_results(results, optimizers, args):
 
 
 def main(args):
-
+    mx.random.seed(args.seed)
     if args.dataset == "mnist":
         train_data, test_data = mnist(args.batch_size)
     elif args.dataset == "cifar10":
@@ -78,12 +110,13 @@ def main(args):
     model_config = {
         "n_inputs": x_shape[1:],
         "conv_layers_list": [
-            {"filters": 32, "kernel_size": 3, "repeat": 1, "batch_norm": True},
-            {"filters": 64, "kernel_size": 3, "repeat": 1, "batch_norm": True},
+            {"filters": 32, "kernel_size": 3, "repeat": 2, "batch_norm": True},
+            {"filters": 64, "kernel_size": 3, "repeat": 2, "batch_norm": True},
+            {"filters": 128, "kernel_size": 3, "repeat": 2, "batch_norm": True},
         ],
-        "n_hiddens_list": [256],
+        "n_hiddens_list": [512],
         "n_outputs": 10,
-        "dropout": 0.0,
+        "dropout": 0.2,
     }
 
     optimizers = get_optimizers(args)
