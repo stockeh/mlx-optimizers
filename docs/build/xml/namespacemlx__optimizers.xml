@@ -3,10 +3,12 @@
   <compounddef id="namespacemlx__optimizers" kind="namespace" language="Python">
     <compoundname>mlx_optimizers</compoundname>
     <innernamespace refid="namespacemlx__optimizers_1_1adopt">mlx_optimizers::adopt</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1common">mlx_optimizers::common</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1diffgrad">mlx_optimizers::diffgrad</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1kron">mlx_optimizers::kron</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1lamb">mlx_optimizers::lamb</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1madgrad">mlx_optimizers::madgrad</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1mars">mlx_optimizers::mars</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1muon">mlx_optimizers::muon</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1qhadam">mlx_optimizers::qhadam</innernamespace>
     <innernamespace refid="namespacemlx__optimizers_1_1shampoo">mlx_optimizers::shampoo</innernamespace>
@@ -39,6 +41,7 @@
     &quot;Kron&quot;,
     &quot;Lamb&quot;,
     &quot;MADGRAD&quot;,
+    &quot;MARS&quot;,
     &quot;Muon&quot;,
     &quot;QHAdam&quot;,
     &quot;Shampoo&quot;,
@@ -50,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/__init__.py" line="14" column="1" bodyfile="mlx_optimizers/__init__.py" bodystart="14" bodyend="-1"/>
+        <location file="mlx_optimizers/__init__.py" line="15" column="1" bodyfile="mlx_optimizers/__init__.py" bodystart="15" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

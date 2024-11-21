@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lamb_2epy_0',['lamb.py',['../lamb_8py.html',1,'']]]
+  ['kron_2epy_0',['kron.py',['../kron_8py.html',1,'']]]
 ];

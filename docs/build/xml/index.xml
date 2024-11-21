@@ -2,8 +2,9 @@
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="en-US">
   <compound refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t" kind="class"><name>mlx_optimizers::adopt::ADOPT</name>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" kind="variable"><name>betas</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a9f9a7e51fbfb4e9b9982a2b404608fc4" kind="variable"><name>weight_decay</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" kind="variable"><name>eps</name></member>
-    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a49ccc0a76f72c4dbe8f693dd23ee982c" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad73ffe0f1e24b567921cd628e2cfbc9b" kind="function"><name>__init__</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" kind="function"><name>init_single</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" kind="function"><name>apply_single</name></member>
   </compound>
@@ -50,6 +51,26 @@
     <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1a0b3f5bf8149b65180e56a3ad4394c1c5" kind="function"><name>init_single</name></member>
     <member refid="classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d_1ada6337ae4c044d1c6fb1b9be008fab37" kind="function"><name>apply_single</name></member>
   </compound>
+  <compound refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s" kind="class"><name>mlx_optimizers::mars::MARS</name>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4452c5868587da8d4956c7a94db589eb" kind="variable"><name>betas</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad0751004ff6f6da7eb9a86fd0cd60257" kind="variable"><name>eps</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a42107954a3fcca4a560431ec8a2dbf6c" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa81f2312df50eefa470a18f666096812" kind="variable"><name>amsgrad</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa8aa70bbb59afa3a22396f5cf4ced462" kind="variable"><name>gamma</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa1de1a62d43f92d2128bc3b17c7f07ef" kind="variable"><name>is_approx</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad8eb044b0d3641c401a316a965fe2f12" kind="variable"><name>mars_type</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1acd8006a646f28c943afa5bed6ee91c37" kind="variable"><name>optimize_1d</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a9f239e163e2058edee6276b3b9e460ac" kind="variable"><name>betas_1d</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a72dfa33ae4723d8a983be7f2dcebf91a" kind="variable"><name>weight_decay_1d</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a833d6821b08bb077389da1430fda8d6c" kind="variable"><name>state</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4e85c370536483c9880a4a45d3c85525" kind="variable"><name>_initialized</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1afa32d1d4bdacfd5bed6b70b9b2d4e855" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8bd8a817196067ed767f845e2221dbb8" kind="function"><name>learning_rate_1d</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1adcc5af1be1d7546ddecaf386707e14ad" kind="function"><name>learning_rate_1d</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aab224fa105221042631d0d9d5ee1a435" kind="function"><name>set_last_grad</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4958c2475140dd043725473176633683" kind="function"><name>init_single</name></member>
+    <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8b44f9d86de1b626e06a8e0e20302aa2" kind="function"><name>apply_single</name></member>
+  </compound>
   <compound refid="classmlx__optimizers_1_1muon_1_1_muon" kind="class"><name>mlx_optimizers::muon::Muon</name>
     <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a622e3650d96a197ff9c6bb4253d0384f" kind="variable"><name>momentum</name></member>
     <member refid="classmlx__optimizers_1_1muon_1_1_muon_1a63d2be8a2c3c2c410d1560d2c50f3e4e" kind="variable"><name>nesterov</name></member>
@@ -86,6 +107,10 @@
   </compound>
   <compound refid="namespacemlx__optimizers_1_1adopt" kind="namespace"><name>mlx_optimizers::adopt</name>
   </compound>
+  <compound refid="namespacemlx__optimizers_1_1common" kind="namespace"><name>mlx_optimizers::common</name>
+    <member refid="namespacemlx__optimizers_1_1common_1a7b81da1b2c739b0423f787eb38d16ae9" kind="function"><name>newton_schulz</name></member>
+    <member refid="namespacemlx__optimizers_1_1common_1acf2107aaccfdbb43c72f2d95dc399f81" kind="function"><name>numel</name></member>
+  </compound>
   <compound refid="namespacemlx__optimizers_1_1diffgrad" kind="namespace"><name>mlx_optimizers::diffgrad</name>
   </compound>
   <compound refid="namespacemlx__optimizers_1_1kron" kind="namespace"><name>mlx_optimizers::kron</name>
@@ -104,6 +129,8 @@
   <compound refid="namespacemlx__optimizers_1_1lamb" kind="namespace"><name>mlx_optimizers::lamb</name>
   </compound>
   <compound refid="namespacemlx__optimizers_1_1madgrad" kind="namespace"><name>mlx_optimizers::madgrad</name>
+  </compound>
+  <compound refid="namespacemlx__optimizers_1_1mars" kind="namespace"><name>mlx_optimizers::mars</name>
   </compound>
   <compound refid="namespacemlx__optimizers_1_1muon" kind="namespace"><name>mlx_optimizers::muon</name>
     <member refid="namespacemlx__optimizers_1_1muon_1a82e5c8146a0ccc55f218d8439e3556f1" kind="function"><name>zeropower_via_svd</name></member>
@@ -126,6 +153,8 @@
   </compound>
   <compound refid="adopt_8py" kind="file"><name>adopt.py</name>
   </compound>
+  <compound refid="common_8py" kind="file"><name>common.py</name>
+  </compound>
   <compound refid="diffgrad_8py" kind="file"><name>diffgrad.py</name>
   </compound>
   <compound refid="kron_8py" kind="file"><name>kron.py</name>
@@ -133,6 +162,8 @@
   <compound refid="lamb_8py" kind="file"><name>lamb.py</name>
   </compound>
   <compound refid="madgrad_8py" kind="file"><name>madgrad.py</name>
+  </compound>
+  <compound refid="mars_8py" kind="file"><name>mars.py</name>
   </compound>
   <compound refid="muon_8py" kind="file"><name>muon.py</name>
   </compound>

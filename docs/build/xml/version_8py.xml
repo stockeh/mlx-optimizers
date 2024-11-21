@@ -10,7 +10,7 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1" refid="namespacemlx__optimizers_1_1version" refkind="compound"><highlight class="normal">_MAJOR<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal">_MINOR<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;3&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">_MINOR<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;4&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">#<sp/>On<sp/>main<sp/>and<sp/>in<sp/>a<sp/>nightly<sp/>release<sp/>the<sp/>patch<sp/>should<sp/>be<sp/>one<sp/>ahead<sp/>of<sp/>the<sp/>last</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">#<sp/>released<sp/>build.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal">_PATCH<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal"></highlight></codeline>

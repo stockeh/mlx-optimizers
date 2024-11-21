@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_5ffreq_0',['update_freq',['../classmlx__optimizers_1_1shampoo_1_1_shampoo.html#aafb65cd4fde6e1771a7e80ef6188dadb',1,'mlx_optimizers::shampoo::Shampoo']]]
+  ['rng_0',['rng',['../classmlx__optimizers_1_1kron_1_1_kron.html#ab878e08b42d6766d73afcd5e21a1623b',1,'mlx_optimizers::kron::Kron']]]
 ];

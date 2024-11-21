@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['zeropower_5fvia_5fnewtonschulz5_0',['zeropower_via_newtonschulz5',['../namespacemlx__optimizers_1_1muon.html#a574131c3c099a6029fe4070080a2376a',1,'mlx_optimizers::muon']]],
-  ['zeropower_5fvia_5fsvd_1',['zeropower_via_svd',['../namespacemlx__optimizers_1_1muon.html#a82e5c8146a0ccc55f218d8439e3556f1',1,'mlx_optimizers::muon']]]
+  ['learning_5frate_5f1d_0',['learning_rate_1d',['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html#a8bd8a817196067ed767f845e2221dbb8',1,'mlx_optimizers.mars.MARS.learning_rate_1d(self)'],['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html#adcc5af1be1d7546ddecaf386707e14ad',1,'mlx_optimizers.mars.MARS.learning_rate_1d(self, Union[float, mx.array] learning_rate_1d)']]]
 ];

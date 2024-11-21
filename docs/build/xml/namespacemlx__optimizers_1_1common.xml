@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespacemlx__optimizers_1_1common" kind="namespace" language="Python">
+    <compoundname>mlx_optimizers::common</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1common_1a7b81da1b2c739b0423f787eb38d16ae9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>mx.array</type>
+        <definition> mx.array mlx_optimizers.common.newton_schulz</definition>
+        <argsstring>(G, steps=5, eps=1e-7)</argsstring>
+        <name>newton_schulz</name>
+        <qualifiedname>mlx_optimizers.common.newton_schulz</qualifiedname>
+        <param>
+          <type>G</type>
+          <defname>G</defname>
+        </param>
+        <param>
+          <type>steps</type>
+          <defname>steps</defname>
+          <defval>5</defval>
+        </param>
+        <param>
+          <type>eps</type>
+          <defname>eps</defname>
+          <defval>1e-7</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/common.py" line="5" column="1" bodyfile="mlx_optimizers/common.py" bodystart="5" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemlx__optimizers_1_1common_1acf2107aaccfdbb43c72f2d95dc399f81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition> int mlx_optimizers.common.numel</definition>
+        <argsstring>(mx.array x)</argsstring>
+        <name>numel</name>
+        <qualifiedname>mlx_optimizers.common.numel</qualifiedname>
+        <param>
+          <type>mx.array</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/common.py" line="20" column="1" bodyfile="mlx_optimizers/common.py" bodystart="20" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="mlx_optimizers/common.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['zeropower_5fvia_5fnewtonschulz5_0',['zeropower_via_newtonschulz5',['../namespacemlx__optimizers_1_1muon.html#a574131c3c099a6029fe4070080a2376a',1,'mlx_optimizers::muon']]],
-  ['zeropower_5fvia_5fsvd_1',['zeropower_via_svd',['../namespacemlx__optimizers_1_1muon.html#a82e5c8146a0ccc55f218d8439e3556f1',1,'mlx_optimizers::muon']]]
+  ['version_0',['VERSION',['../namespacemlx__optimizers_1_1version.html#afafd2a4d3eb62571cf1141c8bcff397d',1,'mlx_optimizers::version']]],
+  ['version_2epy_1',['version.py',['../version_8py.html',1,'']]],
+  ['version_5fshort_2',['VERSION_SHORT',['../namespacemlx__optimizers_1_1version.html#a7d2014c5459e3fe8e17f33fdda4e3f53',1,'mlx_optimizers::version']]]
 ];

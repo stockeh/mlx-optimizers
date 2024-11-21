@@ -17,7 +17,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="42" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="42" bodyend="-1"/>
+        <location file="mlx_optimizers/adopt.py" line="44" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a9f9a7e51fbfb4e9b9982a2b404608fc4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="45" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" prot="public" static="no" mutable="no">
         <type></type>
@@ -32,14 +47,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="43" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="43" bodyend="-1"/>
+        <location file="mlx_optimizers/adopt.py" line="46" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="46" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a49ccc0a76f72c4dbe8f693dd23ee982c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad73ffe0f1e24b567921cd628e2cfbc9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>mlx_optimizers.adopt.ADOPT.__init__</definition>
-        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.9999], float eps=1e-6)</argsstring>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.9999], float weight_decay=0.0, float eps=1e-6)</argsstring>
         <name>__init__</name>
         <qualifiedname>mlx_optimizers.adopt.ADOPT.__init__</qualifiedname>
         <param>
@@ -59,9 +74,15 @@
         <param>
           <type>List</type>
           <declname>betas</declname>
-          <defname>eps</defname>
+          <defname>weight_decay</defname>
           <array>[float]</array>
           <defval>[0.9, 0.9999]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>eps</defname>
+          <defval>0.0</defval>
         </param>
         <param>
           <type>float</type>
@@ -74,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="33" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="38" bodyend="44"/>
+        <location file="mlx_optimizers/adopt.py" line="34" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="40" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -101,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="45" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="45" bodyend="50"/>
+        <location file="mlx_optimizers/adopt.py" line="48" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="48" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -132,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="51" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="51" bodyend="74"/>
+        <location file="mlx_optimizers/adopt.py" line="53" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="53" bodyend="83"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -154,9 +175,10 @@ https://github.com/iShohei220/adopt
 
 Args:
     learning_rate (float or callable): The learning rate :math:`\eta`.
-    betas (Tuple[float, float], optional): The coefficients
+    betas (List[float, float], optional): The coefficients
         :math:`(\beta_1, \beta_2)` used for computing running averages of the
         gradient and its square. Default: ``(0.9, 0.9999)``
+    weight_decay (float, optional): The weight decay. Default: ``0.0``
     eps (float, optional): The term :math:`\epsilon` added to the
         denominator to improve numerical stability. Default: ``1e-6``
 
@@ -185,13 +207,14 @@ Args:
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="mlx_optimizers/adopt.py" line="7" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="7" bodyend="74"/>
+    <location file="mlx_optimizers/adopt.py" line="7" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="7" bodyend="83"/>
     <listofallmembers>
-      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a49ccc0a76f72c4dbe8f693dd23ee982c" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad73ffe0f1e24b567921cd628e2cfbc9b" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>__init__</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>apply_single</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>betas</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>eps</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a9f9a7e51fbfb4e9b9982a2b404608fc4" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>weight_decay</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

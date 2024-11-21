@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['version_2epy_0',['version.py',['../version_8py.html',1,'']]]
+  ['shampoo_2epy_0',['shampoo.py',['../shampoo_8py.html',1,'']]]
 ];

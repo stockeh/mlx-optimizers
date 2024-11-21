@@ -104,8 +104,8 @@ Inheritance diagram for mlx_optimizers.adopt.ADOPT:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a49ccc0a76f72c4dbe8f693dd23ee982c" id="r_a49ccc0a76f72c4dbe8f693dd23ee982c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49ccc0a76f72c4dbe8f693dd23ee982c">__init__</a> (self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] <a class="el" href="#a2a3f23f390377250e6ca72f705072539">betas</a>=[0.9, 0.9999], float <a class="el" href="#a6b4ee07f1b3d054cfc6d50a7ddacbb82">eps</a>=1e-6)</td></tr>
-<tr class="separator:a49ccc0a76f72c4dbe8f693dd23ee982c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73ffe0f1e24b567921cd628e2cfbc9b" id="r_ad73ffe0f1e24b567921cd628e2cfbc9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad73ffe0f1e24b567921cd628e2cfbc9b">__init__</a> (self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] <a class="el" href="#a2a3f23f390377250e6ca72f705072539">betas</a>=[0.9, 0.9999], float <a class="el" href="#a9f9a7e51fbfb4e9b9982a2b404608fc4">weight_decay</a>=0.0, float <a class="el" href="#a6b4ee07f1b3d054cfc6d50a7ddacbb82">eps</a>=1e-6)</td></tr>
+<tr class="separator:ad73ffe0f1e24b567921cd628e2cfbc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a449d00aa61826b98db81d75ec0b2bc0e" id="r_a449d00aa61826b98db81d75ec0b2bc0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a449d00aa61826b98db81d75ec0b2bc0e">init_single</a> (self, mx.array parameter, dict state)</td></tr>
 <tr class="separator:a449d00aa61826b98db81d75ec0b2bc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a026c750c96449687b91c1f63b7752f6d" id="r_a026c750c96449687b91c1f63b7752f6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a026c750c96449687b91c1f63b7752f6d">apply_single</a> (self, mx.array gradient, mx.array parameter, dict state)</td></tr>
@@ -115,6 +115,8 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2a3f23f390377250e6ca72f705072539" id="r_a2a3f23f390377250e6ca72f705072539"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a3f23f390377250e6ca72f705072539">betas</a> = betas</td></tr>
 <tr class="separator:a2a3f23f390377250e6ca72f705072539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9a7e51fbfb4e9b9982a2b404608fc4" id="r_a9f9a7e51fbfb4e9b9982a2b404608fc4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f9a7e51fbfb4e9b9982a2b404608fc4">weight_decay</a> = weight_decay</td></tr>
+<tr class="separator:a9f9a7e51fbfb4e9b9982a2b404608fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b4ee07f1b3d054cfc6d50a7ddacbb82" id="r_a6b4ee07f1b3d054cfc6d50a7ddacbb82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b4ee07f1b3d054cfc6d50a7ddacbb82">eps</a> = eps</td></tr>
 <tr class="separator:a6b4ee07f1b3d054cfc6d50a7ddacbb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -135,16 +137,17 @@ https://github.com/iShohei220/adopt
 
 Args:
     learning_rate (float or callable): The learning rate :math:`\eta`.
-    betas (Tuple[float, float], optional): The coefficients
+    betas (List[float, float], optional): The coefficients
         :math:`(\beta_1, \beta_2)` used for computing running averages of the
         gradient and its square. Default: ``(0.9, 0.9999)``
+    weight_decay (float, optional): The weight decay. Default: ``0.0``
     eps (float, optional): The term :math:`\epsilon` added to the
         denominator to improve numerical stability. Default: ``1e-6``
 
 ..
 </pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a49ccc0a76f72c4dbe8f693dd23ee982c" name="a49ccc0a76f72c4dbe8f693dd23ee982c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49ccc0a76f72c4dbe8f693dd23ee982c">&#9670;&#160;</a></span>__init__()</h2>
+<a id="ad73ffe0f1e24b567921cd628e2cfbc9b" name="ad73ffe0f1e24b567921cd628e2cfbc9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73ffe0f1e24b567921cd628e2cfbc9b">&#9670;&#160;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,6 +166,11 @@ Args:
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List[float] </td>          <td class="paramname"><span class="paramname"><em>betas</em></span><span class="paramdefsep"> = </span><span class="paramdefval">[0.9,&#160;0.9999]</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float </td>          <td class="paramname"><span class="paramname"><em>weight_decay</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.0</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -255,6 +263,20 @@ Args:
       <table class="memname">
         <tr>
           <td class="memname">mlx_optimizers.adopt.ADOPT.eps = eps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f9a7e51fbfb4e9b9982a2b404608fc4" name="a9f9a7e51fbfb4e9b9982a2b404608fc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f9a7e51fbfb4e9b9982a2b404608fc4">&#9670;&#160;</a></span>weight_decay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mlx_optimizers.adopt.ADOPT.weight_decay = weight_decay</td>
         </tr>
       </table>
 </div><div class="memdoc">

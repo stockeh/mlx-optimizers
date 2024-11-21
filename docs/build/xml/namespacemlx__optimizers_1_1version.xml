@@ -24,7 +24,7 @@
         <argsstring></argsstring>
         <name>_MINOR</name>
         <qualifiedname>mlx_optimizers.version._MINOR</qualifiedname>
-        <initializer>=  &quot;3&quot;</initializer>
+        <initializer>=  &quot;4&quot;</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

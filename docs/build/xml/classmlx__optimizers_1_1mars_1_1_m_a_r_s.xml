@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="classmlx__optimizers_1_1mars_1_1_m_a_r_s" kind="class" language="Python" prot="public">
+    <compoundname>mlx_optimizers::mars::MARS</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Optimizer</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4452c5868587da8d4956c7a94db589eb" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::betas</definition>
+        <argsstring></argsstring>
+        <name>betas</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.betas</qualifiedname>
+        <initializer>=  betas</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="99" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad0751004ff6f6da7eb9a86fd0cd60257" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::eps</definition>
+        <argsstring></argsstring>
+        <name>eps</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.eps</qualifiedname>
+        <initializer>=  eps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="100" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a42107954a3fcca4a560431ec8a2dbf6c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::weight_decay</definition>
+        <argsstring></argsstring>
+        <name>weight_decay</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.weight_decay</qualifiedname>
+        <initializer>=  weight_decay</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="101" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa81f2312df50eefa470a18f666096812" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::amsgrad</definition>
+        <argsstring></argsstring>
+        <name>amsgrad</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.amsgrad</qualifiedname>
+        <initializer>=  amsgrad</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="102" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa8aa70bbb59afa3a22396f5cf4ced462" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.gamma</qualifiedname>
+        <initializer>=  gamma</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="103" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa1de1a62d43f92d2128bc3b17c7f07ef" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::is_approx</definition>
+        <argsstring></argsstring>
+        <name>is_approx</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.is_approx</qualifiedname>
+        <initializer>=  is_approx</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="104" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad8eb044b0d3641c401a316a965fe2f12" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::mars_type</definition>
+        <argsstring></argsstring>
+        <name>mars_type</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.mars_type</qualifiedname>
+        <initializer>=  mars_type</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="105" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1acd8006a646f28c943afa5bed6ee91c37" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::optimize_1d</definition>
+        <argsstring></argsstring>
+        <name>optimize_1d</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.optimize_1d</qualifiedname>
+        <initializer>=  optimize_1d</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="106" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a9f239e163e2058edee6276b3b9e460ac" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::betas_1d</definition>
+        <argsstring></argsstring>
+        <name>betas_1d</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.betas_1d</qualifiedname>
+        <initializer>=  betas_1d</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="108" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a72dfa33ae4723d8a983be7f2dcebf91a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::weight_decay_1d</definition>
+        <argsstring></argsstring>
+        <name>weight_decay_1d</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.weight_decay_1d</qualifiedname>
+        <initializer>=  weight_decay_1d</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="109" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a833d6821b08bb077389da1430fda8d6c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="127" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="127" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4e85c370536483c9880a4a45d3c85525" prot="protected" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS::_initialized</definition>
+        <argsstring></argsstring>
+        <name>_initialized</name>
+        <qualifiedname>mlx_optimizers.mars.MARS._initialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="121" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="121" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1afa32d1d4bdacfd5bed6b70b9b2d4e855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS.__init__</definition>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate=3e-3, List[float] betas=[0.95, 0.99], float eps=1e-8, float weight_decay=0.0, bool amsgrad=False, float gamma=0.025, bool is_approx=True, str mars_type=&quot;mars-adamw&quot;, bool optimize_1d=False, Union[float, Callable[[mx.array], mx.array]] learning_rate_1d=3e-3, List[float] betas_1d=[0.9, 0.95], float weight_decay_1d=0.1)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>learning_rate</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate</declname>
+          <defname>betas</defname>
+          <defval>3e-3</defval>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>betas</declname>
+          <defname>eps</defname>
+          <array>[float]</array>
+          <defval>[0.95, 0.99]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>eps</declname>
+          <defname>weight_decay</defname>
+          <defval>1e-8</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay</declname>
+          <defname>amsgrad</defname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>amsgrad</declname>
+          <defname>gamma</defname>
+          <defval>False</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gamma</declname>
+          <defname>is_approx</defname>
+          <defval>0.025</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_approx</declname>
+          <defname>mars_type</defname>
+          <defval>True</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>mars_type</declname>
+          <defname>optimize_1d</defname>
+          <defval>&quot;mars-adamw&quot;</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>optimize_1d</declname>
+          <defname>learning_rate_1d</defname>
+          <defval>False</defval>
+        </param>
+        <param>
+          <type>Union</type>
+          <defname>betas_1d</defname>
+          <array>[float, Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>learning_rate_1d</declname>
+          <defname>weight_decay_1d</defname>
+          <defval>3e-3</defval>
+        </param>
+        <param>
+          <type>List</type>
+          <declname>betas_1d</declname>
+          <array>[float]</array>
+          <defval>[0.9, 0.95]</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight_decay_1d</declname>
+          <defval>0.1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="79" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="93" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8bd8a817196067ed767f845e2221dbb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS.learning_rate_1d</definition>
+        <argsstring>(self)</argsstring>
+        <name>learning_rate_1d</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.learning_rate_1d</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="112" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="112" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1adcc5af1be1d7546ddecaf386707e14ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS.learning_rate_1d</definition>
+        <argsstring>(self, Union[float, mx.array] learning_rate_1d)</argsstring>
+        <name>learning_rate_1d</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.learning_rate_1d</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Union</type>
+          <declname>learning_rate_1d</declname>
+          <array>[float, mx.array]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="116" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="116" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aab224fa105221042631d0d9d5ee1a435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS.set_last_grad</definition>
+        <argsstring>(self, dict gradients)</argsstring>
+        <name>set_last_grad</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.set_last_grad</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>gradients</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Set the last gradient for each parameter</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="119" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="119" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4958c2475140dd043725473176633683" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS.init_single</definition>
+        <argsstring>(self, mx.array parameter, dict state)</argsstring>
+        <name>init_single</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.init_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize optimizer state</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="129" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="129" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8b44f9d86de1b626e06a8e0e20302aa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mlx_optimizers.mars.MARS.apply_single</definition>
+        <argsstring>(self, mx.array gradient, mx.array parameter, dict state)</argsstring>
+        <name>apply_single</name>
+        <qualifiedname>mlx_optimizers.mars.MARS.apply_single</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>gradient</declname>
+        </param>
+        <param>
+          <type>mx.array</type>
+          <declname>parameter</declname>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Performs a single optimization step, updating :math:`m` and :math:`v`</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/mars.py" line="136" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="136" bodyend="204"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Make vAriance Reduction Shine [1].
+
+MARS combines two main components: (a) a scaled stochastic recursive momentum that 
+acts as a variance-reduced estimator of the full gradient, and (b) a preconditioner 
+to approximates the second-order Newton&apos;s method for better per-iteration complexity.
+
+This is based on the following preconditioned variance-reduced update rules:
+
+.. math::
+
+    &amp; \mathbf{m}_0 \gets 0, \quad \mathbf{x}_1 \gets \mathbf{x}_0 \\
+    &amp; \text{For } \, t = 1 \text{ to } n: \\
+    &amp; \quad \text{Sample } \xi_t \text{ and let } \mathbf{c}_t = \nabla f(\mathbf{x}_t, \xi_t) + \gamma_t \frac{\beta_1}{1 - \beta_1} \big( \nabla f(\mathbf{x}_t, \xi_t) - \nabla f(\mathbf{x}_{t-1}, \xi_t) \big) \\
+    &amp; \quad \text{If } \|\mathbf{c}_t\|_2 &gt; 1, \text{ then } \tilde{\mathbf{c}}_t = \frac{\mathbf{c}_t}{\|\mathbf{c}_t\|_2}, \text{ else } \tilde{\mathbf{c}}_t = \mathbf{c}_t \\
+    &amp; \quad \mathbf{m}_t = \beta_1 \mathbf{m}_{t-1} + (1 - \beta_1) \tilde{\mathbf{c}}_t \\
+    &amp; \quad \mathbf{x}_{t+1} = \arg \min_{\mathbf{x}} \big\{ \eta_t \langle \mathbf{m}_t, \mathbf{x} \rangle + \frac{1}{2} \|\mathbf{x} - \mathbf{x}_t\|_{\mathbf{H}_t}^2 \big\}
+
+Hessian matrix approximations (``mars-adamw``, ``mars-lion``, ``mars-shampoo``):
+
+- ``mars-adamw``
+
+.. math::
+    
+    \mathbf{v}\_t &amp;=\beta_2 \mathbf{v}\_{t-1}+(1-\beta_2) \big(\nabla f(\mathbf{x}\_t, \mathbf{\xi}\_t)\big)^2\\
+    \mathbf{H}_t &amp;:= \sqrt{\text{diag}\Big(\mathbf{v}_t\Big)}\cdot \frac{1 - \beta_1^t}{\sqrt{1 - \beta_2^t}}.
+
+- ``mars-lion``
+
+.. math::
+
+    \mathbf{H}_t := \sqrt{\text{diag}(\mathbf{m}_t^2)}.
+
+
+- ``mars-shampoo`` (with Newton-Schulz iteration instead of SVD)
+
+.. math::
+
+    \mathbf{U}\_t, &amp;\mathbf{\Sigma}\_t, \mathbf{V}\_t = \text{SVD}(\mathbf{G}\_t),\\
+    \mathbf{x}\_{t+1} &amp;=\mathbf{x}\_t \eta_t\mathbf{U}_t\mathbf{V}\_t^\top.
+
+    
+[1] Yuan, Huizhuo, Liu, Yifeng and Wu, Shuang and Zhou, Xun and Gu, Quanquan, 2024. 
+MARS: Unleashing the Power of Variance Reduction for Training Large Models.
+https://arxiv.org/abs/2411.10438
+https://github.com/AGI-Arena/MARS
+
+Args:
+    learning_rate (float or callable): The MARS learning rate :math:`\eta`.
+    betas (List[float], optional): The MARS coefficients :math:`(\beta_1, \beta_2)` 
+        for exponential moving average. Default: ``[0.95, 0.99]``
+    eps (float, optional): The term :math:`\epsilon` added to the
+        denominator to improve numerical stability. Default: ``1e-8``
+    weight_decay (float, optional): The MARS weight decay. Default: ``0.0``
+    amsgrad (bool, optional): Whether to use the AMSGrad variant. Default: ``False``
+    gamma (float, optional): Scaling parameter that controls the strength of gradient 
+        correction. Default: ``0.025``
+    is_approx (bool, optional): Whether to use the approximate version. Default: ``True``
+    mars_type (str, optional): The MARS type {mars-adamw, mars-lion, mars-shampoo}.
+        Default: ``mars-adamw``
+    optimize_1d (bool, optional): Whether MARS should optimize 1D parameters. 
+        False, AdamW will be used for optimizing 1D parameters. Default: ``False``
+    learning_rate_1d (float or callable): The learning rate for 1D parameters. Default: ``3e-3``
+    betas_1d (List[float], optional): The coefficients for 1D parameters. Default: ``[0.9, 0.95]``
+    weight_decay_1d (float, optional): The weight decay for 1D parameters. Default: ``0.1``
+
+..
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.mars.MARS</label>
+        <link refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Optimizer</label>
+      </node>
+      <node id="1">
+        <label>mlx_optimizers.mars.MARS</label>
+        <link refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="mlx_optimizers/mars.py" line="10" column="1" bodyfile="mlx_optimizers/mars.py" bodystart="10" bodyend="204"/>
+    <listofallmembers>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1afa32d1d4bdacfd5bed6b70b9b2d4e855" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4e85c370536483c9880a4a45d3c85525" prot="protected" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>_initialized</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa81f2312df50eefa470a18f666096812" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>amsgrad</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8b44f9d86de1b626e06a8e0e20302aa2" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>apply_single</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4452c5868587da8d4956c7a94db589eb" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>betas</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a9f239e163e2058edee6276b3b9e460ac" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>betas_1d</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad0751004ff6f6da7eb9a86fd0cd60257" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>eps</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa8aa70bbb59afa3a22396f5cf4ced462" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>gamma</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4958c2475140dd043725473176633683" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>init_single</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa1de1a62d43f92d2128bc3b17c7f07ef" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>is_approx</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8bd8a817196067ed767f845e2221dbb8" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>learning_rate_1d</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1adcc5af1be1d7546ddecaf386707e14ad" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>learning_rate_1d</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad8eb044b0d3641c401a316a965fe2f12" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>mars_type</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1acd8006a646f28c943afa5bed6ee91c37" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>optimize_1d</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aab224fa105221042631d0d9d5ee1a435" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>set_last_grad</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a833d6821b08bb077389da1430fda8d6c" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>state</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a42107954a3fcca4a560431ec8a2dbf6c" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>weight_decay</name></member>
+      <member refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a72dfa33ae4723d8a983be7f2dcebf91a" prot="public" virt="non-virtual"><scope>mlx_optimizers::mars::MARS</scope><name>weight_decay_1d</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

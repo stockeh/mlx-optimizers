@@ -4,10 +4,12 @@
     <compoundname>mlx_optimizers</compoundname>
     <innerfile refid="____init_____8py">__init__.py</innerfile>
     <innerfile refid="adopt_8py">adopt.py</innerfile>
+    <innerfile refid="common_8py">common.py</innerfile>
     <innerfile refid="diffgrad_8py">diffgrad.py</innerfile>
     <innerfile refid="kron_8py">kron.py</innerfile>
     <innerfile refid="lamb_8py">lamb.py</innerfile>
     <innerfile refid="madgrad_8py">madgrad.py</innerfile>
+    <innerfile refid="mars_8py">mars.py</innerfile>
     <innerfile refid="muon_8py">muon.py</innerfile>
     <innerfile refid="qhadam_8py">qhadam.py</innerfile>
     <innerfile refid="shampoo_8py">shampoo.py</innerfile>

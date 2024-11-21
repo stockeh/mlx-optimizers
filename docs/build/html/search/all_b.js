@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['nesterov_0',['nesterov',['../classmlx__optimizers_1_1muon_1_1_muon.html#a63d2be8a2c3c2c410d1560d2c50f3e4e',1,'mlx_optimizers::muon::Muon']]],
-  ['nus_1',['nus',['../classmlx__optimizers_1_1qhadam_1_1_q_h_adam.html#aa1a0eaf861e00c6262418207cfff5456',1,'mlx_optimizers::qhadam::QHAdam']]]
+  ['lamb_0',['Lamb',['../classmlx__optimizers_1_1lamb_1_1_lamb.html',1,'mlx_optimizers::lamb']]],
+  ['lamb_2epy_1',['lamb.py',['../lamb_8py.html',1,'']]],
+  ['learning_5frate_5f1d_2',['learning_rate_1d',['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html#a8bd8a817196067ed767f845e2221dbb8',1,'mlx_optimizers.mars.MARS.learning_rate_1d(self)'],['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html#adcc5af1be1d7546ddecaf386707e14ad',1,'mlx_optimizers.mars.MARS.learning_rate_1d(self, Union[float, mx.array] learning_rate_1d)']]]
 ];

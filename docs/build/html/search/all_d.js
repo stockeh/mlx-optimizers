@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['precond_5finit_5fscale_0',['precond_init_scale',['../classmlx__optimizers_1_1kron_1_1_kron.html#ae7c1f7e56d949f67fdc8f17402a65d44',1,'mlx_optimizers::kron::Kron']]],
-  ['precond_5flearning_5frate_1',['precond_learning_rate',['../classmlx__optimizers_1_1kron_1_1_kron.html#a893f9afd4f96d55cf2f6c69a4e58d885',1,'mlx_optimizers::kron::Kron']]],
-  ['precond_5fupdate_5fprob_2',['precond_update_prob',['../classmlx__optimizers_1_1kron_1_1_kron.html#a8f42d324af8ce652263e4c85a96fb12c',1,'mlx_optimizers::kron::Kron']]]
+  ['nesterov_0',['nesterov',['../classmlx__optimizers_1_1muon_1_1_muon.html#a63d2be8a2c3c2c410d1560d2c50f3e4e',1,'mlx_optimizers::muon::Muon']]],
+  ['newton_5fschulz_1',['newton_schulz',['../namespacemlx__optimizers_1_1common.html#a7b81da1b2c739b0423f787eb38d16ae9',1,'mlx_optimizers::common']]],
+  ['numel_2',['numel',['../namespacemlx__optimizers_1_1common.html#acf2107aaccfdbb43c72f2d95dc399f81',1,'mlx_optimizers::common']]],
+  ['nus_3',['nus',['../classmlx__optimizers_1_1qhadam_1_1_q_h_adam.html#aa1a0eaf861e00c6262418207cfff5456',1,'mlx_optimizers::qhadam::QHAdam']]]
 ];

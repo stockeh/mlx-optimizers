@@ -1,4 +1,27 @@
 var searchData=
 [
-  ['orthogonalize_0',['orthogonalize',['../classmlx__optimizers_1_1muon_1_1_muon.html#a9dbf4da2fe276162e0ee069e5fb1aa2c',1,'mlx_optimizers::muon::Muon']]]
+  ['madgrad_0',['MADGRAD',['../classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d.html',1,'mlx_optimizers::madgrad']]],
+  ['madgrad_2epy_1',['madgrad.py',['../madgrad_8py.html',1,'']]],
+  ['mars_2',['MARS',['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html',1,'mlx_optimizers::mars']]],
+  ['mars_2epy_3',['mars.py',['../mars_8py.html',1,'']]],
+  ['mars_5ftype_4',['mars_type',['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html#ad8eb044b0d3641c401a316a965fe2f12',1,'mlx_optimizers::mars::MARS']]],
+  ['max_5fsize_5ftriangular_5',['max_size_triangular',['../classmlx__optimizers_1_1kron_1_1_kron.html#ab5b2bdf99a1a040adef57a7ff2832ff7',1,'mlx_optimizers::kron::Kron']]],
+  ['memory_5fsave_5fmode_6',['memory_save_mode',['../classmlx__optimizers_1_1kron_1_1_kron.html#af8f6cda6be902c347b669dc6d5f048d0',1,'mlx_optimizers::kron::Kron']]],
+  ['min_5fndim_5ftriangular_7',['min_ndim_triangular',['../classmlx__optimizers_1_1kron_1_1_kron.html#a501418dc2a3135b176cef9a83a453783',1,'mlx_optimizers::kron::Kron']]],
+  ['mlx_5foptimizers_8',['mlx_optimizers',['../namespacemlx__optimizers.html',1,'']]],
+  ['mlx_5foptimizers_3a_3aadopt_9',['adopt',['../namespacemlx__optimizers_1_1adopt.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3acommon_10',['common',['../namespacemlx__optimizers_1_1common.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3adiffgrad_11',['diffgrad',['../namespacemlx__optimizers_1_1diffgrad.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3akron_12',['kron',['../namespacemlx__optimizers_1_1kron.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3alamb_13',['lamb',['../namespacemlx__optimizers_1_1lamb.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3amadgrad_14',['madgrad',['../namespacemlx__optimizers_1_1madgrad.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3amars_15',['mars',['../namespacemlx__optimizers_1_1mars.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3amuon_16',['muon',['../namespacemlx__optimizers_1_1muon.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3aqhadam_17',['qhadam',['../namespacemlx__optimizers_1_1qhadam.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3ashampoo_18',['shampoo',['../namespacemlx__optimizers_1_1shampoo.html',1,'mlx_optimizers']]],
+  ['mlx_5foptimizers_3a_3aversion_19',['version',['../namespacemlx__optimizers_1_1version.html',1,'mlx_optimizers']]],
+  ['momentum_20',['momentum',['../classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d.html#a9b8caf8388338910a1ea84530373e35f',1,'mlx_optimizers.madgrad.MADGRAD.momentum'],['../classmlx__optimizers_1_1muon_1_1_muon.html#a622e3650d96a197ff9c6bb4253d0384f',1,'mlx_optimizers.muon.Muon.momentum'],['../classmlx__optimizers_1_1shampoo_1_1_shampoo.html#a5248e287b9734c62def59d520c0a1236',1,'mlx_optimizers.shampoo.Shampoo.momentum']]],
+  ['momentum_5finto_5fprecond_5fupdate_21',['momentum_into_precond_update',['../classmlx__optimizers_1_1kron_1_1_kron.html#ae9cb2246b142e2d76ceb3447db2f2f6f',1,'mlx_optimizers::kron::Kron']]],
+  ['muon_22',['Muon',['../classmlx__optimizers_1_1muon_1_1_muon.html',1,'mlx_optimizers::muon']]],
+  ['muon_2epy_23',['muon.py',['../muon_8py.html',1,'']]]
 ];

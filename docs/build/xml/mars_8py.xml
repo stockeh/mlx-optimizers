@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="mars_8py" kind="file" language="Python">
+    <compoundname>mars.py</compoundname>
+    <innerclass refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s" prot="public">mlx_optimizers::mars::MARS</innerclass>
+    <innernamespace refid="namespacemlx__optimizers">mlx_optimizers</innernamespace>
+    <innernamespace refid="namespacemlx__optimizers_1_1mars">mlx_optimizers::mars</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemlx__optimizers_1_1mars" refkind="compound"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>typing<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Callable,<sp/>List,<sp/>Union</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>mlx.core<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>mx</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.optimizers<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Optimizer</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mlx.utils<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>tree_map</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>.common<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>newton_schulz</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s" kindref="compound">MARS</ref>(Optimizer):</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">r&quot;&quot;&quot;Make<sp/>vAriance<sp/>Reduction<sp/>Shine<sp/>[1].</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>MARS<sp/>combines<sp/>two<sp/>main<sp/>components:<sp/>(a)<sp/>a<sp/>scaled<sp/>stochastic<sp/>recursive<sp/>momentum<sp/>that<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>acts<sp/>as<sp/>a<sp/>variance-reduced<sp/>estimator<sp/>of<sp/>the<sp/>full<sp/>gradient,<sp/>and<sp/>(b)<sp/>a<sp/>preconditioner<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>to<sp/>approximates<sp/>the<sp/>second-order<sp/>Newton&apos;s<sp/>method<sp/>for<sp/>better<sp/>per-iteration<sp/>complexity.</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>This<sp/>is<sp/>based<sp/>on<sp/>the<sp/>following<sp/>preconditioned<sp/>variance-reduced<sp/>update<sp/>rules:</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>\mathbf{m}_0<sp/>\gets<sp/>0,<sp/>\quad<sp/>\mathbf{x}_1<sp/>\gets<sp/>\mathbf{x}_0<sp/>\\</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>\text{For<sp/>}<sp/>\,<sp/>t<sp/>=<sp/>1<sp/>\text{<sp/>to<sp/>}<sp/>n:<sp/>\\</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>\quad<sp/>\text{Sample<sp/>}<sp/>\xi_t<sp/>\text{<sp/>and<sp/>let<sp/>}<sp/>\mathbf{c}_t<sp/>=<sp/>\nabla<sp/>f(\mathbf{x}_t,<sp/>\xi_t)<sp/>+<sp/>\gamma_t<sp/>\frac{\beta_1}{1<sp/>-<sp/>\beta_1}<sp/>\big(<sp/>\nabla<sp/>f(\mathbf{x}_t,<sp/>\xi_t)<sp/>-<sp/>\nabla<sp/>f(\mathbf{x}_{t-1},<sp/>\xi_t)<sp/>\big)<sp/>\\</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>\quad<sp/>\text{If<sp/>}<sp/>\|\mathbf{c}_t\|_2<sp/>&gt;<sp/>1,<sp/>\text{<sp/>then<sp/>}<sp/>\tilde{\mathbf{c}}_t<sp/>=<sp/>\frac{\mathbf{c}_t}{\|\mathbf{c}_t\|_2},<sp/>\text{<sp/>else<sp/>}<sp/>\tilde{\mathbf{c}}_t<sp/>=<sp/>\mathbf{c}_t<sp/>\\</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>\quad<sp/>\mathbf{m}_t<sp/>=<sp/>\beta_1<sp/>\mathbf{m}_{t-1}<sp/>+<sp/>(1<sp/>-<sp/>\beta_1)<sp/>\tilde{\mathbf{c}}_t<sp/>\\</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>\quad<sp/>\mathbf{x}_{t+1}<sp/>=<sp/>\arg<sp/>\min_{\mathbf{x}}<sp/>\big\{<sp/>\eta_t<sp/>\langle<sp/>\mathbf{m}_t,<sp/>\mathbf{x}<sp/>\rangle<sp/>+<sp/>\frac{1}{2}<sp/>\|\mathbf{x}<sp/>-<sp/>\mathbf{x}_t\|_{\mathbf{H}_t}^2<sp/>\big\}</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Hessian<sp/>matrix<sp/>approximations<sp/>(``mars-adamw``,<sp/>``mars-lion``,<sp/>``mars-shampoo``):</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>``mars-adamw``</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\mathbf{v}\_t<sp/>&amp;=\beta_2<sp/>\mathbf{v}\_{t-1}+(1-\beta_2)<sp/>\big(\nabla<sp/>f(\mathbf{x}\_t,<sp/>\mathbf{\xi}\_t)\big)^2\\</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\mathbf{H}_t<sp/>&amp;:=<sp/>\sqrt{\text{diag}\Big(\mathbf{v}_t\Big)}\cdot<sp/>\frac{1<sp/>-<sp/>\beta_1^t}{\sqrt{1<sp/>-<sp/>\beta_2^t}}.</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>``mars-lion``</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\mathbf{H}_t<sp/>:=<sp/>\sqrt{\text{diag}(\mathbf{m}_t^2)}.</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>-<sp/>``mars-shampoo``<sp/>(with<sp/>Newton-Schulz<sp/>iteration<sp/>instead<sp/>of<sp/>SVD)</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..<sp/>math::</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\mathbf{U}\_t,<sp/>&amp;\mathbf{\Sigma}\_t,<sp/>\mathbf{V}\_t<sp/>=<sp/>\text{SVD}(\mathbf{G}\_t),\\</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\mathbf{x}\_{t+1}<sp/>&amp;=\mathbf{x}\_t<sp/>\eta_t\mathbf{U}_t\mathbf{V}\_t^\top.</highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>[1]<sp/>Yuan,<sp/>Huizhuo,<sp/>Liu,<sp/>Yifeng<sp/>and<sp/>Wu,<sp/>Shuang<sp/>and<sp/>Zhou,<sp/>Xun<sp/>and<sp/>Gu,<sp/>Quanquan,<sp/>2024.<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>MARS:<sp/>Unleashing<sp/>the<sp/>Power<sp/>of<sp/>Variance<sp/>Reduction<sp/>for<sp/>Training<sp/>Large<sp/>Models.</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://arxiv.org/abs/2411.10438</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>https://github.com/AGI-Arena/MARS</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate<sp/>(float<sp/>or<sp/>callable):<sp/>The<sp/>MARS<sp/>learning<sp/>rate<sp/>:math:`\eta`.</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas<sp/>(List[float],<sp/>optional):<sp/>The<sp/>MARS<sp/>coefficients<sp/>:math:`(\beta_1,<sp/>\beta_2)`<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>exponential<sp/>moving<sp/>average.<sp/>Default:<sp/>``[0.95,<sp/>0.99]``</highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps<sp/>(float,<sp/>optional):<sp/>The<sp/>term<sp/>:math:`\epsilon`<sp/>added<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denominator<sp/>to<sp/>improve<sp/>numerical<sp/>stability.<sp/>Default:<sp/>``1e-8``</highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay<sp/>(float,<sp/>optional):<sp/>The<sp/>MARS<sp/>weight<sp/>decay.<sp/>Default:<sp/>``0.0``</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>amsgrad<sp/>(bool,<sp/>optional):<sp/>Whether<sp/>to<sp/>use<sp/>the<sp/>AMSGrad<sp/>variant.<sp/>Default:<sp/>``False``</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gamma<sp/>(float,<sp/>optional):<sp/>Scaling<sp/>parameter<sp/>that<sp/>controls<sp/>the<sp/>strength<sp/>of<sp/>gradient<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>correction.<sp/>Default:<sp/>``0.025``</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_approx<sp/>(bool,<sp/>optional):<sp/>Whether<sp/>to<sp/>use<sp/>the<sp/>approximate<sp/>version.<sp/>Default:<sp/>``True``</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mars_type<sp/>(str,<sp/>optional):<sp/>The<sp/>MARS<sp/>type<sp/>{mars-adamw,<sp/>mars-lion,<sp/>mars-shampoo}.</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Default:<sp/>``mars-adamw``</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>optimize_1d<sp/>(bool,<sp/>optional):<sp/>Whether<sp/>MARS<sp/>should<sp/>optimize<sp/>1D<sp/>parameters.<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>False,<sp/>AdamW<sp/>will<sp/>be<sp/>used<sp/>for<sp/>optimizing<sp/>1D<sp/>parameters.<sp/>Default:<sp/>``False``</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate_1d<sp/>(float<sp/>or<sp/>callable):<sp/>The<sp/>learning<sp/>rate<sp/>for<sp/>1D<sp/>parameters.<sp/>Default:<sp/>``3e-3``</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas_1d<sp/>(List[float],<sp/>optional):<sp/>The<sp/>coefficients<sp/>for<sp/>1D<sp/>parameters.<sp/>Default:<sp/>``[0.9,<sp/>0.95]``</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay_1d<sp/>(float,<sp/>optional):<sp/>The<sp/>weight<sp/>decay<sp/>for<sp/>1D<sp/>parameters.<sp/>Default:<sp/>``0.1``</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>..</highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1afa32d1d4bdacfd5bed6b70b9b2d4e855" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]]<sp/>=<sp/>3e-3,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas:<sp/>List[float]<sp/>=<sp/>[0.95,<sp/>0.99],</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps:<sp/>float<sp/>=<sp/>1e-8,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay:<sp/>float<sp/>=<sp/>0.0,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>amsgrad:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gamma:<sp/>float<sp/>=<sp/>0.025,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_approx:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mars_type:<sp/>str<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;mars-adamw&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>optimize_1d:<sp/>bool<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>learning_rate_1d:<sp/>Union[float,<sp/>Callable[[mx.array],<sp/>mx.array]]<sp/>=<sp/>3e-3,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>betas_1d:<sp/>List[float]<sp/>=<sp/>[0.9,<sp/>0.95],</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay_1d:<sp/>float<sp/>=<sp/>0.1,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super().<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1afa32d1d4bdacfd5bed6b70b9b2d4e855" kindref="member">__init__</ref>()</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/>mars_type<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>[</highlight><highlight class="stringliteral">&quot;mars-adamw&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;mars-lion&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;mars-shampoo&quot;</highlight><highlight class="normal">],<sp/></highlight><highlight class="stringliteral">&quot;MARS<sp/>type<sp/>not<sp/>supported&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate&quot;</highlight><highlight class="normal">,<sp/>learning_rate)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a4452c5868587da8d4956c7a94db589eb" kindref="member">betas</ref><sp/>=<sp/>betas</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad0751004ff6f6da7eb9a86fd0cd60257" kindref="member">eps</ref><sp/>=<sp/>eps</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a42107954a3fcca4a560431ec8a2dbf6c" kindref="member">weight_decay</ref><sp/>=<sp/>weight_decay</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa81f2312df50eefa470a18f666096812" kindref="member">amsgrad</ref><sp/>=<sp/>amsgrad</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa8aa70bbb59afa3a22396f5cf4ced462" kindref="member">gamma</ref><sp/>=<sp/>gamma</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aa1de1a62d43f92d2128bc3b17c7f07ef" kindref="member">is_approx</ref><sp/>=<sp/>is_approx</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1ad8eb044b0d3641c401a316a965fe2f12" kindref="member">mars_type</ref><sp/>=<sp/>mars_type</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1acd8006a646f28c943afa5bed6ee91c37" kindref="member">optimize_1d</ref><sp/>=<sp/>optimize_1d</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self._maybe_schedule(</highlight><highlight class="stringliteral">&quot;learning_rate_1d&quot;</highlight><highlight class="normal">,<sp/>learning_rate_1d)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a9f239e163e2058edee6276b3b9e460ac" kindref="member">betas_1d</ref><sp/>=<sp/>betas_1d</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a72dfa33ae4723d8a983be7f2dcebf91a" kindref="member">weight_decay_1d</ref><sp/>=<sp/>weight_decay_1d</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="preprocessor">@property</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8bd8a817196067ed767f845e2221dbb8" kindref="member">learning_rate_1d</ref>(self):</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a833d6821b08bb077389da1430fda8d6c" kindref="member">state</ref>[</highlight><highlight class="stringliteral">&quot;learning_rate_1d&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="preprocessor">@learning_rate_1d.setter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a8bd8a817196067ed767f845e2221dbb8" kindref="member">learning_rate_1d</ref>(self,<sp/>learning_rate_1d:<sp/>Union[float,<sp/>mx.array]):</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1a833d6821b08bb077389da1430fda8d6c" kindref="member">state</ref>[</highlight><highlight class="stringliteral">&quot;learning_rate_1d&quot;</highlight><highlight class="normal">]<sp/>=<sp/>mx.array(learning_rate_1d)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classmlx__optimizers_1_1mars_1_1_m_a_r_s_1aab224fa105221042631d0d9d5ee1a435" kindref="member">set_last_grad</ref>(self,<sp/>gradients:<sp/>dict):</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Set<sp/>the<sp/>last<sp/>gradient<sp/>for<sp/>each<sp/>parameter&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="121"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>self._initialized,<sp/>&quot;Must<sp/>be<sp/>initialized<sp/>before<sp/>setting&quot;</highlight></codeline>
+<codeline lineno="122"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>not<sp/>self.is_approx:</highlight></codeline>
+<codeline lineno="123"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="124"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>def<sp/>update_last(gradient,<sp/>state):</highlight></codeline>
+<codeline lineno="125"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;last_grad&quot;]<sp/>=<sp/>gradient</highlight></codeline>
+<codeline lineno="126"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="127"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree_map(update_last,<sp/>gradients,<sp/>self.state)</highlight></codeline>
+<codeline lineno="128"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="129"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>def<sp/>init_single(self,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="130"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal">Initialize<sp/>optimizer<sp/>state&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;m&quot;]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;v&quot;]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;last_grad&quot;]<sp/>=<sp/>mx.zeros_like(parameter)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;max_v&quot;]<sp/>=<sp/>mx.zeros_like(parameter)<sp/>if<sp/>self.amsgrad<sp/>else<sp/>0</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>def<sp/>apply_single(self,<sp/>gradient:<sp/>mx.array,<sp/>parameter:<sp/>mx.array,<sp/>state:<sp/>dict):</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;Performs<sp/>a<sp/>single<sp/>optimization<sp/>step,<sp/>updating<sp/>:math:`m`<sp/>and<sp/>:math:`v`&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mars_type<sp/>=<sp/>self.mars_type</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eps<sp/>=<sp/>self.eps</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>state[&quot;m&quot;]</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>state[&quot;v&quot;]</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_grad<sp/>=<sp/>state[&quot;last_grad&quot;]</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_v<sp/>=<sp/>state[&quot;max_v&quot;]</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_grad_2d<sp/>=<sp/>gradient.ndim<sp/>==<sp/>2</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>self.optimize_1d<sp/>or<sp/>is_grad_2d:</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate.astype(gradient.dtype)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1,<sp/>b2<sp/>=<sp/>self.betas</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay<sp/>=<sp/>(<sp/><sp/>#<sp/>no<sp/>decay:<sp/>bias,<sp/>norms,<sp/>and<sp/>what<sp/>looks<sp/>like<sp/>embedding/head</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.weight_decay<sp/>if<sp/>(parameter.ndim<sp/>&gt;<sp/>1<sp/>and<sp/>parameter.shape[0]<sp/>&lt;<sp/>1e4)<sp/>else<sp/>0</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>start</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c_t<sp/>=<sp/>gradient<sp/>+<sp/>self.gamma<sp/>*<sp/>(b1<sp/>/<sp/>(1<sp/>-<sp/>b1))<sp/>*<sp/>(gradient<sp/>-<sp/>last_grad)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c_t_norm<sp/>=<sp/>mx.linalg.norm(c_t)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c_t<sp/>=<sp/>mx.where(c_t_norm<sp/>&gt;<sp/>1,<sp/>c_t<sp/>/<sp/>c_t_norm,<sp/>c_t)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>b1<sp/>*<sp/>m<sp/>+<sp/>(1<sp/>-<sp/>b1)<sp/>*<sp/>c_t</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(mars_type<sp/>==<sp/>&quot;mars-adamw&quot;)<sp/>or<sp/>(mars_type<sp/>==<sp/>&quot;mars-shampoo&quot;<sp/>and<sp/>not<sp/>is_grad_2d):</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>b2<sp/>*<sp/>v<sp/>+<sp/>(1<sp/>-<sp/>b2)<sp/>*<sp/>mx.square(c_t)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bias_correction1<sp/>=<sp/>1<sp/>-<sp/>mx.power(b1,<sp/>self.state[&quot;step&quot;])</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bias_correction2<sp/>=<sp/>1<sp/>-<sp/>mx.power(b2,<sp/>self.state[&quot;step&quot;])</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denom<sp/>=<sp/>(</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mx.where(</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.amsgrad<sp/>and<sp/>mx.any((max_v<sp/>:=<sp/>mx.maximum(v,<sp/>max_v))),</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mx.sqrt(max_v),</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mx.sqrt(v),</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>*<sp/>(1<sp/>/<sp/>mx.sqrt(bias_correction2))<sp/>+<sp/>eps</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update<sp/>=<sp/>weight_decay<sp/>*<sp/>parameter<sp/>+<sp/>m<sp/>/<sp/>(denom<sp/>*<sp/>bias_correction1)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elif<sp/>mars_type<sp/>==<sp/>&quot;mars-lion&quot;:</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update<sp/>=<sp/>weight_decay<sp/>*<sp/>parameter<sp/>+<sp/>mx.sign(m)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elif<sp/>mars_type<sp/>==<sp/>&quot;mars-shampoo&quot;<sp/>and<sp/>is_grad_2d:</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factor<sp/>=<sp/>max(1,<sp/>gradient.shape[0]<sp/>/<sp/>gradient.shape[1])<sp/>**<sp/>0.5</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update<sp/>=<sp/>(</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newton_schulz((1<sp/>/<sp/>(1<sp/>-<sp/>b1))<sp/>*<sp/>m,<sp/>steps=5,<sp/>eps=eps)<sp/>*<sp/>factor</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>weight_decay<sp/>*<sp/>parameter</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else:</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lr<sp/>=<sp/>self.learning_rate_1d.astype(gradient.dtype)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1,<sp/>b2<sp/>=<sp/>self.betas_1d</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weight_decay<sp/>=<sp/>self.weight_decay_1d</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>start</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>b1<sp/>*<sp/>m<sp/>+<sp/>(1<sp/>-<sp/>b1)<sp/>*<sp/>gradient</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>b2<sp/>*<sp/>v<sp/>+<sp/>(1<sp/>-<sp/>b2)<sp/>*<sp/>mx.square(gradient)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bias_correction1<sp/>=<sp/>1<sp/>-<sp/>mx.power(b1,<sp/>self.state[&quot;step&quot;])</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bias_correction2<sp/>=<sp/>1<sp/>-<sp/>mx.power(b2,<sp/>self.state[&quot;step&quot;])</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>denom<sp/>=<sp/>(</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mx.where(</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.amsgrad<sp/>and<sp/>mx.any((max_v<sp/>:=<sp/>mx.maximum(v,<sp/>max_v))),</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mx.sqrt(max_v),</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mx.sqrt(v),</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>*<sp/>(1<sp/>/<sp/>mx.sqrt(bias_correction2))<sp/>+<sp/>eps</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>update<sp/>=<sp/>weight_decay<sp/>*<sp/>parameter<sp/>+<sp/>m<sp/>/<sp/>(denom<sp/>*<sp/>bias_correction1)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;m&quot;]<sp/>=<sp/>m</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;v&quot;]<sp/>=<sp/>v</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;max_v&quot;]<sp/>=<sp/>max_v</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>self.is_approx:</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[&quot;last_grad&quot;]<sp/>=<sp/>gradient</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>parameter<sp/>-<sp/>lr<sp/>*<sp/>update</highlight></codeline>
+    </programlisting>
+    <location file="mlx_optimizers/mars.py"/>
+  </compounddef>
+</doxygen>

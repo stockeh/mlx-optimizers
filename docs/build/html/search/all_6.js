@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['h_0',['H',['../namespacemlx__optimizers_1_1kron.html#aca341f6e0342949b701402955c4da1c8',1,'mlx_optimizers::kron']]]
+  ['flat_5fexponential_5fschedule_0',['flat_exponential_schedule',['../namespacemlx__optimizers_1_1kron.html#a0056a1ad6ff5afc6a451f651607a316f',1,'mlx_optimizers::kron']]]
 ];
