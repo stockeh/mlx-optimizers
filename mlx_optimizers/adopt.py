@@ -21,9 +21,10 @@ class ADOPT(Optimizer):
 
     Args:
         learning_rate (float or callable): The learning rate :math:`\eta`.
-        betas (Tuple[float, float], optional): The coefficients
+        betas (List[float, float], optional): The coefficients
             :math:`(\beta_1, \beta_2)` used for computing running averages of the
             gradient and its square. Default: ``(0.9, 0.9999)``
+        weight_decay (float, optional): The weight decay. Default: ``0.0``
         eps (float, optional): The term :math:`\epsilon` added to the
             denominator to improve numerical stability. Default: ``1e-6``
 
@@ -34,40 +35,48 @@ class ADOPT(Optimizer):
         self,
         learning_rate: Union[float, Callable[[mx.array], mx.array]],
         betas: List[float] = [0.9, 0.9999],
+        weight_decay: float = 0.0,
         eps: float = 1e-6,
     ):
         super().__init__()
 
         self._maybe_schedule("learning_rate", learning_rate)
         self.betas = betas
+        self.weight_decay = weight_decay
         self.eps = eps
 
     def init_single(self, parameter: mx.array, state: dict):
         """Initialize optimizer state"""
-        state["m"] = mx.zeros_like(parameter)
-        state["v"] = mx.zeros_like(parameter)
-        state["first"] = True
+        state["m"] = []
+        state["c"] = 0
 
     def apply_single(self, gradient: mx.array, parameter: mx.array, state: dict):
         """Performs a single optimization step, updating :math:`m` and :math:`v`"""
+        state["c"] += 1
+
+        if self.weight_decay != 0:
+            gradient = gradient + self.weight_decay * parameter
+
+        if state["c"] == 1:
+            state["v"] = mx.square(gradient)
+            return parameter
+
         lr = self.learning_rate.astype(gradient.dtype)
         b1, b2 = self.betas
         eps = self.eps
 
         m = state["m"]
         v = state["v"]
+        denom = mx.maximum(mx.sqrt(v), eps)
 
-        if state["first"]:  # TODO: eval of self.step not allowed with mx.compile
-            state["first"] = False
-            v = mx.square(gradient)
-            m = gradient / mx.maximum(mx.sqrt(v), eps)
+        if state["c"] == 2:
+            m = gradient / denom
         else:
-            m = b1 * m + (1 - b1) * gradient / mx.maximum(mx.sqrt(v), eps)
+            m = b1 * m + (1 - b1) * gradient / denom
 
         parameter = parameter - lr * m
-        v = b2 * v + (1 - b2) * mx.square(parameter)
 
+        state["v"] = b2 * v + (1 - b2) * mx.square(gradient)
         state["m"] = m
-        state["v"] = v
 
         return parameter

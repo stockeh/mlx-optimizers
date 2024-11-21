@@ -3,7 +3,7 @@ from functools import partial
 import mlx.core as mx
 import mlx.nn as nn
 import pytest
-from mlx.optimizers import AdamW
+from mlx.optimizers import AdamW, clip_grad_norm
 
 import mlx_optimizers as optim
 
@@ -48,7 +48,7 @@ optimizers = [
         100,
     ),
     (optim.MADGRAD, {"learning_rate": 0.01}, 50),
-    (optim.ADOPT, {"learning_rate": 0.01}, 50),
+    (optim.ADOPT, {"learning_rate": 0.03}, 50),
     (optim.Lamb, {"learning_rate": 0.03}, 50),
     (optim.Shampoo, {"learning_rate": 0.03}, 50),
     (optim.Kron, {"learning_rate": 0.03}, 50),
@@ -78,6 +78,7 @@ def test_neuralnet(optimizer_config):
     def step(X, T):
         train_step_fn = nn.value_and_grad(model, eval_fn)
         loss, grads = train_step_fn(X, T)
+        grads, _ = clip_grad_norm(grads, 1)
         optimizer.update(model, grads)
         return loss
 
