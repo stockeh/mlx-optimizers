@@ -59,8 +59,7 @@ def get_optimizers(args):
             {
                 "learning_rate": get_cosine_schedule(3e-3, 1e-6, n_warmup, decay_steps),
                 "weight_decay": weight_decay,
-                "learning_rate_1d": get_cosine_schedule(3e-3, 1e-6, n_warmup, decay_steps),
-                "weight_decay_1d": weight_decay,
+                "optimize_1d": True,
             },
         ),
     ]
