@@ -117,7 +117,7 @@ if __name__ == "__main__":
         (optim.QHAdam, 0, 0.5, {}),
         (optim.DiffGrad, 0, 0.5, {}),
         (optim.MADGRAD, 0, 0.5, {}),
-        (optim.ADOPT, 0, 0.25, {}),
+        (optim.ADOPT, 0, 0.5, {}),
         (optim.Lamb, 0, 0.25, {}),
         (optim.Muon, 0, 0.2, {"alternate_optimizer": AdamW(learning_rate=0.0842)}),  # fixed lr
         (optim.Shampoo, 0, 2, {}),
