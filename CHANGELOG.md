@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- optim: ADOPT update to use clipping (arXiv v2)
+
 ## [v0.4.0](https://github.com/stockeh/mlx-optimizers/releases/tag/v0.4.0) - 2024-11-20
 
 ### Added

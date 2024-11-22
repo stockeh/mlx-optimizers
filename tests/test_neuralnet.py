@@ -49,6 +49,7 @@ optimizers = [
     ),
     (optim.MADGRAD, {"learning_rate": 0.01}, 50),
     (optim.ADOPT, {"learning_rate": 0.03}, 50),
+    (optim.ADOPT, {"learning_rate": 0.03, "clip_lambda": None}, 50),
     (optim.Lamb, {"learning_rate": 0.03}, 50),
     (optim.Shampoo, {"learning_rate": 0.03}, 50),
     (optim.Kron, {"learning_rate": 0.03}, 50),
