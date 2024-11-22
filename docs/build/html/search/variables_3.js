@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decouple_5fweight_5fdecay_0',['decouple_weight_decay',['../classmlx__optimizers_1_1qhadam_1_1_q_h_adam.html#a0c917c20da7d95dae3f309129b5d25ae',1,'mlx_optimizers::qhadam::QHAdam']]]
+  ['clip_5flambda_0',['clip_lambda',['../classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t.html#aeac959dfbea6f6522859676071f48ef4',1,'mlx_optimizers::adopt::ADOPT']]]
 ];

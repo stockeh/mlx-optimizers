@@ -104,8 +104,8 @@ Inheritance diagram for mlx_optimizers.adopt.ADOPT:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad73ffe0f1e24b567921cd628e2cfbc9b" id="r_ad73ffe0f1e24b567921cd628e2cfbc9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad73ffe0f1e24b567921cd628e2cfbc9b">__init__</a> (self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] <a class="el" href="#a2a3f23f390377250e6ca72f705072539">betas</a>=[0.9, 0.9999], float <a class="el" href="#a9f9a7e51fbfb4e9b9982a2b404608fc4">weight_decay</a>=0.0, float <a class="el" href="#a6b4ee07f1b3d054cfc6d50a7ddacbb82">eps</a>=1e-6)</td></tr>
-<tr class="separator:ad73ffe0f1e24b567921cd628e2cfbc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad518d8115b81cc644d87497cadc37397" id="r_ad518d8115b81cc644d87497cadc37397"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad518d8115b81cc644d87497cadc37397">__init__</a> (self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] <a class="el" href="#a2a3f23f390377250e6ca72f705072539">betas</a>=[0.9, 0.9999], float <a class="el" href="#a9f9a7e51fbfb4e9b9982a2b404608fc4">weight_decay</a>=0.0, bool <a class="el" href="#a50bc7c5d11417a3bb3fb0f140462472b">decouple</a>=False, Optional[Callable[[mx.array], mx.array]] <a class="el" href="#aeac959dfbea6f6522859676071f48ef4">clip_lambda</a>=lambda step:mx.power(step, 0.25), float <a class="el" href="#a6b4ee07f1b3d054cfc6d50a7ddacbb82">eps</a>=1e-6)</td></tr>
+<tr class="separator:ad518d8115b81cc644d87497cadc37397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a449d00aa61826b98db81d75ec0b2bc0e" id="r_a449d00aa61826b98db81d75ec0b2bc0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a449d00aa61826b98db81d75ec0b2bc0e">init_single</a> (self, mx.array parameter, dict state)</td></tr>
 <tr class="separator:a449d00aa61826b98db81d75ec0b2bc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a026c750c96449687b91c1f63b7752f6d" id="r_a026c750c96449687b91c1f63b7752f6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a026c750c96449687b91c1f63b7752f6d">apply_single</a> (self, mx.array gradient, mx.array parameter, dict state)</td></tr>
@@ -117,6 +117,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a2a3f23f390377250e6ca72f705072539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f9a7e51fbfb4e9b9982a2b404608fc4" id="r_a9f9a7e51fbfb4e9b9982a2b404608fc4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f9a7e51fbfb4e9b9982a2b404608fc4">weight_decay</a> = weight_decay</td></tr>
 <tr class="separator:a9f9a7e51fbfb4e9b9982a2b404608fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50bc7c5d11417a3bb3fb0f140462472b" id="r_a50bc7c5d11417a3bb3fb0f140462472b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50bc7c5d11417a3bb3fb0f140462472b">decouple</a> = decouple</td></tr>
+<tr class="separator:a50bc7c5d11417a3bb3fb0f140462472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac959dfbea6f6522859676071f48ef4" id="r_aeac959dfbea6f6522859676071f48ef4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeac959dfbea6f6522859676071f48ef4">clip_lambda</a> = clip_lambda</td></tr>
+<tr class="separator:aeac959dfbea6f6522859676071f48ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b4ee07f1b3d054cfc6d50a7ddacbb82" id="r_a6b4ee07f1b3d054cfc6d50a7ddacbb82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b4ee07f1b3d054cfc6d50a7ddacbb82">eps</a> = eps</td></tr>
 <tr class="separator:a6b4ee07f1b3d054cfc6d50a7ddacbb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -125,10 +129,10 @@ Public Attributes</h2></td></tr>
 
 .. math::
 
-    v_0 &amp;= g_0^2, m_1 = g_1 / \max{\sqrt{v_0}, \epsilon} \\
-    \theta_{t} &amp;= \theta_{t-1} - \eta m_{t-1} \\
+    m_0 &amp;= \mathbf{0}, \quad v_0 = g_0^2 \\
+    m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) \text{clip} \left( \frac{g_t}{\text{max}(\sqrt{v_{t-1}, \epsilon})}, c_t\right) \\
+    \theta_{t} &amp;= \theta_{t-1} - \eta m_t \\
     v_{t} &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
-    m_{t+1} &amp;= \beta_1 m_{t} + (1 - \beta_1) (g_{t+1} / \max{\sqrt{v_t}, \epsilon})
 
 [1] Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
 Converge with Any :math:`\beta_2` with the Optimal Rate. NeurIPS 2024.
@@ -141,13 +145,16 @@ Args:
         :math:`(\beta_1, \beta_2)` used for computing running averages of the
         gradient and its square. Default: ``(0.9, 0.9999)``
     weight_decay (float, optional): The weight decay. Default: ``0.0``
+    decouple (bool, optional): AdamW if ``True``. Default: ``False``
+    clip_lambda (callable, optional): The clipping function :math:`c_t` for the
+        gradient. Set to ``None`` for previous behavior. Default: ``step**0.25``
     eps (float, optional): The term :math:`\epsilon` added to the
         denominator to improve numerical stability. Default: ``1e-6``
 
 ..
 </pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad73ffe0f1e24b567921cd628e2cfbc9b" name="ad73ffe0f1e24b567921cd628e2cfbc9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad73ffe0f1e24b567921cd628e2cfbc9b">&#9670;&#160;</a></span>__init__()</h2>
+<a id="ad518d8115b81cc644d87497cadc37397" name="ad518d8115b81cc644d87497cadc37397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad518d8115b81cc644d87497cadc37397">&#9670;&#160;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,6 +178,16 @@ Args:
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float </td>          <td class="paramname"><span class="paramname"><em>weight_decay</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>          <td class="paramname"><span class="paramname"><em>decouple</em></span><span class="paramdefsep"> = </span><span class="paramdefval">False</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[Callable[[mx.array], mx.array]] </td>          <td class="paramname"><span class="paramname"><em>clip_lambda</em></span><span class="paramdefsep"> = </span><span class="paramdefval">lambda&#160;step:&#160;mx.power(step,&#160;0.25)</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -249,6 +266,34 @@ Args:
       <table class="memname">
         <tr>
           <td class="memname">mlx_optimizers.adopt.ADOPT.betas = betas</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeac959dfbea6f6522859676071f48ef4" name="aeac959dfbea6f6522859676071f48ef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeac959dfbea6f6522859676071f48ef4">&#9670;&#160;</a></span>clip_lambda</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mlx_optimizers.adopt.ADOPT.clip_lambda = clip_lambda</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50bc7c5d11417a3bb3fb0f140462472b" name="a50bc7c5d11417a3bb3fb0f140462472b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50bc7c5d11417a3bb3fb0f140462472b">&#9670;&#160;</a></span>decouple</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mlx_optimizers.adopt.ADOPT.decouple = decouple</td>
         </tr>
       </table>
 </div><div class="memdoc">

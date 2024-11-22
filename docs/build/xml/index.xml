@@ -3,8 +3,10 @@
   <compound refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t" kind="class"><name>mlx_optimizers::adopt::ADOPT</name>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" kind="variable"><name>betas</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a9f9a7e51fbfb4e9b9982a2b404608fc4" kind="variable"><name>weight_decay</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a50bc7c5d11417a3bb3fb0f140462472b" kind="variable"><name>decouple</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1aeac959dfbea6f6522859676071f48ef4" kind="variable"><name>clip_lambda</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" kind="variable"><name>eps</name></member>
-    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad73ffe0f1e24b567921cd628e2cfbc9b" kind="function"><name>__init__</name></member>
+    <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad518d8115b81cc644d87497cadc37397" kind="function"><name>__init__</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" kind="function"><name>init_single</name></member>
     <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" kind="function"><name>apply_single</name></member>
   </compound>

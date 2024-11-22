@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="44" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="44" bodyend="-1"/>
+        <location file="mlx_optimizers/adopt.py" line="49" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a9f9a7e51fbfb4e9b9982a2b404608fc4" prot="public" static="no" mutable="no">
         <type></type>
@@ -32,7 +32,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="45" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="45" bodyend="-1"/>
+        <location file="mlx_optimizers/adopt.py" line="50" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a50bc7c5d11417a3bb3fb0f140462472b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT::decouple</definition>
+        <argsstring></argsstring>
+        <name>decouple</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.decouple</qualifiedname>
+        <initializer>=  decouple</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="51" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1aeac959dfbea6f6522859676071f48ef4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mlx_optimizers.adopt.ADOPT::clip_lambda</definition>
+        <argsstring></argsstring>
+        <name>clip_lambda</name>
+        <qualifiedname>mlx_optimizers.adopt.ADOPT.clip_lambda</qualifiedname>
+        <initializer>=  clip_lambda</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mlx_optimizers/adopt.py" line="52" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" prot="public" static="no" mutable="no">
         <type></type>
@@ -47,14 +77,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="46" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="46" bodyend="-1"/>
+        <location file="mlx_optimizers/adopt.py" line="53" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="53" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad73ffe0f1e24b567921cd628e2cfbc9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad518d8115b81cc644d87497cadc37397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>mlx_optimizers.adopt.ADOPT.__init__</definition>
-        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.9999], float weight_decay=0.0, float eps=1e-6)</argsstring>
+        <argsstring>(self, Union[float, Callable[[mx.array], mx.array]] learning_rate, List[float] betas=[0.9, 0.9999], float weight_decay=0.0, bool decouple=False, Optional[Callable[[mx.array], mx.array]] clip_lambda=lambda step:mx.power(step, 0.25), float eps=1e-6)</argsstring>
         <name>__init__</name>
         <qualifiedname>mlx_optimizers.adopt.ADOPT.__init__</qualifiedname>
         <param>
@@ -81,8 +111,24 @@
         <param>
           <type>float</type>
           <declname>weight_decay</declname>
-          <defname>eps</defname>
+          <defname>decouple</defname>
           <defval>0.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>decouple</declname>
+          <defname>clip_lambda</defname>
+          <defval>False</defval>
+        </param>
+        <param>
+          <type>Optional</type>
+          <defname>eps</defname>
+          <array>[Callable[[mx.array]</array>
+        </param>
+        <param>
+          <type>mx.array]]</type>
+          <declname>clip_lambda</declname>
+          <defval>lambda step:mx.power(step, 0.25)</defval>
         </param>
         <param>
           <type>float</type>
@@ -95,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="34" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="40" bodyend="47"/>
+        <location file="mlx_optimizers/adopt.py" line="37" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="45" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -122,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="48" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="48" bodyend="52"/>
+        <location file="mlx_optimizers/adopt.py" line="55" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="55" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -153,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mlx_optimizers/adopt.py" line="53" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="53" bodyend="83"/>
+        <location file="mlx_optimizers/adopt.py" line="60" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="60" bodyend="96"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -163,10 +209,10 @@
 
 .. math::
 
-    v_0 &amp;= g_0^2, m_1 = g_1 / \max{\sqrt{v_0}, \epsilon} \\
-    \theta_{t} &amp;= \theta_{t-1} - \eta m_{t-1} \\
+    m_0 &amp;= \mathbf{0}, \quad v_0 = g_0^2 \\
+    m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) \text{clip} \left( \frac{g_t}{\text{max}(\sqrt{v_{t-1}, \epsilon})}, c_t\right) \\
+    \theta_{t} &amp;= \theta_{t-1} - \eta m_t \\
     v_{t} &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
-    m_{t+1} &amp;= \beta_1 m_{t} + (1 - \beta_1) (g_{t+1} / \max{\sqrt{v_t}, \epsilon})
 
 [1] Taniguchi, Shohei, et al., 2024. ADOPT: Modified Adam Can
 Converge with Any :math:`\beta_2` with the Optimal Rate. NeurIPS 2024.
@@ -179,6 +225,9 @@ Args:
         :math:`(\beta_1, \beta_2)` used for computing running averages of the
         gradient and its square. Default: ``(0.9, 0.9999)``
     weight_decay (float, optional): The weight decay. Default: ``0.0``
+    decouple (bool, optional): AdamW if ``True``. Default: ``False``
+    clip_lambda (callable, optional): The clipping function :math:`c_t` for the
+        gradient. Set to ``None`` for previous behavior. Default: ``step**0.25``
     eps (float, optional): The term :math:`\epsilon` added to the
         denominator to improve numerical stability. Default: ``1e-6``
 
@@ -207,11 +256,13 @@ Args:
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="mlx_optimizers/adopt.py" line="7" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="7" bodyend="83"/>
+    <location file="mlx_optimizers/adopt.py" line="7" column="1" bodyfile="mlx_optimizers/adopt.py" bodystart="7" bodyend="96"/>
     <listofallmembers>
-      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad73ffe0f1e24b567921cd628e2cfbc9b" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>__init__</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1ad518d8115b81cc644d87497cadc37397" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>__init__</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a026c750c96449687b91c1f63b7752f6d" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>apply_single</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a2a3f23f390377250e6ca72f705072539" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>betas</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1aeac959dfbea6f6522859676071f48ef4" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>clip_lambda</name></member>
+      <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a50bc7c5d11417a3bb3fb0f140462472b" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>decouple</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a6b4ee07f1b3d054cfc6d50a7ddacbb82" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>eps</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a449d00aa61826b98db81d75ec0b2bc0e" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>init_single</name></member>
       <member refid="classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t_1a9f9a7e51fbfb4e9b9982a2b404608fc4" prot="public" virt="non-virtual"><scope>mlx_optimizers::adopt::ADOPT</scope><name>weight_decay</name></member>

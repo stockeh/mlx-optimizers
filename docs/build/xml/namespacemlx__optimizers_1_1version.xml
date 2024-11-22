@@ -39,7 +39,7 @@
         <argsstring></argsstring>
         <name>_PATCH</name>
         <qualifiedname>mlx_optimizers.version._PATCH</qualifiedname>
-        <initializer>=  &quot;0&quot;</initializer>
+        <initializer>=  &quot;1&quot;</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['eps_0',['eps',['../classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t.html#a6b4ee07f1b3d054cfc6d50a7ddacbb82',1,'mlx_optimizers.adopt.ADOPT.eps'],['../classmlx__optimizers_1_1diffgrad_1_1_diff_grad.html#a6d9cec91c4dac13ed4e4103d1e5d707f',1,'mlx_optimizers.diffgrad.DiffGrad.eps'],['../classmlx__optimizers_1_1lamb_1_1_lamb.html#adb37d81413f512c7ef6639f5f5fc7d5a',1,'mlx_optimizers.lamb.Lamb.eps'],['../classmlx__optimizers_1_1madgrad_1_1_m_a_d_g_r_a_d.html#a4df6836c8ca414062be023a67e020494',1,'mlx_optimizers.madgrad.MADGRAD.eps'],['../classmlx__optimizers_1_1mars_1_1_m_a_r_s.html#ad0751004ff6f6da7eb9a86fd0cd60257',1,'mlx_optimizers.mars.MARS.eps'],['../classmlx__optimizers_1_1qhadam_1_1_q_h_adam.html#af499ac475545c8acb4b5fb2e41c31930',1,'mlx_optimizers.qhadam.QHAdam.eps'],['../classmlx__optimizers_1_1shampoo_1_1_shampoo.html#a6d80a3d527130fa1d67405a132af416a',1,'mlx_optimizers.shampoo.Shampoo.eps']]]
+  ['decouple_0',['decouple',['../classmlx__optimizers_1_1adopt_1_1_a_d_o_p_t.html#a50bc7c5d11417a3bb3fb0f140462472b',1,'mlx_optimizers::adopt::ADOPT']]],
+  ['decouple_5fweight_5fdecay_1',['decouple_weight_decay',['../classmlx__optimizers_1_1qhadam_1_1_q_h_adam.html#a0c917c20da7d95dae3f309129b5d25ae',1,'mlx_optimizers::qhadam::QHAdam']]]
 ];
