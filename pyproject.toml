@@ -32,13 +32,13 @@ Changelog = "https://github.com/stockeh/mlx-optimizers/blob/main/CHANGELOG.md"
 [project.optional-dependencies]
 dev = [
     "ruff",
-    "mypy>=1.13.0,<1.15",
+    "mypy>=1.14.0,<1.15",
     "black>=24.10.0,<25.0",
     "isort>=5.13.2,<5.14",
     "pytest",
     "pytest-sphinx",
     "pytest-cov",
-    "twine>=5.1.1",
+    "twine>=6.0.1",
     "build",
     "setuptools",
     "wheel",
