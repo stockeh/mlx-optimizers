@@ -14,6 +14,7 @@ optimizers = [
     optim.DiffGrad,
     optim.MADGRAD,
     optim.ADOPT,
+    optim.Adan,
     optim.Muon,
     optim.Lamb,
     optim.Kron,
