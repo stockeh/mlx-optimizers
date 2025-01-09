@@ -11,9 +11,11 @@ from .mars import MARS
 from .muon import Muon
 from .qhadam import QHAdam
 from .shampoo import Shampoo
+from .adan import Adan
 
 __all__ = [
     "ADOPT",
+    "Adan",
     "DiffGrad",
     "Kron",
     "Lamb",
