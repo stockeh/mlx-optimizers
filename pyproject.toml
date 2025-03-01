@@ -33,7 +33,7 @@ Changelog = "https://github.com/stockeh/mlx-optimizers/blob/main/CHANGELOG.md"
 dev = [
     "ruff",
     "mypy>=1.14.0,<1.15",
-    "black>=24.10.0,<25.0",
+    "black>=24.10.0,<26.0",
     "isort>=5.13.2,<6.1",
     "pytest",
     "pytest-sphinx",
@@ -42,7 +42,7 @@ dev = [
     "build",
     "setuptools",
     "wheel",
-    "Sphinx>=8.1.3,<8.2.0",
+    "Sphinx>=8.1.3,<8.3.0",
     "furo==2024.8.6",
     "myst-parser>=4.0.0,<4.1",
     "sphinx-copybutton==0.5.2",
