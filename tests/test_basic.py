@@ -37,6 +37,7 @@ optimizers = [
     (optim.DiffGrad, {"learning_rate": 0.3}, 150),
     (optim.MADGRAD, {"learning_rate": 0.03}, 150),
     (optim.ADOPT, {"learning_rate": 0.5}, 250),
+    (optim.Adan, {"learning_rate": 0.5}, 250),
     (
         optim.Muon,  # using alternate for ndim < 2
         {
