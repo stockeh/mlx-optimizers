@@ -1,4 +1,4 @@
 hyperopt==0.2.7
-matplotlib==3.10.0
+matplotlib==3.10.1
 numpy==2.2.1
 tqdm==4.67.1
